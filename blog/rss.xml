@@ -58,11 +58,7 @@
             <guid>https://devopsautomation.com.br/blog/2025/04/21/terraform-essencial</guid>
             <pubDate>Thu, 20 Feb 2025 00:00:00 GMT</pubDate>
             <description><![CDATA[Descubra como o Terraform revoluciona o gerenciamento de cloud, com comparações práticas, cases reais no Brasil e um guia para começar hoje mesmo.]]></description>
-            <content:encoded><![CDATA[<p><strong>Por que o Terraform se tornou o padrão ouro para Infraestrutura como Código?</strong> Neste guia completo:</p>
-<p>✅ <strong>Vantagens exclusivas</strong> do Terraform para ambientes multi-cloud<br>
-<!-- -->✅</p>
-<h1>Terraform: A Revolução da Infraestrutura como Código e seu Impacto nos Negócios</h1>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="introdução">Introdução<a href="https://devopsautomation.com.br/blog/2025/04/21/terraform-essencial#introdu%C3%A7%C3%A3o" class="hash-link" aria-label="Direct link to Introdução" title="Direct link to Introdução">​</a></h2>
+            <content:encoded><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="introdução">Introdução<a href="https://devopsautomation.com.br/blog/2025/04/21/terraform-essencial#introdu%C3%A7%C3%A3o" class="hash-link" aria-label="Direct link to Introdução" title="Direct link to Introdução">​</a></h2>
 <p>No mundo acelerado da computação em nuvem e DevOps, a capacidade de gerenciar infraestrutura de forma ágil, segura e escalável é um diferencial competitivo. O <strong>Terraform</strong>, desenvolvido pela <strong>HashiCorp</strong>, emergiu como uma das ferramentas mais poderosas para <strong>Infraestrutura como Código (IaC)</strong>, transformando a maneira como empresas provisionam, gerenciam e automatizam seus ambientes de TI.</p>
 <hr>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="o-que-é-o-terraform-e-como-ele-surgiu">O que é o Terraform e como ele surgiu?<a href="https://devopsautomation.com.br/blog/2025/04/21/terraform-essencial#o-que-%C3%A9-o-terraform-e-como-ele-surgiu" class="hash-link" aria-label="Direct link to O que é o Terraform e como ele surgiu?" title="Direct link to O que é o Terraform e como ele surgiu?">​</a></h2>
@@ -188,9 +184,7 @@
             <guid>https://devopsautomation.com.br/blog/2025/04/22/carreira-devops</guid>
             <pubDate>Thu, 20 Feb 2025 00:00:00 GMT</pubDate>
             <description><![CDATA[Domine as ferramentas de automação que elevam sua carreira em cloud computing. Guia completo com Terraform, Kubernetes e cases do mercado brasileiro.]]></description>
-            <content:encoded><![CDATA[<p>**Por que 87% das empresas prioritizam</p>
-<h1>A Importância da Automação na Carreira de um Engenheiro de Cloud: Além dos Pipelines CI/CD</h1>
-<p>Por <strong>Iêso Dias</strong>, Engenheiro de Cloud &amp; DevOps</p>
+            <content:encoded><![CDATA[<p>Por <strong>Iêso Dias</strong>, Engenheiro de Cloud &amp; DevOps</p>
 <p>Migrei para DevOps/Cloud em 2017, quando a área ainda era incipiente e faltavam recursos de aprendizado. Hoje, vejo como a automação se tornou o cerne da eficiência em nuvem – e por que DevOps vai muito além de CI/CD.</p>
 <hr>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="introdução-por-que-automação-é-indispensável-na-nuvem">Introdução: Por Que Automação é Indispensável na Nuvem?<a href="https://devopsautomation.com.br/blog/2025/04/22/carreira-devops#introdu%C3%A7%C3%A3o-por-que-automa%C3%A7%C3%A3o-%C3%A9-indispens%C3%A1vel-na-nuvem" class="hash-link" aria-label="Direct link to Introdução: Por Que Automação é Indispensável na Nuvem?" title="Direct link to Introdução: Por Que Automação é Indispensável na Nuvem?">​</a></h2>
