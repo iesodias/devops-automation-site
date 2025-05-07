@@ -8,111 +8,147 @@
     <subtitle>Aprenda DevOps do zero com tutoriais prático Blog</subtitle>
     <icon>https://devopsautomation.com.br/img/favicon.png</icon>
     <entry>
-        <title type="html"><![CDATA[Checkov: O Scanner de Segurança que Todo Profissional de IaC Deveria Usar]]></title>
+        <title type="html"><![CDATA[Por que a Segurança em Infraestrutura como Código (IaC) Não Pode Ser Negligenciada]]></title>
         <id>https://devopsautomation.com.br/blog/2025/05/06/checkov</id>
         <link href="https://devopsautomation.com.br/blog/2025/05/06/checkov"/>
         <updated>2025-05-06T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Entenda como o Checkov pode proteger sua infraestrutura como código. Veja exemplos reais de erros críticos, integrações com CI/CD e como usá-lo com Terraform, Kubernetes e mais.]]></summary>
-        <content type="html"><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="checkov-o-scanner-de-segurança-que-todo-profissional-de-iac-deveria-usar">Checkov: O Scanner de Segurança que Todo Profissional de IaC Deveria Usar<a href="https://devopsautomation.com.br/blog/2025/05/06/checkov#checkov-o-scanner-de-seguran%C3%A7a-que-todo-profissional-de-iac-deveria-usar" class="hash-link" aria-label="Direct link to Checkov: O Scanner de Segurança que Todo Profissional de IaC Deveria Usar" title="Direct link to Checkov: O Scanner de Segurança que Todo Profissional de IaC Deveria Usar">​</a></h2>
-<p>Se você trabalha com Infraestrutura como Código (IaC) – seja Terraform, CloudFormation, Kubernetes ou ARM Templates –, já deve ter se perguntado:</p>
+        <content type="html"><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="dados-alarmantes">Dados alarmantes:<a href="https://devopsautomation.com.br/blog/2025/05/06/checkov#dados-alarmantes" class="hash-link" aria-label="Direct link to Dados alarmantes:" title="Direct link to Dados alarmantes:">​</a></h2>
+<ul>
+<li><strong>76%</strong> das empresas já sofreram incidentes de segurança devido a más configurações na nuvem (Palo Alto Networks, 2023).</li>
+<li><strong>90%</strong> das violações em ambientes cloud poderiam ter sido evitadas com configurações adequadas (Gartner, 2024).</li>
+<li>Apenas <strong>35%</strong> das equipes de DevOps realizam verificações automatizadas de segurança em seu IaC (State of DevOps, 2024).</li>
+</ul>
+<p>Se sua organização ainda não trata Infraestrutura como Código (IaC) como um vetor crítico de riscos, este artigo é um alerta.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="o-problema-por-que-empresas-falham-em-segurança-de-iac">O Problema: Por que Empresas Falham em Segurança de IaC?<a href="https://devopsautomation.com.br/blog/2025/05/06/checkov#o-problema-por-que-empresas-falham-em-seguran%C3%A7a-de-iac" class="hash-link" aria-label="Direct link to O Problema: Por que Empresas Falham em Segurança de IaC?" title="Direct link to O Problema: Por que Empresas Falham em Segurança de IaC?">​</a></h2>
+<p>Muitas empresas adotaram IaC (Terraform, Kubernetes, CloudFormation) para ganhar agilidade, mas não evoluíram sua segurança. Os motivos são claros:</p>
+<ul>
+<li>"Funciona no meu ambiente" → Equipes assumem que se o código "passou", está seguro.</li>
+<li>Falta de cultura DevSecOps → Segurança é tratada como etapa posterior, não integrada.</li>
+<li>Falsa sensação de controle → Acredita-se que o provedor cloud (AWS, Azure, GCP) resolve tudo.</li>
+</ul>
+<p><strong>Resultado:</strong></p>
+<ul>
+<li>Vazamento de dados (buckets S3 públicos, Storage Accounts expostas).</li>
+<li>Ataques de ransomware (permissões IAM excessivas, instâncias sem patches).</li>
+<li>Multas de compliance (GDPR, HIPAA, LGPD violados por configurações inseguras).</li>
+</ul>
 <blockquote>
-<p>"Será que essa configuração está realmente segura?"</p>
+<p><strong>Exemplo real:</strong> Em 2023, uma fintech brasileira teve <strong>2,3 milhões</strong> de registros expostos devido a um Terraform mal configurado que deixou um banco de dados Azure sem firewall.</p>
 </blockquote>
-<p>O <strong>Checkov</strong> é um scanner de segurança open-source criado pela Bridgecrew (parte da Palo Alto Networks) que analisa automaticamente seu código IaC em busca de vulnerabilidades antes do deploy.</p>
-<p>Com mais de <strong>80 milhões de downloads</strong>, o Checkov é usado por empresas como AWS, Google e Microsoft para proteger infraestruturas na nuvem.</p>
-<hr>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-o-que-você-vai-ver-neste-artigo">✅ O que você vai ver neste artigo:<a href="https://devopsautomation.com.br/blog/2025/05/06/checkov#-o-que-voc%C3%AA-vai-ver-neste-artigo" class="hash-link" aria-label="Direct link to ✅ O que você vai ver neste artigo:" title="Direct link to ✅ O que você vai ver neste artigo:">​</a></h3>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="checkov-o-scanner-que-está-revolucionando-a-segurança-em-iac">Checkov: O Scanner que Está Revolucionando a Segurança em IaC<a href="https://devopsautomation.com.br/blog/2025/05/06/checkov#checkov-o-scanner-que-est%C3%A1-revolucionando-a-seguran%C3%A7a-em-iac" class="hash-link" aria-label="Direct link to Checkov: O Scanner que Está Revolucionando a Segurança em IaC" title="Direct link to Checkov: O Scanner que Está Revolucionando a Segurança em IaC">​</a></h2>
+<p>Desenvolvido pela <strong>Bridgecrew (Palo Alto Networks)</strong>, o Checkov é a ferramenta líder em análise estática de IaC, com:</p>
 <ul>
-<li>O que é o Checkov e como ele funciona</li>
-<li>Os 5 erros mais críticos que ele ajuda a evitar</li>
-<li>Como integrar com CI/CD para segurança contínua</li>
-<li>Exemplo prático com Terraform + Azure</li>
+<li><strong>1.000+ regras</strong> baseadas em CIS Benchmarks, NIST, e políticas de compliance.</li>
+<li><strong>80 milhões de downloads</strong> (crescimento de 200% em 2024).</li>
+<li>Integração nativa com <strong>GitHub Actions, GitLab CI, Azure Pipelines</strong>.</li>
 </ul>
-<hr>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="por-que-o-checkov-é-essencial-para-iac">Por que o Checkov é Essencial para IaC<a href="https://devopsautomation.com.br/blog/2025/05/06/checkov#por-que-o-checkov-%C3%A9-essencial-para-iac" class="hash-link" aria-label="Direct link to Por que o Checkov é Essencial para IaC" title="Direct link to Por que o Checkov é Essencial para IaC">​</a></h2>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="1-o-problema-configurações-inseguras-na-nuvem">1. O Problema: Configurações Inseguras na Nuvem<a href="https://devopsautomation.com.br/blog/2025/05/06/checkov#1-o-problema-configura%C3%A7%C3%B5es-inseguras-na-nuvem" class="hash-link" aria-label="Direct link to 1. O Problema: Configurações Inseguras na Nuvem" title="Direct link to 1. O Problema: Configurações Inseguras na Nuvem">​</a></h3>
-<p>Segundo o <a href="https://www.paloaltonetworks.com/resources/research/state-of-cloud-native-security" target="_blank" rel="noopener noreferrer">Relatório de Ameaças na Nuvem 2023 da Palo Alto Networks</a>, <strong>76% das organizações</strong> já sofreram incidentes por erro de configuração.</p>
-<p><strong>Exemplos comuns:</strong></p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="impacto-real-em-empresas">Impacto Real em Empresas<a href="https://devopsautomation.com.br/blog/2025/05/06/checkov#impacto-real-em-empresas" class="hash-link" aria-label="Direct link to Impacto Real em Empresas" title="Direct link to Impacto Real em Empresas">​</a></h2>
+<table><thead><tr><th>Caso de Uso</th><th>Resultado</th></tr></thead><tbody><tr><td>Empresa de SaaS (EUA)</td><td>Redução de 68% em misconfigs após adoção do Checkov no CI/CD</td></tr><tr><td>Banco Global</td><td>Evitou 12 violações de compliance (SOC 2) em 6 meses</td></tr><tr><td>Startup de HealthTech</td><td>Detecção de 3 buckets S3 públicos antes do deploy em produção</td></tr></tbody></table>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="5-riscos-que-o-checkov-ajuda-a-mitigar-sem-código">5 Riscos que o Checkov Ajuda a Mitigar (Sem Código)<a href="https://devopsautomation.com.br/blog/2025/05/06/checkov#5-riscos-que-o-checkov-ajuda-a-mitigar-sem-c%C3%B3digo" class="hash-link" aria-label="Direct link to 5 Riscos que o Checkov Ajuda a Mitigar (Sem Código)" title="Direct link to 5 Riscos que o Checkov Ajuda a Mitigar (Sem Código)">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="1-armazenamento-em-nuvem-exposto-publicamente">1. Armazenamento em Nuvem Exposto Publicamente<a href="https://devopsautomation.com.br/blog/2025/05/06/checkov#1-armazenamento-em-nuvem-exposto-publicamente" class="hash-link" aria-label="Direct link to 1. Armazenamento em Nuvem Exposto Publicamente" title="Direct link to 1. Armazenamento em Nuvem Exposto Publicamente">​</a></h3>
 <ul>
-<li>Buckets S3 públicos (vazamento de dados)</li>
-<li>Storage Accounts no Azure sem restrição de rede</li>
-<li>Kubernetes com permissões amplas demais</li>
+<li>
+<p><strong>Dado:</strong> 29% dos buckets S3 têm políticas de acesso excessivamente permissivas (Sysdig, 2024).</p>
+</li>
+<li>
+<p><strong>Checkov bloqueia:</strong></p>
+<ul>
+<li><code>public_access_enabled = true</code> em Storage Accounts Azure</li>
+<li>Buckets S3 sem <code>BlockPublicAcls</code></li>
 </ul>
-<p>O pior: muitos problemas só são descobertos <strong>após o ataque</strong>.</p>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="2-a-solução-checkov">2. A Solução: Checkov<a href="https://devopsautomation.com.br/blog/2025/05/06/checkov#2-a-solu%C3%A7%C3%A3o-checkov" class="hash-link" aria-label="Direct link to 2. A Solução: Checkov" title="Direct link to 2. A Solução: Checkov">​</a></h3>
-<p>O Checkov é um scanner SAST (Static Application Security Testing) que:</p>
-<ul>
-<li>🔍 Analisa seu código IaC (.tf, .yaml, .json)</li>
-<li>🚨 Detecta vulnerabilidades e violações de compliance</li>
-<li>🔧 Sugere correções e boas práticas</li>
-<li>🔄 Integra com GitHub Actions, GitLab CI, Azure DevOps, CircleCI</li>
+</li>
 </ul>
-<p>Baseado em mais de <strong>1.000 regras</strong> derivadas de:</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="2-kubernetes-com-permissões-excessivas">2. Kubernetes com Permissões Excessivas<a href="https://devopsautomation.com.br/blog/2025/05/06/checkov#2-kubernetes-com-permiss%C3%B5es-excessivas" class="hash-link" aria-label="Direct link to 2. Kubernetes com Permissões Excessivas" title="Direct link to 2. Kubernetes com Permissões Excessivas">​</a></h3>
 <ul>
-<li>CIS Benchmarks</li>
-<li>AWS/Azure/GCP Security Best Practices</li>
-<li>GDPR, HIPAA, SOC 2</li>
+<li>
+<p><strong>Dado:</strong> 52% dos clusters K8s têm pods rodando como root (Red Hat, 2023).</p>
+</li>
+<li>
+<p><strong>Checkov exige:</strong></p>
+<ul>
+<li><code>securityContext.runAsNonRoot = true</code></li>
+<li>Limites de CPU/memória definidos</li>
 </ul>
-<hr>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="como-o-checkov-funciona">Como o Checkov Funciona<a href="https://devopsautomation.com.br/blog/2025/05/06/checkov#como-o-checkov-funciona" class="hash-link" aria-label="Direct link to Como o Checkov Funciona" title="Direct link to Como o Checkov Funciona">​</a></h2>
-<ol>
-<li><strong>Análise do Código</strong>: escaneia arquivos Terraform, Kubernetes, etc.</li>
-<li><strong>Comparação com Regras</strong>: verifica se configurações violam boas práticas.</li>
-<li><strong>Geração de Relatório</strong>: mostra o erro, linha afetada e sugestão de correção.</li>
-</ol>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="exemplo-de-saída">Exemplo de saída:<a href="https://devopsautomation.com.br/blog/2025/05/06/checkov#exemplo-de-sa%C3%ADda" class="hash-link" aria-label="Direct link to Exemplo de saída:" title="Direct link to Exemplo de saída:">​</a></h3>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">Check: CKV_AZURE_59: "Ensure that Storage accounts disallow public access"</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">FAILED for resource: azurerm_storage_account.example</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">File: /main.tf:25-30</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">Guide: https://docs.bridgecrew.io/docs/ensure-that-storage-accounts-disallow-public-access</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
-<hr>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="-5-erros-críticos-que-o-checkov-detecta">🛑 5 Erros Críticos que o Checkov Detecta<a href="https://devopsautomation.com.br/blog/2025/05/06/checkov#-5-erros-cr%C3%ADticos-que-o-checkov-detecta" class="hash-link" aria-label="Direct link to 🛑 5 Erros Críticos que o Checkov Detecta" title="Direct link to 🛑 5 Erros Críticos que o Checkov Detecta">​</a></h2>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="1-storage-account-pública-no-azure">1. Storage Account Pública no Azure<a href="https://devopsautomation.com.br/blog/2025/05/06/checkov#1-storage-account-p%C3%BAblica-no-azure" class="hash-link" aria-label="Direct link to 1. Storage Account Pública no Azure" title="Direct link to 1. Storage Account Pública no Azure">​</a></h3>
-<div class="language-hcl codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-hcl codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">resource "azurerm_storage_account" "inseguro" {</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  name                     = "stexemplo"</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  resource_group_name      = azurerm_resource_group.exemplo.name</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  location                 = "eastus"</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  account_tier             = "Standard"</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  account_replication_type = "LRS"</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">}</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
-<p><strong>Correção sugerida:</strong></p>
-<div class="language-hcl codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-hcl codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">network_rules {</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  default_action = "Deny"</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  ip_rules       = ["SEU_IP"]</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">}</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="2-bucket-s3-sem-criptografia">2. Bucket S3 sem Criptografia<a href="https://devopsautomation.com.br/blog/2025/05/06/checkov#2-bucket-s3-sem-criptografia" class="hash-link" aria-label="Direct link to 2. Bucket S3 sem Criptografia" title="Direct link to 2. Bucket S3 sem Criptografia">​</a></h3>
-<div class="language-hcl codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-hcl codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">resource "aws_s3_bucket" "exemplo" {</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  bucket = "meu-bucket-inseguro"</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">}</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
-<p><strong>Correção:</strong></p>
-<div class="language-hcl codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-hcl codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">resource "aws_s3_bucket_server_side_encryption_configuration" "exemplo" {</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  bucket = aws_s3_bucket.exemplo.id</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  rule {</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    apply_server_side_encryption_by_default {</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      sse_algorithm = "AES256"</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    }</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  }</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">}</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="3-kubernetes-sem-resource-limits">3. Kubernetes sem resource limits<a href="https://devopsautomation.com.br/blog/2025/05/06/checkov#3-kubernetes-sem-resource-limits" class="hash-link" aria-label="Direct link to 3. Kubernetes sem resource limits" title="Direct link to 3. Kubernetes sem resource limits">​</a></h3>
-<div class="language-yaml codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-yaml codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token key atrule" style="color:#00a4db">resources</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token key atrule" style="color:#00a4db">limits</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token key atrule" style="color:#00a4db">cpu</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">"500m"</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token key atrule" style="color:#00a4db">memory</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">"512Mi"</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="4-azure-sql-sem-firewall">4. Azure SQL sem firewall<a href="https://devopsautomation.com.br/blog/2025/05/06/checkov#4-azure-sql-sem-firewall" class="hash-link" aria-label="Direct link to 4. Azure SQL sem firewall" title="Direct link to 4. Azure SQL sem firewall">​</a></h3>
-<div class="language-hcl codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-hcl codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">resource "azurerm_sql_server" "example" {</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  public_network_access_enabled = true</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">}</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="5-iam-overprivileged">5. IAM Overprivileged<a href="https://devopsautomation.com.br/blog/2025/05/06/checkov#5-iam-overprivileged" class="hash-link" aria-label="Direct link to 5. IAM Overprivileged" title="Direct link to 5. IAM Overprivileged">​</a></h3>
-<div class="language-hcl codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-hcl codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">resource "aws_iam_policy" "admin" {</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  policy = jsonencode({</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    "Effect": "Allow",</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    "Action": "*",</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    "Resource": "*"</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  })</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">}</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
-<hr>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="como-usar-o-checkov-no-seu-projeto">Como Usar o Checkov no Seu Projeto<a href="https://devopsautomation.com.br/blog/2025/05/06/checkov#como-usar-o-checkov-no-seu-projeto" class="hash-link" aria-label="Direct link to Como Usar o Checkov no Seu Projeto" title="Direct link to Como Usar o Checkov no Seu Projeto">​</a></h2>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="1-instalação">1. Instalação<a href="https://devopsautomation.com.br/blog/2025/05/06/checkov#1-instala%C3%A7%C3%A3o" class="hash-link" aria-label="Direct link to 1. Instalação" title="Direct link to 1. Instalação">​</a></h3>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">pip install checkov</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">checkov --version</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="2-rodando-localmente">2. Rodando localmente<a href="https://devopsautomation.com.br/blog/2025/05/06/checkov#2-rodando-localmente" class="hash-link" aria-label="Direct link to 2. Rodando localmente" title="Direct link to 2. Rodando localmente">​</a></h3>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">checkov -d /seu/projeto/terraform</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="3-integração-com-github-actions">3. Integração com GitHub Actions<a href="https://devopsautomation.com.br/blog/2025/05/06/checkov#3-integra%C3%A7%C3%A3o-com-github-actions" class="hash-link" aria-label="Direct link to 3. Integração com GitHub Actions" title="Direct link to 3. Integração com GitHub Actions">​</a></h3>
-<div class="language-yaml codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-yaml codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token punctuation" style="color:#393A34">-</span><span class="token plain"> </span><span class="token key atrule" style="color:#00a4db">name</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> Run Checkov</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token key atrule" style="color:#00a4db">uses</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> bridgecrewio/checkov</span><span class="token punctuation" style="color:#393A34">-</span><span class="token plain">action@v1</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token key atrule" style="color:#00a4db">with</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token key atrule" style="color:#00a4db">directory</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> .</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token key atrule" style="color:#00a4db">fail_on</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> HIGH</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
-<hr>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="-conclusão-vale-a-pena-usar">✅ Conclusão: Vale a Pena Usar?<a href="https://devopsautomation.com.br/blog/2025/05/06/checkov#-conclus%C3%A3o-vale-a-pena-usar" class="hash-link" aria-label="Direct link to ✅ Conclusão: Vale a Pena Usar?" title="Direct link to ✅ Conclusão: Vale a Pena Usar?">​</a></h2>
-<p>O Checkov é uma das ferramentas mais poderosas para quem leva segurança em IaC a sério.</p>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="prós">Prós:<a href="https://devopsautomation.com.br/blog/2025/05/06/checkov#pr%C3%B3s" class="hash-link" aria-label="Direct link to Prós:" title="Direct link to Prós:">​</a></h3>
-<ul>
-<li>Open-source e gratuito</li>
-<li>Suporte a múltiplas clouds</li>
-<li>Rápido e fácil de usar</li>
+</li>
 </ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="contras">Contras:<a href="https://devopsautomation.com.br/blog/2025/05/06/checkov#contras" class="hash-link" aria-label="Direct link to Contras:" title="Direct link to Contras:">​</a></h3>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="3-banco-de-dados-sem-criptografia-ou-firewall">3. Banco de Dados Sem Criptografia ou Firewall<a href="https://devopsautomation.com.br/blog/2025/05/06/checkov#3-banco-de-dados-sem-criptografia-ou-firewall" class="hash-link" aria-label="Direct link to 3. Banco de Dados Sem Criptografia ou Firewall" title="Direct link to 3. Banco de Dados Sem Criptografia ou Firewall">​</a></h3>
 <ul>
-<li>Pode gerar alguns false positives (resolvido com <code>.checkov.yaml</code>)</li>
-<li>Integração manual em pipelines mais complexos</li>
+<li>
+<p><strong>Dado:</strong> 61% dos vazamentos em DBs ocorrem por falta de restrição de rede (IBM, 2023).</p>
+</li>
+<li>
+<p><strong>Checkov corrige:</strong></p>
+<ul>
+<li>Azure SQL com <code>public_network_access_enabled = false</code></li>
+<li>Criptografia em repouso (TDE, AWS KMS)</li>
 </ul>
-<p>📹 Quer ver na prática? Veja o vídeo completo com lab Terraform + Azure:
-[▶️ Assistir Tutorial no YouTube]</p>
-<hr>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="-compartilhe">💬 Compartilhe<a href="https://devopsautomation.com.br/blog/2025/05/06/checkov#-compartilhe" class="hash-link" aria-label="Direct link to 💬 Compartilhe" title="Direct link to 💬 Compartilhe">​</a></h2>
-<p>Já usou o Checkov? Qual foi o pior erro que ele já te ajudou a evitar?
-Comenta aqui embaixo e compartilha com a galera do time!</p>
-<hr>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="referências">Referências<a href="https://devopsautomation.com.br/blog/2025/05/06/checkov#refer%C3%AAncias" class="hash-link" aria-label="Direct link to Referências" title="Direct link to Referências">​</a></h2>
+</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="4-políticas-iam-muito-permissivas-">4. Políticas IAM Muito Permissivas ("*")<a href="https://devopsautomation.com.br/blog/2025/05/06/checkov#4-pol%C3%ADticas-iam-muito-permissivas-" class="hash-link" aria-label="Direct link to 4. Políticas IAM Muito Permissivas (&quot;*&quot;)" title="Direct link to 4. Políticas IAM Muito Permissivas (&quot;*&quot;)">​</a></h3>
 <ul>
-<li><a href="https://www.checkov.io/" target="_blank" rel="noopener noreferrer">Site Oficial do Checkov</a></li>
-<li><a href="https://github.com/bridgecrewio/checkov" target="_blank" rel="noopener noreferrer">Repositório no GitHub</a></li>
-<li><a href="https://www.paloaltonetworks.com/resources/research" target="_blank" rel="noopener noreferrer">Palo Alto Networks Cloud Threat Report</a></li>
-</ul>]]></content>
+<li>
+<p><strong>Dado:</strong> 43% das contas AWS têm usuários com permissões administrativas desnecessárias (Sonrai Security, 2024).</p>
+</li>
+<li>
+<p><strong>Solução do Checkov:</strong></p>
+<ul>
+<li>Rejeita políticas com <code>"Action": "*"</code></li>
+<li>Força o princípio do menor privilégio</li>
+</ul>
+</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="5-logs-e-monitoramento-desativados">5. Logs e Monitoramento Desativados<a href="https://devopsautomation.com.br/blog/2025/05/06/checkov#5-logs-e-monitoramento-desativados" class="hash-link" aria-label="Direct link to 5. Logs e Monitoramento Desativados" title="Direct link to 5. Logs e Monitoramento Desativados">​</a></h3>
+<ul>
+<li>
+<p><strong>Dado:</strong> 78% das empresas não rastreiam atividades suspeitas em cloud (CrowdStrike, 2023).</p>
+</li>
+<li>
+<p><strong>Checkov exige:</strong></p>
+<ul>
+<li><code>azurerm_monitor_diagnostic_setting</code> habilitado</li>
+<li>CloudTrail ativo na AWS</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="como-implementar-checkov-na-sua-empresa-passo-a-passo-não-técnico">Como Implementar Checkov na Sua Empresa (Passo a Passo Não-Técnico)<a href="https://devopsautomation.com.br/blog/2025/05/06/checkov#como-implementar-checkov-na-sua-empresa-passo-a-passo-n%C3%A3o-t%C3%A9cnico" class="hash-link" aria-label="Direct link to Como Implementar Checkov na Sua Empresa (Passo a Passo Não-Técnico)" title="Direct link to Como Implementar Checkov na Sua Empresa (Passo a Passo Não-Técnico)">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="1-adoção-gradual">1. Adoção Gradual<a href="https://devopsautomation.com.br/blog/2025/05/06/checkov#1-ado%C3%A7%C3%A3o-gradual" class="hash-link" aria-label="Direct link to 1. Adoção Gradual" title="Direct link to 1. Adoção Gradual">​</a></h3>
+<ul>
+<li>Comece com scan local: <code>checkov -d /projeto</code></li>
+<li>Priorize regras de alta severidade (ex: vazamento de dados)</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="2-integração-no-cicd">2. Integração no CI/CD<a href="https://devopsautomation.com.br/blog/2025/05/06/checkov#2-integra%C3%A7%C3%A3o-no-cicd" class="hash-link" aria-label="Direct link to 2. Integração no CI/CD" title="Direct link to 2. Integração no CI/CD">​</a></h3>
+<ul>
+<li>GitHub Actions: bloqueia merges com falhas críticas</li>
+<li>Azure DevOps: gera relatórios por pipeline</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="3-cultura-de-security-first">3. Cultura de "Security First"<a href="https://devopsautomation.com.br/blog/2025/05/06/checkov#3-cultura-de-security-first" class="hash-link" aria-label="Direct link to 3. Cultura de &quot;Security First&quot;" title="Direct link to 3. Cultura de &quot;Security First&quot;">​</a></h3>
+<ul>
+<li>Treine os times em IaC seguro (ex: Bridgecrew Academy)</li>
+<li>Estabeleça gates de segurança antes do deploy</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="4-monitoramento-contínuo">4. Monitoramento Contínuo<a href="https://devopsautomation.com.br/blog/2025/05/06/checkov#4-monitoramento-cont%C3%ADnuo" class="hash-link" aria-label="Direct link to 4. Monitoramento Contínuo" title="Direct link to 4. Monitoramento Contínuo">​</a></h3>
+<ul>
+<li>Use Checkov + Prisma Cloud para monitoramento pós-deploy</li>
+<li>Revise relatórios mensalmente com a equipe de segurança</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="conclusão-iac-seguro-não-é-opcional">Conclusão: IaC Seguro Não é Opcional<a href="https://devopsautomation.com.br/blog/2025/05/06/checkov#conclus%C3%A3o-iac-seguro-n%C3%A3o-%C3%A9-opcional" class="hash-link" aria-label="Direct link to Conclusão: IaC Seguro Não é Opcional" title="Direct link to Conclusão: IaC Seguro Não é Opcional">​</a></h2>
+<p>Enquanto empresas ainda deployam infraestrutura sem validação de segurança, ataques como:</p>
+<ul>
+<li>Vazamento de dados</li>
+<li>Sequestro de contas cloud</li>
+<li>Violações de compliance</li>
+</ul>
+<p>...vão continuar crescendo.</p>
+<p><strong>Checkov não é apenas uma ferramenta — é uma mudança de mentalidade.</strong></p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="próximos-passos">Próximos passos<a href="https://devopsautomation.com.br/blog/2025/05/06/checkov#pr%C3%B3ximos-passos" class="hash-link" aria-label="Direct link to Próximos passos" title="Direct link to Próximos passos">​</a></h2>
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Documentação Oficial</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Relatório Completo de Ameaças em Cloud</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="discussão">Discussão<a href="https://devopsautomation.com.br/blog/2025/05/06/checkov#discuss%C3%A3o" class="hash-link" aria-label="Direct link to Discussão" title="Direct link to Discussão">​</a></h2>
+<p>Sua empresa já sofreu incidentes por má configuração em IaC? Como vocês estão mitigando esses riscos? Comente abaixo!</p>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="devsecops-cloudsecurity-iac-checkov-terraform-kubernetes-azure-aws-securitytools-devops-bridgecrew-prismacloud-githubactions-cisbenchmarks-infrastructureascode-cybersecurity-iacsecurity-misconfiguration-opensource-automation-devsec">#DevSecOps #CloudSecurity #IaC #Checkov #Terraform #Kubernetes #Azure #AWS #SecurityTools #DevOps #Bridgecrew #PrismaCloud #GitHubActions #CISBenchmarks #InfrastructureAsCode #CyberSecurity #IaCSecurity #Misconfiguration #OpenSource #Automation #DevSec<a href="https://devopsautomation.com.br/blog/2025/05/06/checkov#devsecops-cloudsecurity-iac-checkov-terraform-kubernetes-azure-aws-securitytools-devops-bridgecrew-prismacloud-githubactions-cisbenchmarks-infrastructureascode-cybersecurity-iacsecurity-misconfiguration-opensource-automation-devsec" class="hash-link" aria-label="Direct link to #DevSecOps #CloudSecurity #IaC #Checkov #Terraform #Kubernetes #Azure #AWS #SecurityTools #DevOps #Bridgecrew #PrismaCloud #GitHubActions #CISBenchmarks #InfrastructureAsCode #CyberSecurity #IaCSecurity #Misconfiguration #OpenSource #Automation #DevSec" title="Direct link to #DevSecOps #CloudSecurity #IaC #Checkov #Terraform #Kubernetes #Azure #AWS #SecurityTools #DevOps #Bridgecrew #PrismaCloud #GitHubActions #CISBenchmarks #InfrastructureAsCode #CyberSecurity #IaCSecurity #Misconfiguration #OpenSource #Automation #DevSec">​</a></h5>]]></content>
         <author>
             <name>Iêso Dias</name>
             <uri>https://youtube.com/@iesodias</uri>
