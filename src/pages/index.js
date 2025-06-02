@@ -5,11 +5,11 @@ import CoursesSection from '../components/CoursesSection';
 export default function Home() {
   return (
     <Layout
-      title="Curso DevOps com Iêso Dias"
-      description="Aprenda DevOps com laboratórios práticos no YouTube"
+      title="Devops para Iniciantes"
+      description="Aprenda DevOps com laboratórios práticos!"
     >
       <main style={{ backgroundColor: '#ffffff', fontFamily: 'Arial, sans-serif' }}>
-        {/* HERO COM BACKGROUND E TÍTULO IMPACTANTE */}
+        {/* HERO COM BACKGROUND E LOGO IMPACTANTE */}
         <div
           style={{
             backgroundImage: "url('/img/hero-bg.png')",
@@ -22,17 +22,17 @@ export default function Home() {
         >
           <div style={{ maxWidth: '900px', margin: '0 auto', color: '#1c1e21' }}>
             <div style={{ marginBottom: '2rem' }}>
-              <h1 style={{ fontSize: '3rem', fontWeight: 'bold', lineHeight: '1.2', margin: 0 }}>
-                Devops Automation
-              </h1>
-              <h2 style={{ fontSize: '2.2rem', fontWeight: 'bold', color: '#7e1c84', margin: 0 }}>
-                AUTOMAÇÃO & DEVOPS & CLOUD
-              </h2>
+              <img
+                src="/img/devops-logo.png"
+                alt="DevOps Automation Logo"
+                style={{
+                  maxWidth: '420px',
+                  width: '100%',
+                  height: 'auto',
+                  margin: '0 auto',
+                }}
+              />
             </div>
-
-            {/* <h2 style={{ fontSize: '2rem', fontWeight: 'bold', marginBottom: '2rem' }}>
-              com Iêso Dias
-            </h2> */}
 
             <p style={{ fontSize: '1.2rem', color: '#333', marginBottom: '3rem' }}>
               Aprenda as habilidades mais procuradas em DevOps e Cloud com cursos objetivos, práticos e voltados para o mercado

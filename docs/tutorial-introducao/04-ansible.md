@@ -1,5 +1,15 @@
 ---
 sidebar_position: 4
+title: "Como Instalar e Usar Minikube no Ubuntu (Tutorial Completo 2024)"
+description: "Aprenda a instalar, configurar e executar seu primeiro cluster Kubernetes local com Minikube. Guia passo a passo em português para DevOps e desenvolvedores."
+keywords:
+  - "instalar minikube ubuntu"
+  - "kubernetes local minikube"
+  - "tutorial minikube pt-br"
+  - "cluster kubernetes local"
+  - "devops minikube setup"
+  - "primeiros passos com minikube"
+  - "configurar minikube linux"
 ---
 
 # Instalando o Ansible no Ubuntu com pip

@@ -1,5 +1,15 @@
 ---
 sidebar_position: 2
+title: "Como Instalar Docker no Ubuntu em 2025 (Guia Completo para DevOps)"
+description: "Passo a passo definitivo para instalar e configurar Docker no Ubuntu. Aprenda a preparar seu ambiente para containers e otimizar seu workflow de DevOps."
+keywords:
+  - "instalar docker ubuntu"
+  - "docker para devops"
+  - "configurar docker linux"
+  - "tutorial docker pt-br"
+  - "containers no ubuntu"
+  - "docker para iniciantes"
+  - "ambiente docker brasil"
 ---
 
 # Instalando o Docker no Ubuntu

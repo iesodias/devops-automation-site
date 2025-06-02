@@ -1,5 +1,14 @@
 ---
 sidebar_position: 1
+title: "Como Instalar Zsh e Oh My Zsh no Ubuntu (Passo a Passo 2025)"  
+description: "Aprenda a instalar e configurar o Zsh com Oh My Zsh no Ubuntu, transformando seu terminal em uma ferramenta poderosa para DevOps e programação. Tutorial completo em português!"  
+keywords:  
+  - "zsh ubuntu instalar"  
+  - "oh my zsh configurar"  
+  - "terminal linux personalizado"  
+  - "devops ferramentas terminal"  
+  - "ubuntu zsh tutorial pt-br"  
+  - "shell melhorado para programadores"  
 ---
 
 # Guia de Instalação do Zsh e Oh My Zsh no Ubuntu

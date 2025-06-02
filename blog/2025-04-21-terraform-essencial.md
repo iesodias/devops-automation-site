@@ -1,7 +1,16 @@
 ---
-title: "Terraform: A Revolução da Infraestrutura como Código e seu Impacto nos Negócios"
+title: "Terraform: Como a Infraestrutura como Código Está Transformando Negócios em 2025"
+description: "Descubra como o Terraform revoluciona o gerenciamento de cloud, com comparações práticas, cases reais no Brasil e um guia para começar hoje mesmo."
 authors: [Ieso]
-tags: [terraform, iac, devops, cloud]
+tags:
+  - "terraform brasil"
+  - "infraestrutura como código"
+  - "devops terraform"
+  - "hashicorp"
+  - "automação cloud"
+  - "comparativo terraform vs bicep"
+  - "exemplos terraform pt-br"
+date: 2025-02-20
 ---
 
 # Terraform: A Revolução da Infraestrutura como Código e seu Impacto nos Negócios

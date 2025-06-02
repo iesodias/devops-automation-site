@@ -3,18 +3,18 @@ import styles from './CoursesSection.module.css';
 
 const courses = [
   {
-    image: '/img/Capa-01.png',
-    title: 'Devops: Automação sem enrolação',
-    description: 'Aprenda DevOps de verdade com um curso prático e rápido, focado em automação, CI/CD, infraestrutura como código e muito mais',
+    image: '/img/devops_automacao.png',
+    title: 'Devops: Automação Sem Enrolação',
+    description: 'Domine DevOps com automações reais, laboratórios práticos e sem enrolação. Aprenda na prática o que o mercado exige.',
     stars: 5,
-    badge: 'BESTSELLER',
+    badge: 'BESTSELLER', // Adicionado o selo
     tags: ['Iniciante', 'Curso rápido'],
-    link: '#',
+    link: 'https://www.udemy.com/course/devops-automacao-sem-enrolacao/?referralCode=28E4F89140C44D63D605', // Link adicionado
   },
   {
-    image: '/img/Capa-01.png',
-    title: 'Devops: Automação sem enrolação',
-    description: 'Everything you need to master the Certified Kubernetes Administrator (CKA) exam',
+    image: '/img/em_ breve.png',
+    title: 'Preparando algo incrível!',
+    description: 'Este curso está sendo construído para te entregar o melhor conteúdo sobre DevOps e Cloud. Fica de olho!',
     stars: 5,
     badge: '',
     tags: ['Intermediário', 'CKA', 'Kubernetes'],

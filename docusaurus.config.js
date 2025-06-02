@@ -1,36 +1,21 @@
 // @ts-check
-// `@type` JSDoc annotations allow editor autocompletion and type checking
-// (when paired with `@ts-check`).
-// There are various equivalent ways to declare your Docusaurus config.
-// See: https://docusaurus.io/docs/api/docusaurus-config
-
-import {themes as prismThemes} from 'prism-react-renderer';
-
-// This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
+import { themes as prismThemes } from 'prism-react-renderer';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'My Site',
-  tagline: 'Dinosaurs are cool',
+  title: 'Aprenda DevOps do zero com tutoriais prático',
+  tagline: 'Automação, Cloud e DevOps sem enrolação',
   favicon: 'img/favicon.png',
 
-  // Set the production url of your site here
   url: 'https://devopsautomation.com.br',
-  // Set the /<baseUrl>/ pathname under which your site is served
-  // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/',
-
-  // GitHub pages deployment config.
-  // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'facebook', // Usually your GitHub org/user name.
-  projectName: 'docusaurus', // Usually your repo name.
-
+  organizationName: 'iesodias',
+  projectName: 'devops-automation-site',
+  deploymentBranch: 'gh-pages',
+  trailingSlash: false,
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
 
-  // Even if you don't use internationalization, you can use this field to set
-  // useful metadata like html lang. For example, if your site is Chinese, you
-  // may want to replace "en" with "zh-Hans".
   i18n: {
     defaultLocale: 'en',
     locales: ['en'],
@@ -39,14 +24,10 @@ const config = {
   presets: [
     [
       'classic',
-      /** @type {import('@docusaurus/preset-classic').Options} */
-      ({
+      {
         docs: {
           sidebarPath: './sidebars.js',
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+          editUrl: 'https://github.com/iesodias/devops-automation-site/tree/main/',
         },
         blog: {
           showReadingTime: true,
@@ -54,11 +35,7 @@ const config = {
             type: ['rss', 'atom'],
             xslt: true,
           },
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
-          // Useful options to enforce blogging best practices
+          editUrl: 'https://github.com/iesodias/devops-automation-site/tree/main/',
           onInlineTags: 'warn',
           onInlineAuthors: 'warn',
           onUntruncatedBlogPosts: 'warn',
@@ -66,44 +43,44 @@ const config = {
         theme: {
           customCss: './src/css/custom.css',
         },
-      }),
+        // ✅ GA4 com gtag
+        gtag: {
+          trackingID: 'G-BRH4789ZE0',
+          anonymizeIP: true,
+        },
+      },
     ],
   ],
 
-  themeConfig:
-    /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
-    ({
-      // Replace with your project's social card
-      image: 'img/docusaurus-social-card.jpg',
-      navbar: {
-        logo: {
-          alt: 'Logo DevOps Automation',
-          src: 'img/logo-home.png',
+  themeConfig: {
+    image: 'img/devops-logo-social.png',
+    navbar: {
+      logo: {
+        alt: 'Logo DevOps Automation',
+        src: 'img/logo-home.png',
+      },
+      items: [
+        { to: '/', label: 'Home', position: 'left' },
+        { to: '/blog', label: 'Blog', position: 'left' },
+        {
+          type: 'docSidebar',
+          sidebarId: 'tutorialSidebar',
+          position: 'left',
+          label: 'Tutoriais',
         },
-        items: [
-          { to: '/', label: 'Home', position: 'left' },
-          { to: '/blog', label: 'Blog', position: 'left' },
-          {
-            type: 'docSidebar',
-            sidebarId: 'tutorialSidebar',
-            position: 'left',
-            label: 'Tutoriais',
-          },
-          { to: '/#cursos', label: 'Cursos', position: 'left' },
-          { to: 'https://youtube.com/@iesodias', label: 'YouTube', position: 'left' },
-          { to: '/#instrutor', label: 'Instrutor', position: 'left' },
-        ],
-      },  
-      prism: {
-        theme: prismThemes.github,
-        darkTheme: prismThemes.dracula,
-      },
-      colorMode: {
-        disableSwitch: true, // ❌ remove botão de alternância de tema
-      },
-    }),
+        { to: '/#cursos', label: 'Cursos', position: 'left' },
+        { to: 'https://youtube.com/@iesodias', label: 'YouTube', position: 'left' },
+        { to: '/#instrutor', label: 'Instrutor', position: 'left' },
+      ],
+    },
+    prism: {
+      theme: prismThemes.github,
+      darkTheme: prismThemes.dracula,
+    },
+    colorMode: {
+      disableSwitch: true,
+    },
+  },
 };
-
-
 
 export default config;

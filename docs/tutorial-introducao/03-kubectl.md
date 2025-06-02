@@ -1,5 +1,15 @@
 ---
 sidebar_position: 3
+title: "Como Instalar e Configurar kubectl no Ubuntu (Guia DevOps 2024)"
+description: "Tutorial completo para instalar, verificar e configurar o kubectl no Ubuntu. Aprenda a gerenciar clusters Kubernetes como um profissional!"
+keywords:
+  - "instalar kubectl ubuntu"
+  - "configurar kubectl linux"
+  - "kubectl tutorial pt-br"
+  - "kubernetes cli setup"
+  - "ferramentas devops kubectl"
+  - "verificar instalação kubectl"
+  - "gerenciar kubernetes cli"
 ---
 
 # Instalando e Verificando o kubectl
