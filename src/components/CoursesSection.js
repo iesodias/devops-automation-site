@@ -7,7 +7,7 @@ const courses = [
     title: 'Devops: Automação Sem Enrolação',
     description: 'Domine DevOps com automações reais, laboratórios práticos e sem enrolação. Aprenda na prática o que o mercado exige.',
     stars: 5,
-    badge: 'BESTSELLER', // Adicionado o selo
+    badge: 'BESTSELLER', // Adicionado o selo para funcionar
     tags: ['Iniciante', 'Curso rápido'],
     link: 'https://www.udemy.com/course/devops-automacao-sem-enrolacao/?referralCode=28E4F89140C44D63D605', // Link adicionado
   },
