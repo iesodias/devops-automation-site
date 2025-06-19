@@ -14,7 +14,8 @@
             <guid>https://devopsautomation.com.br/blog/automacao-devops-para-todos</guid>
             <pubDate>Thu, 19 Jun 2025 00:00:00 GMT</pubDate>
             <description><![CDATA[Descubra por que automação é uma habilidade essencial para DEVs, sysadmins e analistas de cloud — sem precisar virar DevOps. Reduza tarefas repetitivas com Bash, CI/CD e IaC.]]></description>
-            <content:encoded><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="introdução">Introdução<a href="https://devopsautomation.com.br/blog/automacao-devops-para-todos#introdu%C3%A7%C3%A3o" class="hash-link" aria-label="Direct link to Introdução" title="Direct link to Introdução">​</a></h2>
+            <content:encoded><![CDATA[<p>👉 <a href="https://www.udemy.com/course/devops-automacao-sem-enrolacao/?couponCode=CA1E128B67B670F1B078" target="_blank" rel="noopener noreferrer">Acesse o curso DevOps na Udemy</a></p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="introdução">Introdução<a href="https://devopsautomation.com.br/blog/automacao-devops-para-todos#introdu%C3%A7%C3%A3o" class="hash-link" aria-label="Direct link to Introdução" title="Direct link to Introdução">​</a></h2>
 <p>Em meio à transformação digital, surgiu um equívoco perigoso: aprender automação DevOps é sinônimo de mudar para uma nova função. A realidade, porém, é bem diferente. DevOps é uma cultura de colaboração e eficiência, não um cargo. Se você é desenvolvedor, sysadmin, analista de QA ou trabalha com infraestrutura em nuvem (AWS, Azure, GCP) ou on-premise, dominar automação é sobre simplificar seu trabalho atual, não abandoná-lo.</p>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="por-que-essa-confusão-acontece">Por Que Essa Confusão Acontece?<a href="https://devopsautomation.com.br/blog/automacao-devops-para-todos#por-que-essa-confus%C3%A3o-acontece" class="hash-link" aria-label="Direct link to Por Que Essa Confusão Acontece?" title="Direct link to Por Que Essa Confusão Acontece?">​</a></h2>
 <p>A demanda por engenheiros DevOps explodiu, mas isso não significa que automação seja exclusiva dessa função. Como os especialistas explicam:</p>
@@ -60,12 +61,8 @@
 <p><em>“DevOps é como um amigo organizado que simplifica tudo; automação é o aplicativo que torna isso possível.”</em></p>
 </blockquote>
 <p>Ao dominar essas habilidades, você não vira “DevOps” — você se torna um profissional de TI mais estratégico, com tempo para inovar e resolver problemas complexos. Comece pequeno, automatize uma tarefa hoje, e sinta o alívio de delegar o repetitivo às máquinas.</p>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="recursos-para-aprofundar">Recursos para Aprofundar<a href="https://devopsautomation.com.br/blog/automacao-devops-para-todos#recursos-para-aprofundar" class="hash-link" aria-label="Direct link to Recursos para Aprofundar" title="Direct link to Recursos para Aprofundar">​</a></h2>
-<ul>
-<li>Guia de Carreira DevOps (Instatus)</li>
-<li>DevOps Automation: Benefits &amp; Implementation (Qovery)</li>
-<li>DevOps Culture: Automation and Human Practices (Ironhack)</li>
-</ul>]]></content:encoded>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="recursos-para-aprofundar-em-automação">Recursos para Aprofundar em Automação<a href="https://devopsautomation.com.br/blog/automacao-devops-para-todos#recursos-para-aprofundar-em-automa%C3%A7%C3%A3o" class="hash-link" aria-label="Direct link to Recursos para Aprofundar em Automação" title="Direct link to Recursos para Aprofundar em Automação">​</a></h2>
+<p>👉 <a href="https://www.udemy.com/course/devops-automacao-sem-enrolacao/?couponCode=CA1E128B67B670F1B078" target="_blank" rel="noopener noreferrer">Acesse o curso DevOps na Udemy</a></p>]]></content:encoded>
             <category>automação devops</category>
             <category>devops cultura</category>
             <category>infraestrutura como código</category>
