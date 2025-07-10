@@ -4,6 +4,8 @@ sidebar_position: 1
 
 # Entendendo Funções no Bash
 
+👉 Veja meu curso da Udemy: [Curso DevOps na Prática](https://devopsautomation.com.br/go/udemy-cupom)
+
 ## Pré-requisitos:
 - Você deve ter um sistema Linux ou um terminal com Bash instalado.
 

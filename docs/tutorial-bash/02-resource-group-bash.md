@@ -8,6 +8,8 @@ sidebar_position: 2
 - Azure CLI instalado e configurado no seu sistema.
 - Estar logado na sua conta Azure via Azure CLI.
 
+👉 Veja meu curso da Udemy: [Curso DevOps na Prática](https://devopsautomation.com.br/go/udemy-cupom)
+
 ## Etapa 1: Criar um diretório para o laboratório
 
 Crie um diretório dedicado para o lab e navegue até ele:

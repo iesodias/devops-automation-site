@@ -7,18 +7,18 @@ const courses = [
     title: 'Devops: Automação Sem Enrolação',
     description: 'Domine DevOps com automações reais, laboratórios práticos e sem enrolação. Aprenda na prática o que o mercado exige.',
     stars: 5,
-    badge: 'BESTSELLER', // Adicionado o selo para funcionar
-    tags: ['Iniciante', 'Curso rápido'],
-    link: 'https://www.udemy.com/course/devops-automacao-sem-enrolacao/?referralCode=28E4F89140C44D63D605', // Link adicionado
+    badge: 'BESTSELLER', //// Adicionado o selo para funcionar
+    tags: ['K8S', 'Terraform', 'Docker', 'Github Actions', 'Datadog'],
+    link: 'https://www.udemy.com/course/devops-automacao-sem-enrolacao/?couponCode=CA1E128B67B670F1B078', // Link adicionado
   },
   {
-    image: '/img/em_ breve.png',
-    title: 'Preparando algo incrível!',
-    description: 'Este curso está sendo construído para te entregar o melhor conteúdo sobre DevOps e Cloud. Fica de olho!',
+    image: '/img/Capa-02.png',
+    title: 'Devops para Iniciantes',
+    description: 'Este curso introdutório é o ponto de partida pra você aprender DevOps na prática. Vamos do terminal com Bash até a criação da sua primeira pipeline com GitHub Actions',
     stars: 5,
-    badge: '',
-    tags: ['Intermediário', 'CKA', 'Kubernetes'],
-    link: '#',
+    badge: 'GRATUITO',
+    tags: ['Github Actions', 'Bash', 'Devops'],
+    link: 'https://www.udemy.com/course/devops-para-iniciantes-primeiros-passos-em-menos-de-2-horas/?referralCode=638ADE7A2C334ECE0B96',
   },
 ];
 

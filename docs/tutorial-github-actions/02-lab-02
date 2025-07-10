@@ -16,6 +16,8 @@ sidebar_position: 2
 
 # Laboratório de GitHub Actions - Criando Sua Primeira Action
 
+👉 Veja meu curso da Udemy: [Curso DevOps na Prática](https://devopsautomation.com.br/go/udemy-cupom)
+
 ## Objetivo
 Aprender a criar uma GitHub Action básica que simula deploys para os ambientes `dev`, `qa`, `hml` e `prd`.
 
