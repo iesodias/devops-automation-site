@@ -19,7 +19,7 @@ module.exports = {
     {
       type: 'category',
       label: 'Labs 1 - Introdução ao Terraform',
-      items: ['lab-1-rg', 'lab-2-variables-output', 'lab-3-for-each-count', 'lab-4-fmt-validate', 'lab-5-tfstate-remoto', 'lab-6-data'],
+      items: ['lab-1-rg', 'lab-2-variables-output', 'lab-3-for-each-count', 'lab-4-fmt-validate', 'lab-5-tfstate-remoto', 'lab-6-data', 'lab-7-tfvars', 'lab-8-ws' ,'lab-9-locals'],
     },
     {
       type: 'category',
@@ -29,7 +29,20 @@ module.exports = {
     {
       type: 'category',
       label: 'Labs 2 - Análise Estática (SAST) para IaC',
-      items: ['trivy-teorico', 'trivy-teorico-1'],
+      items: ['lab-10-trivy', 'lab-11-checkov'],
+    },
+    {
+      type: 'category',
+      label: 'Modulo 3 - Policy as Code (PaC)',
+      items: ['12-opa-teoria', '13-opa-confest','14-rego'],
+    },
+    {
+      type: 'category',
+      label: 'Labs 3 - Policy as Code (PaC)',
+      items: ['lab-15-confest-opa', 'lab-16-confest-opa'],
     },
   ],
 };
+
+
+
