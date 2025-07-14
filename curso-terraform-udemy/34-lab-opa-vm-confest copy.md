@@ -16,10 +16,10 @@ E aplicar validações com **OPA/Conftest** para garantir boas práticas.
 
 ## Estrutura de arquivos
 ```bash
-mkdir -p lab-opa-storage/policies && cd lab-opa-storage
+mkdir -p lab-opa-storage/policy && cd lab-opa-storage
 
 touch main.tf variables.tf outputs.tf provider.tf terraform.tfvars
-cd policies && touch storage_policy.rego && cd ..
+cd policy && touch storage_policy.rego && cd ..
 ```
 
 ### Estrutura esperada
@@ -30,7 +30,7 @@ lab-opa-storage/
 ├── provider.tf
 ├── variables.tf
 ├── terraform.tfvars
-└── policies
+└── policy
     └── storage_policy.rego
 ```
 
@@ -87,6 +87,13 @@ resource "azurerm_storage_account" "storage" {
   account_tier             = "Standard"
   account_replication_type = "LRS"
 
+  min_tls_version = "TLS1_0"
+
+  infrastructure_encryption_enabled = true
+
+  public_network_access_enabled   = false
+  allow_nested_items_to_be_public = false
+
   blob_properties {
     delete_retention_policy {
       days = 7
@@ -94,12 +101,9 @@ resource "azurerm_storage_account" "storage" {
   }
 
   network_rules {
-    default_action             = "Allow"
-    bypass                    = ["AzureServices"]
+    default_action = "Deny"         # Mais seguro que Allow
+    bypass         = ["AzureServices"]
   }
-
-  # Simulação de erro proposital para OPA (HTTPS desabilitado)
-  min_tls_version             = "TLS1_0"  # má prática
 }
 ```
 
@@ -126,9 +130,17 @@ deny contains msg if {
   some i
   resource := input.planned_values.root_module.resources[i]
   resource.type == "azurerm_storage_account"
-  not resource.values.enable_https_traffic_only
-  msg := "Storage Account deve ter HTTPS habilitado."
+
+  # Verifica a versão do TLS
+  not tls_seguro(resource.values.min_tls_version)
+
+  msg := "Storage Account deve usar TLS 1.2 ou superior (HTTPS obrigatório)."
 }
+
+# Regra: TLS é considerado seguro se for TLS1_2 ou TLS1_3
+tls_seguro(versao) if versao == "TLS1_2"
+tls_seguro(versao) if versao == "TLS1_3"
+
 ```
 
 ---
@@ -138,7 +150,7 @@ deny contains msg if {
 terraform init
 terraform plan -out=tfplan.binary
 terraform show -json tfplan.binary > tfplan.json
-conftest test tfplan.json --policy policies
+conftest test tfplan.json --policy policy
 ```
 
 ## Resultado Esperado

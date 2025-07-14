@@ -13,10 +13,10 @@ Este laboratório demonstra como usar o **OPA (Open Policy Agent)** com a ferram
 Crie a estrutura de diretórios e arquivos:
 
 ```bash
-mkdir -p lab-opa-vm/policies && cd lab-opa-vm
+mkdir -p lab-opa-vm/policy && cd lab-opa-vm
 
 touch main.tf provider.tf variables.tf terraform.tfvars
-cd policies && touch deny_expensive_instances.rego
+cd policy && touch deny_expensive_instances.rego
 cd ..
 ```
 
@@ -27,7 +27,7 @@ lab-opa-vm/
 ├── provider.tf
 ├── variables.tf
 ├── terraform.tfvars
-└── policies
+└── policy
     └── deny_expensive_instances.rego
 ```
 
@@ -67,24 +67,10 @@ variable "vm_size" {
 ## terraform.tfvars
 ```hcl
 vm_size = "Standard_D4s_v3"
-
 ```
 
 ## main.tf
 ```terraform
-terraform {
-  required_version = ">= 1.12.2"
-  required_providers {
-    azurerm = {
-      source  = "hashicorp/azurerm"
-      version = ">= 2.0"
-    }
-  }
-}
-
-provider "azurerm" {
-  features {}
-}
 resource "azurerm_resource_group" "rg" {
   name     = "opa-rg"
   location = var.location
@@ -190,8 +176,27 @@ FAIL - tfplan.json - main.deny[0]: Uso de instância cara (Standard_D4s_v3) não
 ```bash
 conftest test tfplan.json --policy policy
 
+0 test, 1 passed, 0 warnings, 1 failures, 0 exceptions
+```
+## Alterar terraform.tfvars
+```hcl
+vm_size = "vm_size = "Standard_B1s"
+```
+
+## Comandos para Executar
+```bash
+terraform plan -var-file="terraform.tfvars" -out=tfplan.binary
+terraform show -json tfplan.binary > tfplan.json
+conftest test tfplan.json --policy policy
+```
+
+## Resultado Esperado após alteração
+```bash
+conftest test tfplan.json --policy policy
+
 1 test, 1 passed, 0 warnings, 0 failures, 0 exceptions
 ```
+
 ## Boas Práticas
 - Use políticas OPA para prevenir uso indevido de recursos
 - Integre com pipelines para validação automática
