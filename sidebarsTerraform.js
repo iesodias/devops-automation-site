@@ -41,6 +41,16 @@ module.exports = {
       label: 'Labs 3 - Policy as Code (PaC)',
       items: ['lab-15-confest-opa', 'lab-16-confest-opa'],
     },
+    {
+      type: 'category',
+      label: 'Modulo 4 - Módulos no Terraform',
+      items: ['17-modulos-teoria'],
+    },
+    {
+      type: 'category',
+      label: 'Labs 4 - Módulos',
+      items: ['lab-18-modulos'],
+    },
   ],
 };
 
