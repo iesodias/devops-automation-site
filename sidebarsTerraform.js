@@ -51,6 +51,16 @@ module.exports = {
       label: 'Labs 4 - Módulos',
       items: ['lab-18-modulos'],
     },
+    {
+      type: 'category',
+      label: 'Modulo 5 - Protegendo Dados Sensiveis com Vault',
+      items: ['19-dados-sensiveis', '20-intro-kevault', '21-criar-vm-kevault'],
+    },
+    {
+      type: 'category',
+      label: 'Labs 4 - Protegendo Dados Sensiveis com Vault',
+      items: ['22-lab-kevault'],
+    },
   ],
 };
 
