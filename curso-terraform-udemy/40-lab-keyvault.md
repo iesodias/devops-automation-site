@@ -29,12 +29,12 @@ Antes de rodar o Terraform, precisamos preparar o ambiente no Azure:
 az group create --name rg-tf-vm-keyvault --location eastus
 
 az keyvault create \
-  --name kv-tf-lab \
+  --name kv-devopsautomation-lab \
   --resource-group rg-tf-vm-keyvault \
   --location eastus
 
 az keyvault secret set \
-  --vault-name kv-tf-lab \
+  --vault-name kv-devopsautomation-lab \
   --name vmPassword \
   --value "SenhaSuperSegura123"
 ```
@@ -78,6 +78,29 @@ resource "azurerm_subnet" "subnet" {
   address_prefixes     = ["10.0.1.0/24"]
 }
 
+resource "azurerm_network_security_group" "nsg" {
+  name                = "nsg"
+  location            = var.location
+  resource_group_name = data.azurerm_resource_group.rg.name
+
+  security_rule {
+    name                       = "SSH"
+    priority                   = 1001
+    direction                  = "Inbound"
+    access                     = "Allow"
+    protocol                   = "Tcp"
+    source_port_range          = "*"
+    destination_port_range     = "22"
+    source_address_prefix      = "*"
+    destination_address_prefix = "*"
+  }
+}
+
+resource "azurerm_subnet_network_security_group_association" "nsg_assoc" {
+  subnet_id                 = azurerm_subnet.subnet.id
+  network_security_group_id = azurerm_network_security_group.nsg.id
+}
+
 resource "azurerm_public_ip" "public_ip" {
   name                = "public-ip"
   location            = var.location
@@ -100,14 +123,14 @@ resource "azurerm_network_interface" "nic" {
 }
 
 resource "azurerm_linux_virtual_machine" "vm" {
-  name                = var.vm_name
-  location            = var.location
-  resource_group_name = data.azurerm_resource_group.rg.name
-  size                = "Standard_B1s"
-  admin_username      = var.admin_username
-  admin_password      = data.azurerm_key_vault_secret.vm_password.value
+  name                            = var.vm_name
+  location                        = var.location
+  resource_group_name             = data.azurerm_resource_group.rg.name
+  size                            = "Standard_B1s"
+  admin_username                  = var.admin_username
+  admin_password                  = data.azurerm_key_vault_secret.vm_password.value
   disable_password_authentication = false
-  network_interface_ids = [azurerm_network_interface.nic.id]
+  network_interface_ids           = [azurerm_network_interface.nic.id]
 
   os_disk {
     caching              = "ReadWrite"
@@ -155,7 +178,7 @@ output "public_ip" {
 ```hcl
 resource_group_name = "rg-tf-vm-keyvault"
 location            = "eastus"
-key_vault_name      = "kv-tf-lab"
+key_vault_name      = "kv-devopsautomation-lab"
 secret_name         = "vmPassword"
 vm_name             = "vm-keyvault-demo"
 admin_username      = "azureuser"
@@ -167,8 +190,8 @@ admin_username      = "azureuser"
 
 ```bash
 terraform init
-terraform plan -out=tfplan
-terraform apply tfplan
+terraform plan -var-file="terraform.tfvars"
+terraform apply -var-file="terraform.tfvars"
 ```
 
 ---
