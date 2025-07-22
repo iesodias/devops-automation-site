@@ -2,11 +2,97 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://devopsautomation.com.br/blog</id>
     <title>Aprenda DevOps do zero com tutoriais prático Blog</title>
-    <updated>2025-06-19T00:00:00.000Z</updated>
+    <updated>2025-07-22T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://devopsautomation.com.br/blog"/>
     <subtitle>Aprenda DevOps do zero com tutoriais prático Blog</subtitle>
     <icon>https://devopsautomation.com.br/img/favicon.png</icon>
+    <entry>
+        <title type="html"><![CDATA[Terraform + Segurança: Por que SAST deve começar desde o primeiro commit]]></title>
+        <id>https://devopsautomation.com.br/blog/2025/07/22/terraform-seguranca-sast</id>
+        <link href="https://devopsautomation.com.br/blog/2025/07/22/terraform-seguranca-sast"/>
+        <updated>2025-07-22T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Descubra como implementar Static Application Security Testing (SAST) em pipelines Terraform desde o início do desenvolvimento. Análise completa de ferramentas como Trivy, Checkov e estratégias shift-left para evitar as 82% de falhas de segurança causadas por misconfiguração.]]></summary>
+        <content type="html"><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="o-problema-real">O Problema Real<a href="https://devopsautomation.com.br/blog/2025/07/22/terraform-seguranca-sast#o-problema-real" class="hash-link" aria-label="Direct link to O Problema Real" title="Direct link to O Problema Real">​</a></h2>
+<p>82% das falhas de segurança em cloud são evitáveis e causadas por erro humano. Empresas levam 204 dias para identificar violações de dados. Apenas em 2022, foram detectados 10 milhões de segredos expostos no GitHub.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="por-que-shift-left-security-é-essencial">Por que Shift-Left Security é Essencial<a href="https://devopsautomation.com.br/blog/2025/07/22/terraform-seguranca-sast#por-que-shift-left-security-%C3%A9-essencial" class="hash-link" aria-label="Direct link to Por que Shift-Left Security é Essencial" title="Direct link to Por que Shift-Left Security é Essencial">​</a></h2>
+<p><strong>Custo médio de violação de dados em 2024</strong>: $4.88 milhões
+<strong>85% das organizações</strong> vão enfrentar incidentes de segurança em cloud</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="a-matemática-do-custo">A Matemática do Custo<a href="https://devopsautomation.com.br/blog/2025/07/22/terraform-seguranca-sast#a-matem%C3%A1tica-do-custo" class="hash-link" aria-label="Direct link to A Matemática do Custo" title="Direct link to A Matemática do Custo">​</a></h3>
+<ul>
+<li>Corrigir na fase de código: $80</li>
+<li>Corrigir em teste: $240</li>
+<li>Corrigir em produção: $7,600</li>
+<li>Após violação: $4.88 milhões</li>
+</ul>
+<p><strong>A diferença pode ser de 95.000x no custo</strong></p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="ferramentas-essenciais-para-sast">Ferramentas Essenciais para SAST<a href="https://devopsautomation.com.br/blog/2025/07/22/terraform-seguranca-sast#ferramentas-essenciais-para-sast" class="hash-link" aria-label="Direct link to Ferramentas Essenciais para SAST" title="Direct link to Ferramentas Essenciais para SAST">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="1-trivy---o-novo-padrão">1. Trivy - O Novo Padrão<a href="https://devopsautomation.com.br/blog/2025/07/22/terraform-seguranca-sast#1-trivy---o-novo-padr%C3%A3o" class="hash-link" aria-label="Direct link to 1. Trivy - O Novo Padrão" title="Direct link to 1. Trivy - O Novo Padrão">​</a></h3>
+<ul>
+<li>2.5 milhões downloads mensais</li>
+<li>92% de precisão na detecção</li>
+<li>Identifica mais de 15.000 configurações inseguras</li>
+<li>Suporte para 8 clouds diferentes</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="2-checkov---guardião-da-conformidade">2. Checkov - Guardião da Conformidade<a href="https://devopsautomation.com.br/blog/2025/07/22/terraform-seguranca-sast#2-checkov---guardi%C3%A3o-da-conformidade" class="hash-link" aria-label="Direct link to 2. Checkov - Guardião da Conformidade" title="Direct link to 2. Checkov - Guardião da Conformidade">​</a></h3>
+<ul>
+<li>Mais de 800 regras baseadas em frameworks</li>
+<li>89% de redução no tempo de auditoria</li>
+<li>Economia média de $1.2M por ano em multas evitadas</li>
+<li>78% menos falsos positivos que concorrentes</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="3-semgrep---análise-inteligente">3. Semgrep - Análise Inteligente<a href="https://devopsautomation.com.br/blog/2025/07/22/terraform-seguranca-sast#3-semgrep---an%C3%A1lise-inteligente" class="hash-link" aria-label="Direct link to 3. Semgrep - Análise Inteligente" title="Direct link to 3. Semgrep - Análise Inteligente">​</a></h3>
+<ul>
+<li>45% mais preciso que ferramentas tradicionais</li>
+<li>73% de redução em falsos positivos</li>
+<li>ROI médio de 420% no primeiro ano</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="top-10-vulnerabilidades-mais-comuns">Top 10 Vulnerabilidades Mais Comuns<a href="https://devopsautomation.com.br/blog/2025/07/22/terraform-seguranca-sast#top-10-vulnerabilidades-mais-comuns" class="hash-link" aria-label="Direct link to Top 10 Vulnerabilidades Mais Comuns" title="Direct link to Top 10 Vulnerabilidades Mais Comuns">​</a></h2>
+<ol>
+<li>Acesso público a storage/S3 buckets (34% das violações)</li>
+<li>Configurações IAM inadequadas (28% dos incidentes)</li>
+<li>Criptografia ausente (23% das não-conformidades)</li>
+<li>Security groups abertos (19% dos problemas)</li>
+<li>Falta de monitoramento adequado</li>
+</ol>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="roi-comprovado">ROI Comprovado<a href="https://devopsautomation.com.br/blog/2025/07/22/terraform-seguranca-sast#roi-comprovado" class="hash-link" aria-label="Direct link to ROI Comprovado" title="Direct link to ROI Comprovado">​</a></h2>
+<p><strong>Caso real</strong>: Startup HealthTech economizou $6.3M no primeiro ano</p>
+<ul>
+<li>Antes: 3 violações em 6 meses</li>
+<li>Depois: 0 violações</li>
+<li>ROI de 12.500%</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="implementação-prática">Implementação Prática<a href="https://devopsautomation.com.br/blog/2025/07/22/terraform-seguranca-sast#implementa%C3%A7%C3%A3o-pr%C3%A1tica" class="hash-link" aria-label="Direct link to Implementação Prática" title="Direct link to Implementação Prática">​</a></h2>
+<p><strong>30 dias</strong>: Instalar Trivy, configurar pre-commit hooks
+<strong>60 dias</strong>: Implementar Checkov, políticas customizadas<br>
+<strong>90 dias</strong>: Compliance automático, security champions</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="conclusão">Conclusão<a href="https://devopsautomation.com.br/blog/2025/07/22/terraform-seguranca-sast#conclus%C3%A3o" class="hash-link" aria-label="Direct link to Conclusão" title="Direct link to Conclusão">​</a></h2>
+<p>SAST desde o primeiro commit não é overhead, é aceleração. Com 85% das organizações enfrentando incidentes em cloud, implementar segurança desde o início é essencial para evitar custos exponenciais.</p>
+<hr>
+<p><strong>Recursos Adicionais</strong>:</p>
+<ul>
+<li><a href="https://aquasecurity.github.io/trivy/" target="_blank" rel="noopener noreferrer">Trivy Documentation</a></li>
+<li><a href="https://www.checkov.io/5.Policy%20Index/" target="_blank" rel="noopener noreferrer">Checkov Policies Library</a></li>
+<li><a href="https://owasp.org/www-project-iac-security/" target="_blank" rel="noopener noreferrer">OWASP IaC Security Guidelines</a></li>
+<li><a href="https://www.cisecurity.org/" target="_blank" rel="noopener noreferrer">CIS Terraform Benchmarks</a></li>
+</ul>
+<hr>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="devsecops-terraformsecurity-sast-shiftleft-iacsecurity-cloudsecurity-trivy-checkov-securityascode-terraformbestpractices-devops-cloudmisconfigurations-securityautomation-infrastructureascode-cybersecurity">#DevSecOps #TerraformSecurity #SAST #ShiftLeft #IaCSecurity #CloudSecurity #Trivy #Checkov #SecurityAsCode #TerraformBestPractices #DevOps #CloudMisconfigurations #SecurityAutomation #InfrastructureAsCode #CyberSecurity<a href="https://devopsautomation.com.br/blog/2025/07/22/terraform-seguranca-sast#devsecops-terraformsecurity-sast-shiftleft-iacsecurity-cloudsecurity-trivy-checkov-securityascode-terraformbestpractices-devops-cloudmisconfigurations-securityautomation-infrastructureascode-cybersecurity" class="hash-link" aria-label="Direct link to #DevSecOps #TerraformSecurity #SAST #ShiftLeft #IaCSecurity #CloudSecurity #Trivy #Checkov #SecurityAsCode #TerraformBestPractices #DevOps #CloudMisconfigurations #SecurityAutomation #InfrastructureAsCode #CyberSecurity" title="Direct link to #DevSecOps #TerraformSecurity #SAST #ShiftLeft #IaCSecurity #CloudSecurity #Trivy #Checkov #SecurityAsCode #TerraformBestPractices #DevOps #CloudMisconfigurations #SecurityAutomation #InfrastructureAsCode #CyberSecurity">​</a></h5>]]></content>
+        <author>
+            <name>Iêso Dias</name>
+            <uri>https://youtube.com/@iesodias</uri>
+        </author>
+        <category label="Terraform Segurança SAST" term="Terraform Segurança SAST"/>
+        <category label="Shift Left Security" term="Shift Left Security"/>
+        <category label="Ferramentas SAST" term="Ferramentas SAST"/>
+        <category label="DevSecOps IaC" term="DevSecOps IaC"/>
+        <category label="Security Scanning" term="Security Scanning"/>
+        <category label="IaC Security" term="IaC Security"/>
+        <category label="Cloud Misconfigurations" term="Cloud Misconfigurations"/>
+        <category label="Pipeline Security" term="Pipeline Security"/>
+        <category label="Static Analysis" term="Static Analysis"/>
+        <category label="Security as Code" term="Security as Code"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Automação DevOps Não É Só para Mudar de Carreira: Como Simplificar Seu Trabalho em TI em 2025]]></title>
         <id>https://devopsautomation.com.br/blog/automacao-devops-para-todos</id>
