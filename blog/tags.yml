@@ -1,3 +1,56 @@
+# Terraform e Segurança
+terraform seguranca sast:
+  label: Terraform Segurança SAST
+  permalink: /terraform-security-sast
+  description: Artigos sobre segurança em Terraform com Static Application Security Testing
+
+shift left security terraform:
+  label: Shift Left Security
+  permalink: /shift-left-security
+  description: Práticas de segurança antecipada em desenvolvimento com Terraform
+
+checkov trivy tfsec comparacao:
+  label: Ferramentas SAST
+  permalink: /sast-tools-comparison
+  description: Comparação entre ferramentas de análise estática para Terraform
+
+devsecops infraestrutura codigo:
+  label: DevSecOps IaC
+  permalink: /devsecops-iac
+  description: Práticas DevSecOps para Infraestrutura como Código
+
+# Ferramentas
+terraform security scanning:
+  label: Security Scanning
+  permalink: /terraform-security-scanning
+  description: Scanning de segurança em código Terraform
+
+iac security best practices:
+  label: IaC Security
+  permalink: /iac-security-practices
+  description: Melhores práticas de segurança para Infrastructure as Code
+
+misconfiguracao cloud security:
+  label: Cloud Misconfigurations
+  permalink: /cloud-misconfigurations
+  description: Prevenção de misconfigurations em ambientes cloud
+
+terraform pipeline security:
+  label: Pipeline Security
+  permalink: /terraform-pipeline-security
+  description: Segurança em pipelines CI/CD com Terraform
+
+static analysis terraform:
+  label: Static Analysis
+  permalink: /terraform-static-analysis
+  description: Análise estática de código Terraform
+
+security as code terraform:
+  label: Security as Code
+  permalink: /security-as-code
+  description: Implementação de Security as Code com Terraform
+
+# Tags originais (mantidas para compatibilidade)
 facebook:
   label: Facebook
   permalink: /facebook

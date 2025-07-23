@@ -54,12 +54,27 @@ module.exports = {
     {
       type: 'category',
       label: 'Modulo 5 - Protegendo Dados Sensiveis com Vault',
-      items: ['19-dados-sensiveis', '20-intro-kevault', '21-criar-vm-kevault'],
+      items: ['19-dados-sensiveis', '20-intro-kevault', '21-criar-vm-kevault','22-lab-kevault'],
     },
     {
       type: 'category',
-      label: 'Labs 4 - Protegendo Dados Sensiveis com Vault',
-      items: ['22-lab-kevault'],
+      label: 'Modulo 5 - Terraform Cloud',
+      items: ['23-terraform-cloud','24-sentinel'],
+    },
+    {
+      type: 'category',
+      label: 'Lab 5 - Terraform Cloud',
+      items: ['25-lab-sentinel-tfc'],
+    },
+    {
+      type: 'category',
+      label: 'Projeto Final',
+      items: ['98-projeto-final','99-projeto-final'],
+    },
+    {
+      type: 'category',
+      label: 'Bônus - Certificação HashiCorp',
+      items: ['bonus-certificacao'],
     },
   ],
 };
