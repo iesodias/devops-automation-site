@@ -61,6 +61,15 @@ const config = {
         sidebarPath: require.resolve('./sidebarsTerraform.js'),
       },
     ],
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'ai-devops-automacao',
+        path: 'curso-ai-devops-udemy',
+        routeBasePath: 'udemy/ai-devops-automacao',
+        sidebarPath: require.resolve('./sidebarsAiDevops.js'),
+      },
+    ],
   ],
   
 

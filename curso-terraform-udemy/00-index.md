@@ -17,91 +17,177 @@ noindex: true
 * **Aula 4**: O Problema: Falhas de segurança por configurações incorretas
 * **Aula 5**: Preparando o ambiente: Terraform, CLI da nuvem, VS Code
 
+### 📋 Pré-requisitos e Instalação do Terraform
+
+#### 🐧 **Instalação no Linux/WSL**
+
+**Ubuntu/Debian:**
+```bash
+# Adicionar repositório oficial HashiCorp
+wget -O- https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg
+echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
+
+# Atualizar e instalar
+sudo apt update && sudo apt install terraform
+
+# Verificar instalação
+terraform --version
+```
+
+**CentOS/RHEL/Fedora:**
+```bash
+# Adicionar repositório HashiCorp
+sudo yum install -y yum-utils
+sudo yum-config-manager --add-repo https://rpm.releases.hashicorp.com/RHEL/hashicorp.repo
+
+# Instalar Terraform
+sudo yum -y install terraform
+
+# Verificar instalação
+terraform --version
+```
+
+**Instalação Manual (qualquer distribuição):**
+```bash
+# Baixar binário (verificar versão mais recente em terraform.io)
+wget https://releases.hashicorp.com/terraform/1.7.0/terraform_1.7.0_linux_amd64.zip
+
+# Extrair e instalar
+unzip terraform_1.7.0_linux_amd64.zip
+sudo mv terraform /usr/local/bin/
+
+# Verificar instalação
+terraform --version
+```
+
+#### 🍎 **Instalação no macOS**
+
+**Método 1 - Homebrew (Recomendado):**
+```bash
+# Instalar Homebrew (se não estiver instalado)
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+# Instalar Terraform
+brew tap hashicorp/tap
+brew install hashicorp/tap/terraform
+
+# Verificar instalação
+terraform --version
+```
+
+**Método 2 - Download Manual:**
+```bash
+# Baixar para macOS (Intel)
+curl -O https://releases.hashicorp.com/terraform/1.7.0/terraform_1.7.0_darwin_amd64.zip
+
+# Para macOS (Apple Silicon/M1/M2)
+curl -O https://releases.hashicorp.com/terraform/1.7.0/terraform_1.7.0_darwin_arm64.zip
+
+# Extrair e instalar
+unzip terraform_1.7.0_darwin_*.zip
+sudo mv terraform /usr/local/bin/
+
+# Verificar instalação
+terraform --version
+```
+
+**Configuração do PATH (se necessário):**
+```bash
+# Adicionar ao ~/.bashrc ou ~/.zshrc
+echo 'export PATH=$PATH:/usr/local/bin' >> ~/.bashrc
+source ~/.bashrc
+```
+
 ---
 
-## Módulo 1: Fundamentos Essenciais do Terraform
+## 📚 Aulas Disponíveis
 
-* **Aula 1**: A Sintaxe do Terraform (HCL)
-* **Aula 2**: Primeiro terraform apply: Criando recurso na nuvem
-* **Aula 3**: Ciclo de Vida: init, plan, apply, destroy
-* **Aula 4**: Variáveis e Outputs
-* **Aula 5**: Tipos de Variáveis
-* **Aula 6**: count e for\_each
-* **Projeto Prático 1**: Criar VM com IP público e SG usando variáveis e outputs
+### Introdução e Fundamentos:
+
+* **Sobre o Instrutor**
+* **Introdução ao IaC**
+* **Benefícios do Terraform**
+* **Sintaxe HCL**
+* **Ciclo de Vida**
+
+### Conceitos Intermediários:
+
+* **Variáveis e Outputs**
+* **Tipos de Variáveis**
+* **Count e For-Each**
+* **Comandos fmt, validate, show**
+* **Data Blocks**
+* **Workspaces**
+* **Locals**
+
+### Estado e Backend:
+
+* **Terraform State Remoto**
+* **Arquivo .tfvars**
+
+### Segurança e Compliance:
+
+* **Trivy SAST Shift Left**
+* **Trivy SAST Teórico**
+* **Checkov - Teoria**
+* **Checkov - Prática**
+* **Checkov - Integrações**
+* **Policy as Code - OPA**
+* **OPA Confest**
+* **Linguagem Rego**
+
+### Módulos e Gestão de Segredos:
+
+* **Módulo Terraform VM**
+* **Dados Sensíveis**
+* **Azure Key Vault**
+* **VM com Key Vault**
+
+### Terraform Cloud e Enterprise:
+
+* **Terraform Cloud**
+* **Terraform Sentinel**
+
+### Laboratórios Práticos:
+
+* **Lab: Resource Group**
+* **Lab: Variáveis e Outputs**
+* **Lab: For-Each e Count**
+* **Lab: Fmt e Show**
+* **Lab: State Remoto**
+* **Lab: Data Blocks**
+* **Lab: TFVars**
+* **Lab: Workspaces**
+* **Lab: Locals**
+* **Lab: Trivy SAST**
+* **Lab: Checkov**
+* **Lab: OPA Storage/Conftest**
+* **Lab: OPA VM/Conftest**
+* **Lab: Módulos**
+* **Lab: Key Vault**
+* **Lab: Terraform Cloud**
+
+### Projeto Final:
+
+* **Teórico Projeto Final**
+* **Projeto Final (Apresentação)**
+* **Projeto Final**
+* **Projeto Final Corrigido**
+
 
 ---
 
-## Módulo 2: Estrutura Profissional e Segura para Projetos Terraform
+## 📚 Recursos Adicionais
 
-* **Aula 1**: O perigo do terraform.tfstate
-* **Aula 2**: Backend remoto seguro (S3 + DynamoDB / Azure Blob)
-* **Aula 3**: Nunca mais senhas no código!
-* **Aula 4**: Uso seguro de .tfvars e variáveis de ambiente
-* **Aula 5**: Módulos reutilizáveis
-* **Projeto Prático 2**: Refatorar projeto com backend remoto e módulos
+### 🎓 Certificação
+- [Guia oficial HashiCorp](https://learn.hashicorp.com/terraform)
+- [Documentação do Terraform](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs)
 
----
-
-## Módulo 3: Análise Estática (SAST) para IaC
-
-* **Aula 1**: Introdução ao Shift Left Security e SAST
-* **Aula 2**: tfsec: Primeiros testes de segurança
-* **Aula 3**: Checkov: Conformidade e LGPD
-* **Aula 4**: Corrigindo vulnerabilidades comuns
-* **Aula 5**: tfsec vs. Checkov
-* **Projeto Prático 3**: Refatorar código inseguro até 100% seguro
+### 🔗 Links Úteis
+- [Azure Terraform Provider](https://registry.terraform.io/providers/hashicorp/azurerm/latest)
+- [Terraform Azure Examples](https://github.com/terraform-providers/terraform-provider-azurerm/tree/main/examples)
+- [Azure Architecture Center](https://docs.microsoft.com/en-us/azure/architecture/)
 
 ---
 
-## Módulo 4: Policy as Code (PaC)
-
-* **Aula 1**: O que é Policy as Code?
-* **Aula 2**: OPA e linguagem Rego
-* **Aula 3**: Conftest: Criando políticas personalizadas
-* **Aula 4**: Sentinel e Terraform Cloud
-* **Projeto Prático 4**: Impedir instâncias caras com OPA/Conftest
-
----
-
-## Módulo 5: Gestão de Segredos Profissional
-
-* **Aula 1**: Padrões de gestão de segredos
-* **Aula 2**: AWS Secrets Manager na prática
-* **Aula 3**: Introdução ao Vault
-* **Aula 4**: Vault com Terraform (via Docker)
-* **Projeto Prático 5**: RDS seguro com segredos externos
-
----
-
-## Módulo 6: Padrões de Segurança na Nuvem (AWS)
-
-* **Aula 1**: IAM seguro
-* **Aula 2**: VPC segura com redes privadas/públicas
-* **Aula 3**: Criptografia em repouso e trânsito
-* **Aula 4**: Logging e monitoramento com Terraform
-* **Projeto Prático 6**: Arquitetura web 3 camadas segura
-
----
-
-## Módulo 7: Automando a Segurança com CI/CD
-
-* **Aula 1**: Pipeline DevSecOps ideal
-* **Aula 2**: GitHub Actions do zero
-* **Aula 3**: Adicionando validate, tfsec e checkov
-* **Aula 4**: Plan em Pull Requests
-* **Aula 5**: apply automático vs. manual
-* **Projeto Final**: Pipeline completo com testes e deploy
-
----
-
-## Módulo 8: Encerramento e Futuro
-
-* **Aula 1**: Resumo da jornada
-* **Aula 2**: CSPM e ferramentas complementares
-* **Aula 3**: Como continuar evoluindo em Cloud Security
-* **Aula 4**: Parabéns e direções para a carreira
-
-
-## Aulas disponíveis
-
-[Introdução](/udemy/terraform-automacao/introducao)
+> **💡 Nota**: Este curso aborda os fundamentos essenciais do Terraform com foco em Azure e práticas de segurança. Continue praticando com projetos reais para aprofundar o conhecimento!

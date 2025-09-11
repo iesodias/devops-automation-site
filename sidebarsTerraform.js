@@ -73,7 +73,7 @@ module.exports = {
     },
     {
       type: 'category',
-      label: 'Bônus - Certificação HashiCorp',
+      label: 'Certificação HashiCorp',
       items: ['bonus-certificacao'],
     },
   ],
