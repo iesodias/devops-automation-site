@@ -114,43 +114,20 @@ resource "azurerm_network_security_group" "web" {
   location            = azurerm_resource_group.main.location
   resource_group_name = azurerm_resource_group.main.name
 
-  # HTTP
-  security_rule {
-    name                       = "HTTP"
-    priority                   = 1001
-    direction                  = "Inbound"
-    access                     = "Allow"
-    protocol                   = "Tcp"
-    source_port_range          = "*"
-    destination_port_range     = "80"
-    source_address_prefix      = "*"
-    destination_address_prefix = "*"
-  }
+  dynamic "security_rule" {
+    for_each = local.all_security_rules
 
-  # HTTPS
-  security_rule {
-    name                       = "HTTPS"
-    priority                   = 1002
-    direction                  = "Inbound"
-    access                     = "Allow"
-    protocol                   = "Tcp"
-    source_port_range          = "*"
-    destination_port_range     = "443"
-    source_address_prefix      = "*"
-    destination_address_prefix = "*"
-  }
-
-  # SSH
-  security_rule {
-    name                       = "SSH"
-    priority                   = 1003
-    direction                  = "Inbound"
-    access                     = "Allow"
-    protocol                   = "Tcp"
-    source_port_range          = "*"
-    destination_port_range     = "22"
-    source_address_prefix      = var.ssh_source_address_prefix
-    destination_address_prefix = "*"
+    content {
+      name                       = security_rule.value.name
+      priority                   = security_rule.value.priority
+      direction                  = security_rule.value.direction
+      access                     = security_rule.value.access
+      protocol                   = security_rule.value.protocol
+      source_port_range          = security_rule.value.source_port_range
+      destination_port_range     = security_rule.value.destination_port_range
+      source_address_prefix      = security_rule.value.source_address_prefix
+      destination_address_prefix = security_rule.value.destination_address_prefix
+    }
   }
 
   tags = local.common_tags
@@ -180,6 +157,7 @@ resource "azurerm_lb" "main" {
   name                = local.lb_name
   location            = azurerm_resource_group.main.location
   resource_group_name = azurerm_resource_group.main.name
+  sku                 = "Standard"
 
   frontend_ip_configuration {
     name                 = "PublicIPAddress"
@@ -195,7 +173,7 @@ resource "azurerm_public_ip" "lb" {
   location            = azurerm_resource_group.main.location
   resource_group_name = azurerm_resource_group.main.name
   allocation_method   = "Static"
-  sku                = "Standard"
+  sku                 = "Standard"
 
   tags = local.common_tags
 }
@@ -211,7 +189,7 @@ resource "azurerm_network_interface" "main" {
     name                          = "internal"
     subnet_id                     = azurerm_subnet.web.id
     private_ip_address_allocation = "Dynamic"
-    public_ip_address_id          = var.vm_count == 1 ? azurerm_public_ip.main[count.index].id : null
+    public_ip_address_id          = var.vm_count > 1 ? null : azurerm_public_ip.main[count.index].id
   }
 
   tags = local.common_tags
@@ -277,6 +255,7 @@ resource "azurerm_linux_virtual_machine" "main" {
   size                            = var.vm_size
   admin_username                  = var.admin_username
   disable_password_authentication = true
+  availability_set_id             = var.vm_count > 1 ? azurerm_availability_set.main[0].id : null
 
   network_interface_ids = [
     azurerm_network_interface.main[count.index].id,
@@ -497,17 +476,6 @@ variable "db_subnet_address_prefix" {
   }
 }
 
-variable "ssh_source_address_prefix" {
-  description = "Source address prefix permitido para SSH"
-  type        = string
-  default     = "*"
-  
-  validation {
-    condition = can(cidrhost(var.ssh_source_address_prefix, 0)) || var.ssh_source_address_prefix == "*"
-    error_message = "SSH source address prefix deve ser um CIDR válido ou '*'."
-  }
-}
-
 variable "vm_image" {
   description = "Imagem da VM"
   type = object({
@@ -518,8 +486,8 @@ variable "vm_image" {
   })
   default = {
     publisher = "Canonical"
-    offer     = "0001-com-ubuntu-server-focal"
-    sku       = "20_04-lts-gen2"
+    offer     = "UbuntuServer"
+    sku       = "20.04-LTS-gen2"
     version   = "latest"
   }
 }
@@ -581,7 +549,7 @@ variable "notification_email" {
   default     = ""
   
   validation {
-    condition = var.notification_email == "" || can(regex("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$", var.notification_email))
+    condition     = var.notification_email == "" || can(regex("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$", var.notification_email))
     error_message = "Notification email deve ser um email válido ou string vazia."
   }
 }
@@ -991,7 +959,7 @@ output "cost_estimation_info" {
       for i in range(var.vm_count) : {
         name           = azurerm_linux_virtual_machine.main[i].name
         size           = azurerm_linux_virtual_machine.main[i].size
-        os_disk_type   = azurerm_linux_virtual_machine.main[i].os_disk[0].storage_account_type
+        os_disk_type   = azurerm_linux_virtual_machine.main[i].os_disk.0.storage_account_type
         data_disk_type = azurerm_managed_disk.data[i].storage_account_type
         data_disk_size = azurerm_managed_disk.data[i].disk_size_gb
       }
@@ -1290,7 +1258,6 @@ data_disk_size_gb = 64
 vnet_address_space        = "10.0.0.0/16"
 web_subnet_address_prefix = "10.0.1.0/24"
 db_subnet_address_prefix  = "10.0.2.0/24"
-ssh_source_address_prefix = "*"
 
 # Lista de CIDRs permitidos para SSH (mais seguro que o source_address_prefix)
 allowed_ssh_cidrs = [
@@ -1302,8 +1269,8 @@ allowed_ssh_cidrs = [
 # Imagem da VM
 vm_image = {
   publisher = "Canonical"
-  offer     = "0001-com-ubuntu-server-focal"
-  sku       = "20_04-lts-gen2"
+  offer     = "UbuntuServer"
+  sku       = "20.04-LTS-gen2"
   version   = "latest"
 }
 
@@ -1352,14 +1319,13 @@ web_subnet_address_prefix = "10.10.1.0/24"
 db_subnet_address_prefix  = "10.10.2.0/24"
 
 # Segurança relaxada para dev
-ssh_source_address_prefix = "*"
 allowed_ssh_cidrs         = ["0.0.0.0/0"]
 
 # Imagem Ubuntu LTS
 vm_image = {
   publisher = "Canonical"
-  offer     = "0001-com-ubuntu-server-focal"
-  sku       = "20_04-lts-gen2"
+  offer     = "UbuntuServer"
+  sku       = "18.04-LTS"
   version   = "latest"
 }
 
@@ -1406,7 +1372,6 @@ web_subnet_address_prefix = "10.0.1.0/24"
 db_subnet_address_prefix  = "10.0.2.0/24"
 
 # Segurança restrita - substitua pelos IPs da sua organização
-ssh_source_address_prefix = "203.0.113.0/24" # Substitua pelo range corporativo
 allowed_ssh_cidrs = [
   "203.0.113.0/24", # Range corporativo
   "198.51.100.0/24" # VPN range
@@ -1415,8 +1380,8 @@ allowed_ssh_cidrs = [
 # Imagem Ubuntu LTS
 vm_image = {
   publisher = "Canonical"
-  offer     = "0001-com-ubuntu-server-focal"
-  sku       = "20_04-lts-gen2"
+  offer     = "UbuntuServer"
+  sku       = "18.04-LTS"
   version   = "latest"
 }
 
