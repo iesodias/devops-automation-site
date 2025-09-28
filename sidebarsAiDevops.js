@@ -60,21 +60,21 @@ module.exports = {
       type: 'category',
       label: 'Módulo 6 - Google Gemini DevOps',
       items: [
-        'modulo-07-google-gemini-devops/introducao-google-gemini-2025',
-        'modulo-07-google-gemini-devops/gemini-free-vs-paid-escolha-estrategica',
-        'modulo-07-google-gemini-devops/gemini-cli-automacao-terminal',
-        'modulo-07-google-gemini-devops/gemini-agent-mode-vscode',
-        'modulo-07-google-gemini-devops/instalando-gemini-cli',
-        'modulo-07-google-gemini-devops/prompts-gemini'
+        'modulo-06-google-gemini-devops/introducao-google-gemini-2025',
+        'modulo-06-google-gemini-devops/gemini-free-vs-paid-escolha-estrategica',
+        'modulo-06-google-gemini-devops/gemini-cli-automacao-terminal',
+        'modulo-06-google-gemini-devops/gemini-agent-mode-vscode',
+        'modulo-06-google-gemini-devops/instalando-gemini-cli',
+        'modulo-06-google-gemini-devops/prompts-gemini'
       ],
     },
     {
       type: 'category',
       label: 'Módulo 7 - Claude AI DevOps',
       items: [
-        'modulo-06-claude-ai-devops/introducao-claude-ai-2025',
-        'modulo-06-claude-ai-devops/claude-free-vs-paid-escolha-estrategica',
-        'modulo-06-claude-ai-devops/claude-code-cli-automacao-terminal'
+        'modulo-07-claude-ai-devops/introducao-claude-ai-2025',
+        'modulo-07-claude-ai-devops/claude-free-vs-paid-escolha-estrategica',
+        'modulo-07-claude-ai-devops/claude-code-cli-automacao-terminal'
       ],
     },
   ],

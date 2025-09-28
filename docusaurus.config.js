@@ -70,6 +70,15 @@ const config = {
         sidebarPath: require.resolve('./sidebarsAiDevops.js'),
       },
     ],
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'github-actions-automacao',
+        path: 'curso-github-actions-udemy',
+        routeBasePath: 'udemy/github-actions-automacao',
+        sidebarPath: require.resolve('./sidebarsGihubActions.js'), // atenção: nome do arquivo mantém grafia atual
+      },
+    ],
   ],
   
 
