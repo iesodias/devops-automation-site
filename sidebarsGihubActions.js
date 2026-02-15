@@ -14,7 +14,7 @@ module.exports = {
     {
       type: 'category',
       label: 'Módulo 2 - Introdução ao GitHub Actions',
-      items: ['modulo-02-Introducao-Github-Actions/github-actions','modulo-02-Introducao-Github-Actions/componentes','modulo-02-Introducao-Github-Actions/arquitetura','modulo-02-Introducao-Github-Actions/interface','modulo-02-Introducao-Github-Actions/O-que-sao-Actions','modulo-02-Introducao-Github-Actions/marketplace'],
+      items: ['modulo-02-Introducao-Github-Actions/github-actions','modulo-02-Introducao-Github-Actions/componentes','modulo-02-Introducao-Github-Actions/arquitetura','modulo-02-Introducao-Github-Actions/interface','modulo-02-Introducao-Github-Actions/actions','modulo-02-Introducao-Github-Actions/marketplace'],
     },
     {
       type: 'category',
@@ -23,8 +23,18 @@ module.exports = {
     },
     {
       type: 'category',
-      label: 'Módulo 4 - Segurança & Segredos',
-      items: ['modulo-04-security/github-token','modulo-04-security/secrets'],
+      label: 'Módulo 4 - Avançado',
+      items: [
+        'modulo-04-avancado/github-token',
+        'modulo-04-avancado/secrets',
+        'modulo-04-avancado/contex-exp',
+        'modulo-04-avancado/env-proc',
+        'modulo-04-avancado/matrix-conc',
+        'modulo-04-avancado/artefatos',
+        'modulo-04-avancado/logs-debug',
+        'modulo-04-avancado/dev-actions',
+        'modulo-04-avancado/custo-performance'
+      ],
     },
   ],
 };

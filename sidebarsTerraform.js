@@ -58,13 +58,18 @@ module.exports = {
     },
     {
       type: 'category',
-      label: 'Modulo 5 - Terraform Cloud',
+      label: 'Modulo 6 - Terraform Cloud',
       items: ['23-terraform-cloud','24-sentinel'],
     },
     {
       type: 'category',
-      label: 'Lab 5 - Terraform Cloud',
+      label: 'Lab 6 - Terraform Cloud',
       items: ['25-lab-sentinel-tfc'],
+    },
+    {
+      type: 'category',
+      label: 'Modulo 7 - IA para IaC',
+      items: ['01-terraform-ia-importancia', '01-terraform-copilot'],
     },
     {
       type: 'category',

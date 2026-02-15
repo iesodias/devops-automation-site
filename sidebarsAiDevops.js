@@ -74,7 +74,17 @@ module.exports = {
       items: [
         'modulo-07-claude-ai-devops/introducao-claude-ai-2025',
         'modulo-07-claude-ai-devops/claude-free-vs-paid-escolha-estrategica',
-        'modulo-07-claude-ai-devops/claude-code-cli-automacao-terminal'
+        'modulo-07-claude-ai-devops/claude-code-cli-automacao-terminal',
+        'modulo-07-claude-ai-devops/claude-artifacts-desenvolvimento-interativo'
+      ],
+    },
+    {
+      type: 'category',
+      label: 'Módulo Extra - Agentes Autônomos',
+      items: [
+        'modulo-extra-01-agentes-autonomos/agentes-autonomos-introducao',
+        'modulo-extra-01-agentes-autonomos/copilot-agent-mode',
+        'modulo-extra-01-agentes-autonomos/devin-ai-overview'
       ],
     },
   ],

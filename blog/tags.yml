@@ -50,6 +50,48 @@ security as code terraform:
   permalink: /security-as-code
   description: Implementação de Security as Code com Terraform
 
+# Platform Engineering
+platform engineering:
+  label: Platform Engineering
+  permalink: /platform-engineering
+  description: Disciplina de construção de plataformas internas de desenvolvimento
+
+internal developer platform:
+  label: Internal Developer Platform
+  permalink: /internal-developer-platform
+  description: Plataformas internas de autoatendimento para desenvolvedores
+
+crossplane backstage argocd:
+  label: Crossplane Backstage ArgoCD
+  permalink: /crossplane-backstage-argocd
+  description: Stack de ferramentas para construção de IDPs
+
+developer experience devex:
+  label: Developer Experience
+  permalink: /developer-experience
+  description: Experiência do desenvolvedor e produtividade
+
+golden paths self-service:
+  label: Golden Paths e Self-Service
+  permalink: /golden-paths-self-service
+  description: Caminhos pré-aprovados e autoatendimento para desenvolvedores
+
+# DevOps Geral
+automação devops:
+  label: Automação DevOps
+  permalink: /automacao-devops
+  description: Práticas e ferramentas de automação DevOps
+
+devops cultura:
+  label: DevOps Cultura
+  permalink: /devops-cultura
+  description: Cultura DevOps e práticas de colaboração
+
+infraestrutura como código:
+  label: Infraestrutura como Código
+  permalink: /infraestrutura-como-codigo
+  description: Práticas e ferramentas de Infrastructure as Code
+
 # Tags originais (mantidas para compatibilidade)
 facebook:
   label: Facebook

@@ -1,5 +1,5 @@
 ---
-id: bonus-certificacao
+id: certificacao-overview
 title: Guia de Estudos - HashiCorp Certified Terraform Associate (003)
 noindex: true
 ---

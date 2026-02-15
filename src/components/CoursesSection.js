@@ -12,6 +12,24 @@ const courses = [
     link: 'https://www.udemy.com/course/devops-automacao-sem-enrolacao/?couponCode=CA1E128B67B670F1B078', // Link adicionado
   },
   {
+    image: '/img/plataforma.png',
+    title: 'Engenharia de Plataforma: Do Conceito à Plataforma Interna',
+    description: 'Domine Engenharia de Plataforma na prática: construa sua Plataforma Interna de Desenvolvimento (IDP) com Crossplane, Backstage e ArgoCD do zero ao deploy.',
+    stars: 5,
+    badge: 'NOVO',
+    tags: ['Crossplane', 'Backstage', 'ArgoCD', 'Platform Engineering', 'IDP'],
+    link: 'https://www.udemy.com/course/engenharia-de-plataforma-do-conceito-a-plataforma-interna/?referralCode=1F85049179AB40CC0D96',
+  },
+  {
+    image: '/img/gha.png',
+    title: 'Github Actions: Guia Completo - Do Zero ao Deploy',
+    description: 'Construa pipelines CI/CD profissionais com GitHub Actions: workflows reutilizáveis, matrix builds, cache, secrets seguros e deploy automatizado para Docker, Kubernetes e Cloud — do zero ao avançado.',
+    stars: 5,
+    badge: 'NOVO',
+    tags: ['Github Actions', 'IA', 'Pipelines', 'CI/CD', 'Kubernetes'],
+    link: 'https://www.udemy.com/course/github-actions-guia-completo-do-zero-ao-deploy/?referralCode=60082D18B7A95410D60C',
+  },
+  {
     image: '/img/ia.png',
     title: 'Engenharia de Prompt: Domine ChatGPT, Gemini e Claude',
     description: 'Aprenda técnicas avançadas de prompt engineering com as principais IAs do mercado. Domine ChatGPT, Gemini e Claude para automações inteligentes.',
@@ -22,8 +40,8 @@ const courses = [
   },
   {
     image: '/img/terraform.png',
-    title: 'Terraform: IaC no Azure Sem Enrolação',
-    description: 'Domine infraestrutura como código no Azure com Terraform na prática. Automatize recursos cloud de forma profissional e escalável.',
+    title: 'Terraform + IA: Domine AWS e Azure na Prática',
+    description: 'Domine infraestrutura como código no Azure com Terraform na prática. Automatize recursos cloud de forma profissional e escalável usando IA',
     stars: 5,
     badge: 'NOVO',
     tags: ['Terraform', 'Azure', 'IaC', 'Cloud', 'Automation'],
@@ -52,7 +70,7 @@ const courses = [
 export default function CoursesSection() {
   return (
     <section className={styles.section}>
-      <h2 className={styles.heading}>Explore nossos cursos</h2>
+      <h2 className={styles.heading}>Explore nossos cursos no Udemy</h2>
       <div className={styles.grid}>
         {courses.map((course, index) => (
           <div key={index} className={styles.card}>
