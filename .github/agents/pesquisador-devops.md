@@ -1,8 +1,8 @@
 ---
 name: pesquisador-devops
-user-invokable: false
+user-invocable: false
 model: 'Claude Opus 4.6 (copilot)'
-tools: ['read', 'search']
+tools: [read, search, web]
 ---
 
 # Pesquisador DevOps - Agente Especialista em Pesquisa Técnica

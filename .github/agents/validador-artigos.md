@@ -1,6 +1,6 @@
 ---
 name: validador-artigos
-user-invokable: false
+user-invocable: false
 model: 'Claude Opus 4.5 (copilot)'
 tools: ['read', 'edit']
 ---

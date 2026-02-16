@@ -1,6 +1,6 @@
 ---
 name: escritor-artigos
-user-invokable: false
+user-invocable: false
 model: 'Claude Opus 4.6 (copilot)'
 tools: ['read', 'edit']
 ---
