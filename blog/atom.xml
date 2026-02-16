@@ -2,11 +2,145 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://devopsautomation.com.br/blog</id>
     <title>Aprenda DevOps do zero com tutoriais prático Blog</title>
-    <updated>2026-02-17T00:00:00.000Z</updated>
+    <updated>2026-02-18T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://devopsautomation.com.br/blog"/>
     <subtitle>Aprenda DevOps do zero com tutoriais prático Blog</subtitle>
     <icon>https://devopsautomation.com.br/img/favicon.png</icon>
+    <entry>
+        <title type="html"><![CDATA[Context Rot: Por Que Mais Contexto Não Significa Melhor Performance em LLMs]]></title>
+        <id>https://devopsautomation.com.br/blog/context-rot-engenharia-contexto-llms</id>
+        <link href="https://devopsautomation.com.br/blog/context-rot-engenharia-contexto-llms"/>
+        <updated>2026-02-18T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Entenda o fenômeno de degradação de contexto em LLMs, os dados que comprovam o problema e como aplicar engenharia de contexto para usar IA de forma efetiva em DevOps.]]></summary>
+        <content type="html"><![CDATA[<p>A prática comum de fornecer grandes volumes de contexto a LLMs na expectativa de obter respostas mais precisas enfrenta uma limitação arquitetural documentada: <strong>context rot</strong> (degradação de contexto). Pesquisas recentes demonstram que aumentar o tamanho da janela de contexto correlaciona-se com degradação mensurável da performance em tarefas que exigem raciocínio sobre informações dispersas.</p>
+<blockquote>
+<p><strong>Quer dominar IA na prática para DevOps?</strong> O curso <a href="https://www.udemy.com/course/inteligencia-artificial-para-devops/?referralCode=B14E9F49C86C87F5CB28" target="_blank" rel="noopener noreferrer" class="">Inteligência Artificial para DevOps: Automação e Melhoria Contínua</a> ensina a usar ChatGPT, Gemini e Claude de forma efetiva, incluindo engenharia de prompts e otimização de contexto.</p>
+</blockquote>
+<p>Este fenômeno tem implicações diretas para equipes de DevOps, Platform Engineering e SRE que utilizam LLMs para análise de código, debugging e automação.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="o-que-é-context-rot">O que é Context Rot<a href="https://devopsautomation.com.br/blog/context-rot-engenharia-contexto-llms#o-que-%C3%A9-context-rot" class="hash-link" aria-label="Direct link to O que é Context Rot" title="Direct link to O que é Context Rot" translate="no">​</a></h2>
+<p>Context rot refere-se à degradação progressiva da capacidade de raciocínio de LLMs à medida que a janela de contexto aumenta. Diferente de sistemas com memória seletiva, LLMs processam uniformemente todos os tokens no contexto através do mecanismo de attention, resultando em diluição da atenção disponível para informações críticas.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="o-problema-do-mecanismo-de-attention">O problema do mecanismo de Attention<a href="https://devopsautomation.com.br/blog/context-rot-engenharia-contexto-llms#o-problema-do-mecanismo-de-attention" class="hash-link" aria-label="Direct link to O problema do mecanismo de Attention" title="Direct link to O problema do mecanismo de Attention" translate="no">​</a></h2>
+<p>LLMs baseados em arquitetura Transformer (GPT, Claude, Gemini) utilizam o mecanismo de <strong>attention</strong> para processar contexto. Para cada token gerado, o modelo computa operações de atenção sobre todos os tokens anteriores, resultando em complexidade computacional quadrática O(n²).</p>
+<p><strong>Características do problema:</strong></p>
+<ul>
+<li class="">N tokens no contexto = (N-1) operações de attention por token gerado</li>
+<li class="">10x mais tokens = ~100x mais computação</li>
+<li class="">Custo computacional: O(n²) para sequências de comprimento n</li>
+</ul>
+<p>Pesquisadores da Anthropic documentam que LLMs operam com um "orçamento de atenção" finito. A capacidade total de atenção do modelo distribui-se uniformemente pelos tokens no contexto, resultando em diluição proporcional ao tamanho da janela.</p>
+<p><strong>Implicação arquitetural:</strong> Não existe alternativa viável ao attention que mantenha a capacidade de raciocínio sobre dependências de longo alcance. Melhorias incrementais (sparse attention, sliding windows) reduzem custo computacional mas não eliminam a degradação de performance.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="evidências-empíricas-de-degradação">Evidências Empíricas de Degradação<a href="https://devopsautomation.com.br/blog/context-rot-engenharia-contexto-llms#evid%C3%AAncias-emp%C3%ADricas-de-degrada%C3%A7%C3%A3o" class="hash-link" aria-label="Direct link to Evidências Empíricas de Degradação" title="Direct link to Evidências Empíricas de Degradação" translate="no">​</a></h2>
+<p>Com o lançamento de modelos com janelas de contexto expandidas (128k-200k tokens), pesquisadores conduziram estudos sistemáticos para quantificar a performance efetiva em contextos longos.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="teste-needle-in-a-haystack">Teste "Needle in a Haystack"<a href="https://devopsautomation.com.br/blog/context-rot-engenharia-contexto-llms#teste-needle-in-a-haystack" class="hash-link" aria-label="Direct link to Teste &quot;Needle in a Haystack&quot;" title="Direct link to Teste &quot;Needle in a Haystack&quot;" translate="no">​</a></h3>
+<p><strong>Metodologia:</strong> Inserção de informação específica em posição aleatória dentro de documento longo, seguida de query direta sobre essa informação.</p>
+<p><strong>Resultados iniciais (2023-2024):</strong></p>
+<ul>
+<li class="">GPT-4 Turbo e Claude 2.1 apresentaram degradação correlacionada com tamanho do contexto</li>
+<li class="">Performance especialmente degradada quando informação alvo localizada no meio da janela de contexto</li>
+<li class="">Claude 3 (março 2024) demonstrou melhorias significativas nesse benchmark específico</li>
+</ul>
+<p><strong>Limitação do teste:</strong> Recuperação direta de informação não requer raciocínio multi-hop, subestimando o impacto real de context rot em tarefas complexas.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="teste-multi-hop-reasoning-adobe-research-fev2025">Teste Multi-Hop Reasoning (Adobe Research, fev/2025)<a href="https://devopsautomation.com.br/blog/context-rot-engenharia-contexto-llms#teste-multi-hop-reasoning-adobe-research-fev2025" class="hash-link" aria-label="Direct link to Teste Multi-Hop Reasoning (Adobe Research, fev/2025)" title="Direct link to Teste Multi-Hop Reasoning (Adobe Research, fev/2025)" translate="no">​</a></h3>
+<p><strong>Metodologia:</strong> Raciocínio que exige combinação de informação do contexto com conhecimento base do modelo.</p>
+<p><strong>Exemplo de tarefa:</strong></p>
+<ul>
+<li class="">Contexto: "Yuki mora ao lado da Semper Opera House"</li>
+<li class="">Query: "Qual personagem esteve em Dresden?"</li>
+<li class="">Requisito: Modelo deve inferir que Semper Opera House → Dresden (conhecimento base) + Yuki mora ao lado (contexto) = Yuki esteve em Dresden</li>
+</ul>
+<p><strong>Resultados quantitativos:</strong></p>
+<table><thead><tr><th>Modelo</th><th>Contexto Curto</th><th>Contexto Longo (32k)</th><th>Queda</th></tr></thead><tbody><tr><td>GPT-4o</td><td>99%</td><td>70%</td><td>-29%</td></tr><tr><td>Claude 3.5 Sonnet</td><td>88%</td><td>30%</td><td>-58%</td></tr><tr><td>Gemini 2.5 Flash</td><td>94%</td><td>48%</td><td>-46%</td></tr><tr><td>Llama 4 Scout</td><td>82%</td><td>22%</td><td>-60%</td></tr></tbody></table>
+<p><strong>Tarefas de dois saltos lógicos</strong> (ex: "Qual personagem esteve no estado da Saxônia?" → Dresden está na Saxônia → Semper Opera House está em Dresden → Yuki mora ao lado) apresentam degradação ainda mais acentuada.</p>
+<p><strong>Conclusão:</strong> Degradação é arquitetural, não específica a um modelo. Todos os modelos baseados em Transformer apresentam o fenômeno em graus variáveis.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="implicações-para-devops-e-platform-engineering">Implicações para DevOps e Platform Engineering<a href="https://devopsautomation.com.br/blog/context-rot-engenharia-contexto-llms#implica%C3%A7%C3%B5es-para-devops-e-platform-engineering" class="hash-link" aria-label="Direct link to Implicações para DevOps e Platform Engineering" title="Direct link to Implicações para DevOps e Platform Engineering" translate="no">​</a></h2>
+<p>Context rot impacta diretamente casos de uso comuns em operações DevOps:</p>
+<p><strong>1) Análise de código: volume ≠ precisão</strong></p>
+<p>Fornecer codebase completa degrada performance comparada a subset curado. Modelos tendem a produzir sugestões genéricas quando contexto excede orçamento de atenção efetivo.</p>
+<p><strong>2) Limite arquitetural para tarefas longas</strong></p>
+<p>Apesar de melhorias em capacidade de raciocínio (2024: tarefas de horas; 2025: tarefas de dia), context rot impõe limite fundamental. Escalar horizontalmente (mais contexto) não resolve o problema de escala vertical (raciocínio profundo sobre contexto existente).</p>
+<p><strong>3) Engenharia de contexto como competência técnica</strong></p>
+<p>Performance depende de curadoria de contexto:</p>
+<ul>
+<li class="">Filtragem de informação irrelevante</li>
+<li class="">Priorização de dados críticos</li>
+<li class="">Estruturação hierárquica de informação</li>
+<li class="">Remoção de redundância</li>
+</ul>
+<p>Engenharia de contexto torna-se skill diferenciadora para uso efetivo de LLMs em produção.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="estratégias-de-engenharia-de-contexto">Estratégias de Engenharia de Contexto<a href="https://devopsautomation.com.br/blog/context-rot-engenharia-contexto-llms#estrat%C3%A9gias-de-engenharia-de-contexto" class="hash-link" aria-label="Direct link to Estratégias de Engenharia de Contexto" title="Direct link to Estratégias de Engenharia de Contexto" translate="no">​</a></h2>
+<p>Mitigar context rot requer tratamento de contexto como recurso escasso com custo computacional e de performance associado.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-curadoria-agressiva-de-contexto">1) Curadoria agressiva de contexto<a href="https://devopsautomation.com.br/blog/context-rot-engenharia-contexto-llms#1-curadoria-agressiva-de-contexto" class="hash-link" aria-label="Direct link to 1) Curadoria agressiva de contexto" title="Direct link to 1) Curadoria agressiva de contexto" translate="no">​</a></h3>
+<p><strong>Princípio:</strong> Redução de contexto com manutenção de signal-to-noise ratio maximiza performance.</p>
+<p><strong>Métricas observadas:</strong> Prompts de 500 tokens curados superam prompts de 5.000 tokens com informação redundante ou irrelevante em benchmarks de raciocínio complexo.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-estruturação-hierárquica">2) Estruturação hierárquica<a href="https://devopsautomation.com.br/blog/context-rot-engenharia-contexto-llms#2-estrutura%C3%A7%C3%A3o-hier%C3%A1rquica" class="hash-link" aria-label="Direct link to 2) Estruturação hierárquica" title="Direct link to 2) Estruturação hierárquica" translate="no">​</a></h3>
+<p><strong>Pattern recomendado:</strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">1. Contexto global (definição do problema): 1-2 sentenças</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">2. Informação específica (código, logs, configs): anotada e comentada</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">3. Query explícita: no final do contexto</span><br></span></code></pre></div></div>
+<p><strong>Justificativa:</strong> Testes "Needle in a Haystack" demonstram que informação posicionada no meio da janela de contexto sofre maior degradação de recall. Informações no início e fim do contexto têm maior probabilidade de influenciar geração.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-iteração-com-contexto-incremental">3) Iteração com contexto incremental<a href="https://devopsautomation.com.br/blog/context-rot-engenharia-contexto-llms#3-itera%C3%A7%C3%A3o-com-contexto-incremental" class="hash-link" aria-label="Direct link to 3) Iteração com contexto incremental" title="Direct link to 3) Iteração com contexto incremental" translate="no">​</a></h3>
+<p><strong>Abordagem:</strong></p>
+<ol>
+<li class="">Prompt inicial: contexto mínimo necessário + query</li>
+<li class="">Se output insatisfatório: adicionar contexto específico baseado em gaps identificados</li>
+<li class="">Refinar iterativamente</li>
+</ol>
+<p><strong>Vantagem:</strong> Mantém orçamento de atenção concentrado em subset relevante do espaço de informação, evitando diluição prematura.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-delegação-a-ferramentas-especializadas">4) Delegação a ferramentas especializadas<a href="https://devopsautomation.com.br/blog/context-rot-engenharia-contexto-llms#4-delega%C3%A7%C3%A3o-a-ferramentas-especializadas" class="hash-link" aria-label="Direct link to 4) Delegação a ferramentas especializadas" title="Direct link to 4) Delegação a ferramentas especializadas" translate="no">​</a></h3>
+<p><strong>Princípio:</strong> Ferramentas domain-specific implementam curadoria automática de contexto.</p>
+<p><strong>Exemplos:</strong></p>
+<ul>
+<li class=""><strong>Log analysis:</strong> Ferramentas de observability aplicam filtering e aggregation antes de enviar subset a LLMs</li>
+<li class=""><strong>Code review:</strong> GitHub Copilot e ferramentas similares implementam context retrieval baseado em similaridade semântica</li>
+<li class=""><strong>Documentation search:</strong> RAG (Retrieval-Augmented Generation) recupera chunks relevantes em vez de fornecer documentação completa</li>
+</ul>
+<p><strong>Resultado:</strong> Redução de janela de contexto necessária mantendo informação crítica.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="direções-de-pesquisa-e-limitações-atuais">Direções de Pesquisa e Limitações Atuais<a href="https://devopsautomation.com.br/blog/context-rot-engenharia-contexto-llms#dire%C3%A7%C3%B5es-de-pesquisa-e-limita%C3%A7%C3%B5es-atuais" class="hash-link" aria-label="Direct link to Direções de Pesquisa e Limitações Atuais" title="Direct link to Direções de Pesquisa e Limitações Atuais" translate="no">​</a></h2>
+<p><strong>Estado atual:</strong> Aumento de janela de contexto é tecnicamente viável. Dario Amodei (CEO, Anthropic) afirmou em julho/2025 que janelas de 100M tokens são factíveis tecnicamente.</p>
+<p><strong>Limitações identificadas:</strong></p>
+<ul>
+<li class="">Custo computacional proibitivo (O(n²) scaling)</li>
+<li class="">Degradação de performance não resolvida por aumento de janela</li>
+<li class="">Problema fundamental: não é o tamanho da janela, mas utilização efetiva dela</li>
+</ul>
+<p><strong>Soluções potenciais em pesquisa:</strong></p>
+<ul>
+<li class="">Attention mechanisms alternativos (linear attention, state space models)</li>
+<li class="">Hierarchical context processing</li>
+<li class="">Selective attention com learned gating</li>
+<li class="">Hybrid architectures combinando retrieval e reasoning</li>
+</ul>
+<p><strong>Status:</strong> Nenhuma alternativa demonstrou paridade com attention em benchmarks de raciocínio complexo mantendo eficiência computacional.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="recomendações-operacionais">Recomendações Operacionais<a href="https://devopsautomation.com.br/blog/context-rot-engenharia-contexto-llms#recomenda%C3%A7%C3%B5es-operacionais" class="hash-link" aria-label="Direct link to Recomendações Operacionais" title="Direct link to Recomendações Operacionais" translate="no">​</a></h2>
+<p><strong>Para equipes DevOps/SRE utilizando LLMs em produção:</strong></p>
+<p><strong>1. Contexto como recurso finito</strong>
+Tratar janela de contexto como recurso limitado com custo associado. "Contexto ilimitado" é marketing; performance efetiva degrada com aumento de contexto.</p>
+<p><strong>2. Engenharia de contexto como competência técnica</strong>
+Investir em desenvolvimento de skills de curadoria de contexto, estruturação de prompts e filtering de informação. Paralelo direto com otimização de queries SQL ou estruturação de logs.</p>
+<p><strong>3. Métricas baseadas em resultado</strong>
+Avaliar prompts por resultado (acurácia, relevância, utilidade) não por tamanho. Prompt de 200 tokens com output correto supera prompt de 10k tokens com output inadequado.</p>
+<p><strong>4. Ceticismo sobre "more context" como solução</strong>
+Adicionar contexto indiscriminadamente frequentemente degrada performance. Avaliar cada adição de contexto quanto a signal-to-noise ratio.</p>
+<blockquote>
+<p><strong>Quer aprender a usar IA de forma efetiva?</strong> No curso <a href="https://www.udemy.com/course/inteligencia-artificial-para-devops/?referralCode=B14E9F49C86C87F5CB28" target="_blank" rel="noopener noreferrer" class="">Inteligência Artificial para DevOps: Automação e Melhoria Contínua</a>, você aprende engenharia de prompts aplicada, otimização de contexto e uso prático de ChatGPT, Gemini e Claude para automação DevOps.</p>
+</blockquote>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="conclusão">Conclusão<a href="https://devopsautomation.com.br/blog/context-rot-engenharia-contexto-llms#conclus%C3%A3o" class="hash-link" aria-label="Direct link to Conclusão" title="Direct link to Conclusão" translate="no">​</a></h2>
+<p>Context rot constitui limitação arquitetural mensurável de LLMs baseados em Transformer, não problema teórico ou futuro. Dados quantitativos demonstram degradação significativa:</p>
+<ul>
+<li class="">GPT-4o: -29% acurácia em contextos de 32k tokens</li>
+<li class="">Claude 3.5 Sonnet: -58% acurácia em contextos similares</li>
+<li class="">Degradação mais severa em tarefas multi-hop reasoning</li>
+</ul>
+<p>Esta degradação é característica arquitetural do attention mechanism, não bug corrigível via scaling.</p>
+<p><strong>Caminho forward:</strong> Engenharia de contexto rigorosa maximiza performance de modelos atuais sem depender de melhorias arquiteturais futuras. Curadoria de contexto, estruturação hierárquica e filtragem agressiva de ruído são práticas operacionais essenciais para uso efetivo de LLMs em ambientes de produção.</p>
+<p>Equipes que tratam contexto como recurso escasso e curado obtêm resultados superiores comparadas a abordagens de "more context" indiscriminadas.</p>]]></content>
+        <author>
+            <name>Iêso Dias</name>
+            <uri>https://youtube.com/@iesodias</uri>
+        </author>
+        <category label="Automação DevOps" term="Automação DevOps"/>
+        <category label="DevOps Cultura" term="DevOps Cultura"/>
+        <category label="Developer Experience" term="Developer Experience"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Crossplane: Como Transformar o Kubernetes no Control Plane da Sua Infraestrutura]]></title>
         <id>https://devopsautomation.com.br/blog/crossplane-control-plane-platform-engineering</id>
