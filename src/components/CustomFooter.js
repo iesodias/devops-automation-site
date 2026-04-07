@@ -127,15 +127,6 @@ export default function CustomFooter() {
         >
           {/* ── Coluna 1 · Redes Sociais ── */}
           <div>
-            <img
-              src="/img/devops-logo.png"
-              alt="DevOps Automation"
-              style={{
-                maxWidth: '140px',
-                marginBottom: '1.5rem',
-                display: 'block',
-              }}
-            />
             <p style={sectionHeading}>Siga nas redes</p>
             <ul
               style={{
