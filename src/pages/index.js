@@ -1,6 +1,7 @@
 import React from 'react';
 import Layout from '@theme/Layout';
 import CoursesSection from '../components/CoursesSection';
+import styles from './index.module.css';
 
 export default function Home() {
   return (
@@ -8,49 +9,27 @@ export default function Home() {
       title="Devops para Iniciantes"
       description="Aprenda DevOps com laboratórios práticos!"
     >
-      <main style={{ backgroundColor: '#ffffff', fontFamily: 'Arial, sans-serif' }}>
+      <main className={styles.main}>
         {/* HERO COM BACKGROUND E LOGO IMPACTANTE */}
-        <div
-          style={{
-            backgroundImage: "url('/img/hero-bg.png')",
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            padding: '6rem 2rem 5rem',
-            textAlign: 'center',
-            position: 'relative',
-          }}
-        >
-          <div style={{ maxWidth: '900px', margin: '0 auto', color: '#1c1e21' }}>
-            <div style={{ marginBottom: '2rem' }}>
+        <div className={styles.hero}>
+          <div className={styles.heroInner}>
+            <div className={styles.logoWrap}>
               <img
                 src="/img/devops-logo.png"
                 alt="DevOps Automation Logo"
-                style={{
-                  maxWidth: '420px',
-                  width: '100%',
-                  height: 'auto',
-                  margin: '0 auto',
-                }}
+                className={styles.logo}
               />
             </div>
 
-            <p style={{ fontSize: '1.2rem', color: '#333', marginBottom: '3rem' }}>
+            <p className={styles.heroSubtitle}>
               Aprenda as habilidades mais procuradas em DevOps e Cloud com cursos objetivos, práticos e voltados para o mercado
             </p>
 
-            <div style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', gap: '1rem' }}>
+            <div className={styles.heroCtas}>
               <a
                 id="cursos"
                 href="/#cursos"
-                style={{
-                  backgroundColor: '#1c2385',
-                  color: 'white',
-                  padding: '1rem 2.5rem',
-                  borderRadius: '8px',
-                  fontSize: '1.1rem',
-                  fontWeight: 'bold',
-                  textDecoration: 'none',
-                }}
+                className={styles.ctaPrimary}
               >
                 🚀 Comece Agora
               </a>
@@ -59,14 +38,7 @@ export default function Home() {
                 href="https://youtube.com/@iesodias"
                 target="_blank"
                 rel="noopener noreferrer"
-                style={{
-                  color: '#1c2385',
-                  fontWeight: 'bold',
-                  fontSize: '1rem',
-                  textDecoration: 'underline',
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                }}
+                className={styles.ctaSecondary}
               >
                 ou conheça o canal →
               </a>
@@ -78,31 +50,19 @@ export default function Home() {
         <CoursesSection />
 
         {/* BLOCO YOUTUBE COM IMAGEM NOVA */}
-        <div
-          style={{
-            padding: '3rem 2rem',
-            textAlign: 'center',
-            backgroundColor: '#f9f9f9',
-          }}
-        >
-          <div style={{ maxWidth: '800px', margin: '0 auto' }}>
+        <div className={styles.youtube}>
+          <div className={styles.youtubeInner}>
             <img
               src="/img/devops_banner_youtube.png"
               alt="Banner YouTube DevOps"
-              style={{
-                width: '100%',
-                maxWidth: '727px',
-                height: 'auto',
-                marginBottom: '2rem',
-                borderRadius: '16px',
-              }}
+              className={styles.youtubeBanner}
             />
 
-            <h2 style={{ fontSize: '1.8rem', fontWeight: 'bold', color: '#1c1e21', marginBottom: '1rem' }}>
+            <h2 className={styles.youtubeHeading}>
               Quer aprender mais sobre DevOps na prática?
             </h2>
 
-            <p style={{ fontSize: '1rem', color: '#444', marginBottom: '2rem' }}>
+            <p className={styles.youtubeText}>
               No canal do YouTube eu publico vídeos semanais com dicas, labs e tutoriais práticos. Já somos milhares aprendendo juntos!
             </p>
 
@@ -110,15 +70,7 @@ export default function Home() {
               href="https://youtube.com/@iesodias"
               target="_blank"
               rel="noopener noreferrer"
-              style={{
-                backgroundColor: '#f39132',
-                color: 'white',
-                padding: '1rem 2rem',
-                borderRadius: '8px',
-                fontSize: '1rem',
-                fontWeight: 'bold',
-                textDecoration: 'none',
-              }}
+              className={styles.youtubeBtn}
             >
               👉 Conheça o Canal no YouTube
             </a>
@@ -126,34 +78,20 @@ export default function Home() {
         </div>
 
         {/* BLOCO SOBRE O INSTRUTOR */}
-        <div
-          id="instrutor"
-          style={{
-            backgroundColor: '#ffffff',
-            padding: '4rem 2rem',
-            margin: '0 auto',
-            maxWidth: '800px',
-            textAlign: 'center',
-          }}
-        >
-          <h2 style={{ fontSize: '2rem', fontWeight: 'bold', color: '#1c1e21', marginBottom: '1rem' }}>
+        <div id="instrutor" className={styles.instructor}>
+          <h2 className={styles.instructorHeading}>
             Conheça o Instrutor
           </h2>
 
-          <p style={{ fontSize: '1rem', color: '#333', marginBottom: '2rem' }}>
+          <p className={styles.instructorText}>
             Iêso Dias é especialista em DevOps com anos de experiência em automação, pipelines, cloud computing e ensino técnico prático.
           </p>
 
-          <div>
+          <div className={styles.instructorImgWrap}>
             <img
               src="/img/career-cta.png"
               alt="Iêso Dias"
-              style={{
-                maxWidth: '727px',
-                width: '100%',
-                height: 'auto',
-                borderRadius: '16px',
-              }}
+              className={styles.instructorImg}
             />
           </div>
         </div>

@@ -41,6 +41,14 @@
     max-width: 100%;
     text-align: left;
     padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 32px rgba(28, 35, 133, 0.15);
   }
   
   .imageWrapper {
@@ -53,19 +61,26 @@
     width: 100%;
     border-radius: 0.75rem;
     object-fit: cover;
+    transition: transform 0.4s ease;
+  }
+
+  .card:hover .imageWrapper img {
+    transform: scale(1.05);
   }
   
   .badge {
     position: absolute;
     top: 12px;
-    left: 12px; /* movido pra esquerda */
-    background: #2ecc71;
+    left: 12px;
+    background: #bc2e7d;
     color: white;
     font-weight: bold;
     font-size: 0.75rem;
     padding: 5px 10px;
     border-radius: 0.5rem;
     z-index: 2;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
   }
   
   .stars {
@@ -85,6 +100,7 @@
     font-size: 1rem;
     margin-bottom: 1rem;
     color: #444;
+    flex-grow: 1;
   }
   
   .tags {
@@ -113,5 +129,15 @@
     font-weight: 600;
     font-size: 0.9rem;
     text-align: center;
+    margin-top: auto;
+    align-self: flex-start;
+    transition: background-color 0.25s ease, transform 0.2s ease;
+  }
+
+  .button:hover {
+    background-color: #f39132;
+    color: white;
+    text-decoration: none;
+    transform: translateY(-1px);
   }
   
