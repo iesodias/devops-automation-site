@@ -91,5 +91,5 @@ When using the Orchestrator to delegate tasks, use these model overrides:
 | Agent | Model | Notes |
 |-------|-------|-------|
 | **Coder** | `gpt-5.3-codex` | Preferred for all code implementation tasks |
-| **Designer** | (default) | Uses default model |
-| **Planner** | (default) | Uses default model |
+| **Designer** | `claude-sonnet-4.6` | Best cost-benefit for CSS/UI design tasks |
+| **Planner** | `claude-opus-4.6` | Premium reasoning for planning and architecture |
