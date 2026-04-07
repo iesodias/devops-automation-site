@@ -14,11 +14,15 @@ const config = {
   deploymentBranch: 'gh-pages',
   trailingSlash: false,
   onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'warn',
+  markdown: {
+    hooks: {
+      onBrokenMarkdownLinks: 'warn',
+    },
+  },
 
   i18n: {
-    defaultLocale: 'en',
-    locales: ['en'],
+    defaultLocale: 'pt-BR',
+    locales: ['pt-BR'],
   },
 
   presets: [
@@ -76,11 +80,21 @@ const config = {
         id: 'github-actions-automacao',
         path: 'curso-github-actions-udemy',
         routeBasePath: 'udemy/github-actions-automacao',
-        sidebarPath: require.resolve('./sidebarsGihubActions.js'), // atenção: nome do arquivo mantém grafia atual
+        sidebarPath: require.resolve('./sidebarsGihubActions.js'),
       },
     ],
   ],
-  
+
+  headTags: [
+    {
+      tagName: 'script',
+      attributes: {},
+      innerHTML: `
+        window.dataLayer = window.dataLayer || [];
+        window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
+      `,
+    },
+  ],
 
   themeConfig: {
     image: 'img/devops-logo-social.png',
@@ -98,9 +112,9 @@ const config = {
           position: 'left',
           label: 'Tutoriais',
         },
-        { to: '/#cursos', label: 'Cursos', position: 'left' },
-        { to: 'https://youtube.com/@iesodias', label: 'YouTube', position: 'left' },
-        { to: '/#instrutor', label: 'Instrutor', position: 'left' },
+        { href: '/#cursos', label: 'Cursos', position: 'left' },
+        { href: 'https://youtube.com/@iesodias', label: 'YouTube', position: 'left' },
+        { href: '/#instrutor', label: 'Instrutor', position: 'left' },
       ],
     },
     prism: {
@@ -114,91 +128,3 @@ const config = {
 };
 
 export default config;
-
-
-// @ts-check
-// import { themes as prismThemes } from 'prism-react-renderer';
-
-// /** @type {import('@docusaurus/types').Config} */
-// const config = {
-//   title: 'Aprenda DevOps do zero com tutoriais prático',
-//   tagline: 'Automação, Cloud e DevOps sem enrolação',
-//   favicon: 'img/favicon.png',
-
-//   url: 'https://devopsautomation.com.br',
-//   baseUrl: '/',
-//   organizationName: 'iesodias',
-//   projectName: 'devops-automation-site',
-//   deploymentBranch: 'gh-pages',
-//   trailingSlash: false,
-//   onBrokenLinks: 'throw',
-//   onBrokenMarkdownLinks: 'warn',
-
-//   i18n: {
-//     defaultLocale: 'en',
-//     locales: ['en'],
-//   },
-
-//   presets: [
-//     [
-//       'classic',
-//       {
-//         docs: {
-//           sidebarPath: './sidebars.js',
-//           editUrl: 'https://github.com/iesodias/devops-automation-site/tree/main/',
-//         },
-//         blog: {
-//           showReadingTime: true,
-//           feedOptions: {
-//             type: ['rss', 'atom'],
-//             xslt: true,
-//           },
-//           editUrl: 'https://github.com/iesodias/devops-automation-site/tree/main/',
-//           onInlineTags: 'warn',
-//           onInlineAuthors: 'warn',
-//           onUntruncatedBlogPosts: 'warn',
-//         },
-//         theme: {
-//           customCss: './src/css/custom.css',
-//         },
-//         // ✅ GA4 com gtag
-//         gtag: {
-//           trackingID: 'G-BRH4789ZE0',
-//           anonymizeIP: true,
-//         },
-//       },
-//     ],
-//   ],
-
-//   themeConfig: {
-//     image: 'img/devops-logo-social.png',
-//     navbar: {
-//       logo: {
-//         alt: 'Logo DevOps Automation',
-//         src: 'img/logo-home.png',
-//       },
-//       items: [
-//         { to: '/', label: 'Home', position: 'left' },
-//         { to: '/blog', label: 'Blog', position: 'left' },
-//         {
-//           type: 'docSidebar',
-//           sidebarId: 'tutorialSidebar',
-//           position: 'left',
-//           label: 'Tutoriais',
-//         },
-//         { to: '/#cursos', label: 'Cursos', position: 'left' },
-//         { to: 'https://youtube.com/@iesodias', label: 'YouTube', position: 'left' },
-//         { to: '/#instrutor', label: 'Instrutor', position: 'left' },
-//       ],
-//     },
-//     prism: {
-//       theme: prismThemes.github,
-//       darkTheme: prismThemes.dracula,
-//     },
-//     colorMode: {
-//       disableSwitch: true,
-//     },
-//   },
-// };
-
-// export default config;

@@ -25,6 +25,8 @@ date: 2025-11-23
 
 O universo DevOps está em constante evolução, e em 2025 testemunhamos um dos avanços mais significativos: **agentes autônomos de IA** que não apenas sugerem código, mas executam tarefas completas de desenvolvimento de forma independente. O **GitHub Copilot Agent Mode** (oficialmente chamado de **GitHub Copilot Coding Agent**) representa essa nova era, transformando radicalmente a forma como equipes DevOps trabalham com infraestrutura como código, pipelines CI/CD e automação de processos.
 
+<!-- truncate -->
+
 ## O Que É o GitHub Copilot Agent Mode?
 
 Diferente do Copilot tradicional que funciona como assistente de código em tempo real dentro do editor, o **Copilot Agent Mode** é um agente autônomo que trabalha de forma independente em segundo plano, assumindo tarefas completas de desenvolvimento. Ele pode:

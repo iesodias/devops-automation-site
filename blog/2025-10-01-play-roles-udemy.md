@@ -23,6 +23,8 @@ Imagine poder praticar para uma entrevista de emprego decisiva quantas vezes qui
 
 Neste artigo, você vai entender tudo sobre essa ferramenta revolucionária, como ela funciona na prática – especialmente no celular – e como a aplicação exclusiva que desenvolvi no curso **"DevOps Automação sem Enrolação"** pode ser o diferencial para você se preparar e conquistar uma vaga nas áreas de **DevOps e Site Reliability Engineering (SRE)**.
 
+<!-- truncate -->
+
 ## O Que é o Role Play da Udemy e Como Ele Pode Alavancar Sua Carreira?
 
 O **Role Play** é um recurso interativo da plataforma Udemy que permite aos instrutores criarem cenários personalizados onde os alunos podem praticar habilidades conversando com um personagem de IA. A ferramenta em si é flexível - cada instrutor define como vai utilizá-la de acordo com os objetivos do seu curso.

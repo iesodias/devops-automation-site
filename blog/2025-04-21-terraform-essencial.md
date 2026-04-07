@@ -19,6 +19,8 @@ date: 2025-02-20
 
 No mundo acelerado da computação em nuvem e DevOps, a capacidade de gerenciar infraestrutura de forma ágil, segura e escalável é um diferencial competitivo. O **Terraform**, desenvolvido pela **HashiCorp**, emergiu como uma das ferramentas mais poderosas para **Infraestrutura como Código (IaC)**, transformando a maneira como empresas provisionam, gerenciam e automatizam seus ambientes de TI.
 
+<!-- truncate -->
+
 ---
 
 ## O que é o Terraform e como ele surgiu?

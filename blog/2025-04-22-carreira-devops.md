@@ -27,6 +27,8 @@ A computação em nuvem revolucionou a TI, mas seu verdadeiro potencial só é a
 
 Em 2017, quando migrei para essa área, DevOps ainda era associado apenas a pipelines de CI/CD. Hoje, percebemos que a automação abrange orquestração de infraestrutura, segurança, custos e até tomadas de decisão – tudo isso com ferramentas como Terraform, Ansible e Kubernetes.
 
+<!-- truncate -->
+
 ---
 
 ## 1. Automação na Nuvem: Muito Além de CI/CD

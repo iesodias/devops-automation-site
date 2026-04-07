@@ -24,6 +24,8 @@ A automação de infraestrutura não é mais um luxo ou um nicho técnico. É um
 
 Mas por que aprender Terraform hoje? E por que todos — não apenas DevOps ou engenheiros de cloud — devem dominar Infraestrutura como Código (IaC)?
 
+<!-- truncate -->
+
 ---
 
 ## 1. A Automação é o Novo "Inglês Fluente" da Tecnologia

@@ -21,6 +21,8 @@ date: 2025-07-23
 
 O troubleshooting, ou a arte de diagnosticar e resolver problemas, sempre foi uma parte crucial do trabalho de desenvolvedores e equipes de operações. Seja em aplicações locais ou em ambientes de nuvem, issues inesperadas podem causar delays significativos, afetar a produtividade e até impactar a experiência do usuário. Tradicionalmente, essa tarefa envolve mergulhar em montanhas de logs, analisar mensagens de erro e depurar código linha por linha — um processo que consome tempo e exige paciência. No entanto, com o avanço da inteligência artificial, especialmente ferramentas como o **Gemini CLI**, essa dinâmica está mudando radicalmente.
 
+<!-- truncate -->
+
 ## Por Que o Troubleshooting Tradicional É Desafiador?
 
 Antes de falarmos sobre soluções, é importante entender por que o troubleshooting convencional pode ser tão lento. Logs são essenciais para diagnosticar problemas, mas em sistemas complexos, eles se tornam volumosos e difíceis de interpretar. Muitas vezes, as mensagens de erro são genéricas ou estão enterradas em meio a informações irrelevantes. Além disso, equipes precisam de conhecimento específico sobre a stack tecnológica e o contexto do problema para agir rapidamente. Isso gera um ciclo de tentativa e erro que pode durar horas ou até dias.

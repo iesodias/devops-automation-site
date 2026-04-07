@@ -1,23 +1,290 @@
-/**
- * CSS files with the .module.css suffix will be treated as CSS modules
- * and scoped locally.
- */
+/* =========================================================
+   index.module.css — Homepage styles for devops-automation-site
+   Brand: navy #1c2385 · pink #bc2e7d · orange #f39132
+   No dark-mode — light only.
+   ========================================================= */
 
-.heroBanner {
-  padding: 4rem 0;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
+/* ── Page wrapper ──────────────────────────────────────── */
+.main {
+  background-color: #ffffff;
 }
 
-@media screen and (max-width: 996px) {
-  .heroBanner {
-    padding: 2rem;
+/* ── Hero ───────────────────────────────────────────────── */
+.hero {
+  background-image: url("/img/hero-bg.png");
+  background-size: cover;
+  background-position: center;
+  padding: 6rem 2rem 5rem;
+  text-align: center;
+  position: relative;
+}
+
+/* Subtle navy-to-transparent overlay for text readability */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(28, 35, 133, 0.12) 0%,
+    rgba(28, 35, 133, 0.04) 50%,
+    transparent 100%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+.heroInner {
+  max-width: 900px;
+  margin: 0 auto;
+  color: #1c1e21;
+  position: relative;
+  z-index: 1;
+}
+
+.logoWrap {
+  margin-bottom: 2rem;
+}
+
+.logo {
+  max-width: 420px;
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+}
+
+.heroSubtitle {
+  font-size: 1.2rem;
+  color: #333;
+  margin-bottom: 3rem;
+}
+
+/* Hero button row */
+.heroCtas {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+}
+
+.ctaPrimary {
+  background-color: #1c2385;
+  color: #ffffff;
+  padding: 1rem 2.5rem;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-decoration: none;
+  display: inline-block;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.25s ease,
+    background-color 0.25s ease;
+}
+
+.ctaPrimary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(28, 35, 133, 0.28);
+  background-color: #232b9e;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.ctaPrimary:active {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(28, 35, 133, 0.22);
+}
+
+.ctaSecondary {
+  color: #1c2385;
+  font-weight: 700;
+  font-size: 1rem;
+  text-decoration: underline;
+  display: inline-flex;
+  align-items: center;
+  transition: color 0.2s ease;
+}
+
+.ctaSecondary:hover {
+  color: #bc2e7d;
+  text-decoration: underline;
+}
+
+/* ── YouTube section ───────────────────────────────────── */
+.youtube {
+  padding: 5rem 2rem;
+  text-align: center;
+  background-color: #f9fbff;
+}
+
+.youtubeInner {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.youtubeBanner {
+  width: 100%;
+  max-width: 727px;
+  height: auto;
+  margin-bottom: 2rem;
+  border-radius: 16px;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.youtubeBanner:hover {
+  transform: scale(1.02);
+  box-shadow: 0 12px 36px rgba(28, 35, 133, 0.13);
+}
+
+.youtubeHeading {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #1c1e21;
+  margin-bottom: 1rem;
+}
+
+.youtubeText {
+  font-size: 1rem;
+  color: #444;
+  margin-bottom: 2rem;
+}
+
+.youtubeBtn {
+  background-color: #f39132;
+  color: #ffffff;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 700;
+  text-decoration: none;
+  display: inline-block;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.25s ease,
+    background-color 0.25s ease;
+}
+
+.youtubeBtn:hover {
+  background-color: #bc2e7d;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(188, 46, 125, 0.25);
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.youtubeBtn:active {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(188, 46, 125, 0.18);
+}
+
+/* ── Instructor section ────────────────────────────────── */
+.instructor {
+  background-color: #ffffff;
+  padding: 4rem 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.instructorHeading {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1c1e21;
+  margin-bottom: 1rem;
+}
+
+.instructorText {
+  font-size: 1rem;
+  color: #333;
+  margin-bottom: 2rem;
+}
+
+.instructorImgWrap {
+  display: inline-block;
+}
+
+.instructorImg {
+  max-width: 727px;
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+  transition:
+    box-shadow 0.3s ease,
+    transform 0.3s ease;
+}
+
+.instructorImg:hover {
+  box-shadow: 0 14px 40px rgba(28, 35, 133, 0.14);
+  transform: translateY(-2px);
+}
+
+/* ── Responsive — Tablet (≤ 1024px) ───────────────────── */
+@media (max-width: 1024px) {
+  .hero {
+    padding: 5rem 2rem 4rem;
+  }
+
+  .youtubeHeading {
+    font-size: 1.6rem;
+  }
+
+  .instructorHeading {
+    font-size: 1.75rem;
   }
 }
 
-.buttons {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+/* ── Responsive — Mobile (≤ 768px) ─────────────────────── */
+@media (max-width: 768px) {
+  .hero {
+    padding: 3.5rem 1.25rem 3rem;
+  }
+
+  .logo {
+    max-width: 280px;
+  }
+
+  .heroSubtitle {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .heroCtas {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .ctaPrimary {
+    width: 100%;
+    max-width: 320px;
+    text-align: center;
+    padding: 0.9rem 2rem;
+  }
+
+  .youtube {
+    padding: 3rem 1.25rem;
+  }
+
+  .youtubeHeading {
+    font-size: 1.4rem;
+  }
+
+  .youtubeText {
+    font-size: 0.95rem;
+  }
+
+  .instructor {
+    padding: 3rem 1.25rem;
+  }
+
+  .instructorHeading {
+    font-size: 1.5rem;
+  }
+
+  .instructorText {
+    font-size: 0.95rem;
+  }
 }

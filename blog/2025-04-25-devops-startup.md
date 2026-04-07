@@ -19,6 +19,8 @@ Se você está em uma startup, sabe que cada segundo conta. A diferença entre l
 
 Neste artigo, vamos explorar por que a cultura DevOps é essencial para startups, como implementá-la sem virar a noite no código e quais números comprovam que essa abordagem acelera o crescimento. Spoiler: startups que adotam DevOps crescem mais. E vamos mostrar por quê.
 
+<!-- truncate -->
+
 ---
 
 ## **O Que é DevOps e Por Que Sua Startup Precisa Disso Hoje**
