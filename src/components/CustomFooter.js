@@ -84,7 +84,7 @@ function SocialBadge({ href, imgSrc, imgAlt, label, emoji }) {
 const sectionHeading = {
   fontWeight: 700,
   fontSize: '0.8rem',
-  color: '#bc2e7d',
+  color: 'rgba(255, 255, 255, 0.6)',
   textTransform: 'uppercase',
   letterSpacing: '0.12em',
   marginTop: 0,
@@ -102,7 +102,7 @@ export default function CustomFooter() {
         aria-hidden="true"
         style={{
           height: '3px',
-          background: 'linear-gradient(90deg, #1c2385 0%, #bc2e7d 50%, #f39132 100%)',
+          background: 'linear-gradient(90deg, #1c2385 0%, #5B3F9E 50%, #f39132 100%)',
         }}
       />
 
@@ -252,7 +252,7 @@ export default function CustomFooter() {
           fontFamily:
             '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, sans-serif',
           fontSize: '0.82rem',
-          color: 'rgba(255, 255, 255, 0.45)',
+          color: 'rgba(255, 255, 255, 0.5)',
           letterSpacing: '0.02em',
         }}
       >
