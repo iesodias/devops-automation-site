@@ -1,6 +1,7 @@
 {
   "label": "Tutorial - Basics",
   "position": 3,
+  "draft": true,
   "link": {
     "type": "generated-index",
     "description": "5 minutes to learn the most important Docusaurus concepts."

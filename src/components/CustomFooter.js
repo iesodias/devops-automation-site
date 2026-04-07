@@ -43,9 +43,9 @@ export default function CustomFooter() {
         <div>
           <p className={styles.sectionTitle}>Links rápidos</p>
           <ul className={styles.linkList}>
-            <li><a href="#">Github</a></li>
-            <li><a href="#">Youtube</a></li>
-            <li><a href="#">Blog</a></li>
+            <li><a href="https://github.com/iesodias" target="_blank" rel="noopener noreferrer">Github</a></li>
+            <li><a href="https://youtube.com/@iesodias" target="_blank" rel="noopener noreferrer">Youtube</a></li>
+            <li><a href="/blog">Blog</a></li>
           </ul>
         </div>
 
@@ -53,8 +53,8 @@ export default function CustomFooter() {
         <div>
           <p className={styles.sectionTitle}>Legal</p>
           <ul className={styles.linkList}>
-            <li><a href="#">Termos</a></li>
-            <li><a href="#">Privacidade</a></li>
+            <li><a href="/termos">Termos</a></li>
+            <li><a href="/privacidade">Privacidade</a></li>
           </ul>
         </div>
       </div>
