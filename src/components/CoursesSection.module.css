@@ -12,13 +12,21 @@
   
   .grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 2.5rem;
-    max-width: 900px;
+    max-width: 1200px;
     margin: 0 auto;
   }
   
-  /* Responsivo para mobile */
+  /* Tablet */
+  @media (max-width: 1024px) {
+    .grid {
+      grid-template-columns: repeat(2, 1fr);
+      max-width: 860px;
+    }
+  }
+  
+  /* Mobile */
   @media (max-width: 768px) {
     .grid {
       grid-template-columns: 1fr;
@@ -30,7 +38,7 @@
     background: white;
     border-radius: 1rem;
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
-    max-width: 400px;        /* aumentei aqui */
+    max-width: 100%;
     text-align: left;
     padding: 1.5rem;
   }
