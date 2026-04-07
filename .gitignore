@@ -20,3 +20,5 @@ yarn-debug.log*
 yarn-error.log*
 
 workspace
+build.log
+docusaurus.config.js.bak

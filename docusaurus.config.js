@@ -76,7 +76,7 @@ const config = {
         id: 'github-actions-automacao',
         path: 'curso-github-actions-udemy',
         routeBasePath: 'udemy/github-actions-automacao',
-        sidebarPath: require.resolve('./sidebarsGihubActions.js'), // atenção: nome do arquivo mantém grafia atual
+        sidebarPath: require.resolve('./sidebarsGihubActions.js'),
       },
     ],
   ],
