@@ -18,6 +18,8 @@ date: 2025-10-13
 
 O Claude Agent Mode representa um avanço significativo na forma como interagimos com sistemas de inteligência artificial. Diferente de assistentes tradicionais que respondem a comandos pontuais, os agentes autônomos do Claude são capazes de executar tarefas complexas por períodos prolongados, tomando decisões e iterando sobre seu próprio trabalho sem intervenção humana constante.
 
+<!-- truncate -->
+
 ## Capacidade de Trabalho Autônomo Estendido
 
 Uma das características mais impressionantes do Claude Sonnet 4.5 é sua capacidade de manter foco em tarefas complexas por mais de 30 horas de trabalho autônomo. Isso representa um salto monumental comparado às versões anteriores, que operavam por cerca de 7 horas. Essa autonomia estendida permite que desenvolvedores deleguem projetos ambiciosos e multifacetados, como refatorações extensas ou exploração de novas funcionalidades, confiando que o agente manterá coerência e direcionamento ao longo de todo o processo.

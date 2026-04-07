@@ -1,114 +1,469 @@
-# Terraform e Segurança
+# Terraform, IaC e Segurança
 terraform seguranca sast:
   label: Terraform Segurança SAST
-  permalink: /terraform-security-sast
-  description: Artigos sobre segurança em Terraform com Static Application Security Testing
+  permalink: /terraform-seguranca-sast
+  description: Conteúdos sobre segurança em Terraform com foco em SAST.
 
 shift left security terraform:
-  label: Shift Left Security
-  permalink: /shift-left-security
-  description: Práticas de segurança antecipada em desenvolvimento com Terraform
+  label: Shift Left Security Terraform
+  permalink: /shift-left-security-terraform
+  description: Práticas de segurança antecipada aplicadas a projetos Terraform.
 
 checkov trivy tfsec comparacao:
-  label: Ferramentas SAST
-  permalink: /sast-tools-comparison
-  description: Comparação entre ferramentas de análise estática para Terraform
+  label: Checkov Trivy Tfsec Comparação
+  permalink: /checkov-trivy-tfsec-comparacao
+  description: Comparativos entre ferramentas de análise de segurança para IaC.
 
 devsecops infraestrutura codigo:
-  label: DevSecOps IaC
-  permalink: /devsecops-iac
-  description: Práticas DevSecOps para Infraestrutura como Código
+  label: DevSecOps Infraestrutura Código
+  permalink: /devsecops-infraestrutura-codigo
+  description: Estratégias de DevSecOps para infraestrutura como código.
 
-# Ferramentas
 terraform security scanning:
-  label: Security Scanning
+  label: Terraform Security Scanning
   permalink: /terraform-security-scanning
-  description: Scanning de segurança em código Terraform
+  description: Técnicas de varredura de segurança em código Terraform.
 
 iac security best practices:
-  label: IaC Security
-  permalink: /iac-security-practices
-  description: Melhores práticas de segurança para Infrastructure as Code
+  label: IaC Security Best Practices
+  permalink: /iac-security-best-practices
+  description: Boas práticas para elevar a segurança em infraestrutura como código.
 
 misconfiguracao cloud security:
-  label: Cloud Misconfigurations
-  permalink: /cloud-misconfigurations
-  description: Prevenção de misconfigurations em ambientes cloud
+  label: Misconfiguração Cloud Security
+  permalink: /misconfiguracao-cloud-security
+  description: Conteúdos sobre prevenção de misconfigurações em cloud.
 
 terraform pipeline security:
-  label: Pipeline Security
+  label: Terraform Pipeline Security
   permalink: /terraform-pipeline-security
-  description: Segurança em pipelines CI/CD com Terraform
+  description: Segurança em pipelines de entrega com Terraform.
 
 static analysis terraform:
-  label: Static Analysis
-  permalink: /terraform-static-analysis
-  description: Análise estática de código Terraform
+  label: Static Analysis Terraform
+  permalink: /static-analysis-terraform
+  description: Abordagens de análise estática para código Terraform.
 
 security as code terraform:
-  label: Security as Code
-  permalink: /security-as-code
-  description: Implementação de Security as Code com Terraform
+  label: Security as Code Terraform
+  permalink: /security-as-code-terraform
+  description: Práticas de Security as Code em fluxos com Terraform.
+
+analise estatica terraform:
+  label: Análise Estática Terraform
+  permalink: /analise-estatica-terraform
+  description: Conteúdos sobre análise estática aplicada a Terraform.
+
+checkov github actions:
+  label: Checkov GitHub Actions
+  permalink: /checkov-github-actions
+  description: Integrações do Checkov com pipelines no GitHub Actions.
+
+checkov kubernetes aws azure:
+  label: Checkov Kubernetes AWS Azure
+  permalink: /checkov-kubernetes-aws-azure
+  description: Uso do Checkov em múltiplos provedores e ambientes Kubernetes.
+
+checkov terraform azure:
+  label: Checkov Terraform Azure
+  permalink: /checkov-terraform-azure
+  description: Segurança de projetos Terraform na Azure com Checkov.
+
+ferramenta segurança devops:
+  label: Ferramenta Segurança DevOps
+  permalink: /ferramenta-seguranca-devops
+  description: Ferramentas recomendadas para segurança em práticas DevOps.
+
+scanner segurança infraestrutura:
+  label: Scanner Segurança Infraestrutura
+  permalink: /scanner-seguranca-infraestrutura
+  description: Ferramentas e técnicas de scanner para infraestrutura.
+
+segurança infraestrutura como código:
+  label: Segurança Infraestrutura como Código
+  permalink: /seguranca-infraestrutura-como-codigo
+  description: Proteção de ambientes definidos por infraestrutura como código.
+
+terraform 2025:
+  label: Terraform 2025
+  permalink: /terraform-2025
+  description: Tendências e contexto do ecossistema Terraform em 2025.
+
+terraform brasil:
+  label: Terraform Brasil
+  permalink: /terraform-brasil
+  description: Conteúdos de Terraform voltados ao mercado brasileiro.
+
+terraform vs crossplane:
+  label: Terraform vs Crossplane
+  permalink: /terraform-vs-crossplane
+  description: Comparações entre Terraform e Crossplane para gestão de infraestrutura.
+
+por que aprender terraform:
+  label: Por que Aprender Terraform
+  permalink: /por-que-aprender-terraform
+  description: Motivos e benefícios para estudar Terraform.
+
+mercado de trabalho terraform:
+  label: Mercado de Trabalho Terraform
+  permalink: /mercado-de-trabalho-terraform
+  description: Oportunidades e demandas profissionais ligadas ao Terraform.
+
+curso terraform brasil:
+  label: Curso Terraform Brasil
+  permalink: /curso-terraform-brasil
+  description: Materiais e conteúdos de curso Terraform em português.
+
+exemplos terraform aws pt-br:
+  label: Exemplos Terraform AWS PT-BR
+  permalink: /exemplos-terraform-aws-pt-br
+  description: Exemplos práticos de Terraform AWS em português do Brasil.
+
+exemplos terraform pt-br:
+  label: Exemplos Terraform PT-BR
+  permalink: /exemplos-terraform-pt-br
+  description: Coleção de exemplos Terraform em português do Brasil.
+
+hashicorp:
+  label: HashiCorp
+  permalink: /hashicorp
+  description: Conteúdos relacionados ao ecossistema da HashiCorp.
+
+hashicorp vs opentofu:
+  label: HashiCorp vs OpenTofu
+  permalink: /hashicorp-vs-opentofu
+  description: Comparativos entre as propostas de HashiCorp e OpenTofu.
+
+devops terraform:
+  label: DevOps Terraform
+  permalink: /devops-terraform
+  description: Uso de Terraform dentro de práticas e rotinas DevOps.
+
+comparativo terraform vs bicep:
+  label: Comparativo Terraform vs Bicep
+  permalink: /comparativo-terraform-vs-bicep
+  description: Análises comparativas entre Terraform e Bicep.
+
+comparativo bicep vs terraform:
+  label: Comparativo Bicep vs Terraform
+  permalink: /comparativo-bicep-vs-terraform
+  description: Diferenças práticas entre Bicep e Terraform em cenários reais.
+
+infraestrutura como código:
+  label: Infraestrutura como Código
+  permalink: /infraestrutura-como-codigo
+  description: Práticas, fundamentos e ferramentas de infraestrutura como código.
+
+infraestrutura como código para iniciantes:
+  label: Infraestrutura como Código para Iniciantes
+  permalink: /infraestrutura-como-codigo-para-iniciantes
+  description: Conteúdos introdutórios de infraestrutura como código.
+
+bicep:
+  label: Bicep
+  permalink: /bicep
+  description: Conteúdos sobre Bicep para provisionamento na Azure.
+
+azure resource manager:
+  label: Azure Resource Manager
+  permalink: /azure-resource-manager
+  description: Materiais sobre ARM e automação de recursos na Azure.
+
+automação azure:
+  label: Automação Azure
+  permalink: /automacao-azure
+  description: Estratégias de automação de infraestrutura e operações na Azure.
+
+automação cloud:
+  label: Automação Cloud
+  permalink: /automacao-cloud
+  description: Automação de ambientes em provedores de nuvem.
+
+automação cloud brasil:
+  label: Automação Cloud Brasil
+  permalink: /automacao-cloud-brasil
+  description: Conteúdos de automação cloud para o contexto brasileiro.
+
+curso bicep pt-br:
+  label: Curso Bicep PT-BR
+  permalink: /curso-bicep-pt-br
+  description: Recursos de aprendizado de Bicep em português do Brasil.
 
 # Platform Engineering
 platform engineering:
   label: Platform Engineering
   permalink: /platform-engineering
-  description: Disciplina de construção de plataformas internas de desenvolvimento
+  description: Construção e evolução de plataformas internas para times de engenharia.
 
 internal developer platform:
   label: Internal Developer Platform
   permalink: /internal-developer-platform
-  description: Plataformas internas de autoatendimento para desenvolvedores
+  description: Plataformas internas de autoatendimento para desenvolvedores.
 
 crossplane backstage argocd:
   label: Crossplane Backstage ArgoCD
   permalink: /crossplane-backstage-argocd
-  description: Stack de ferramentas para construção de IDPs
+  description: Stack de ferramentas para criação de plataformas internas modernas.
 
 developer experience devex:
-  label: Developer Experience
-  permalink: /developer-experience
-  description: Experiência do desenvolvedor e produtividade
+  label: Developer Experience DevEx
+  permalink: /developer-experience-devex
+  description: Melhoria da experiência de desenvolvimento e produtividade técnica.
 
 golden paths self-service:
-  label: Golden Paths e Self-Service
+  label: Golden Paths Self-Service
   permalink: /golden-paths-self-service
-  description: Caminhos pré-aprovados e autoatendimento para desenvolvedores
+  description: Caminhos padronizados com autoatendimento para equipes de produto.
 
-# DevOps Geral
+# DevOps, Carreira e Produtividade
 automação devops:
   label: Automação DevOps
   permalink: /automacao-devops
-  description: Práticas e ferramentas de automação DevOps
+  description: Práticas e ferramentas para automatizar fluxos de DevOps.
 
 devops cultura:
   label: DevOps Cultura
   permalink: /devops-cultura
-  description: Cultura DevOps e práticas de colaboração
+  description: Cultura, colaboração e mentalidade DevOps em times técnicos.
 
-infraestrutura como código:
-  label: Infraestrutura como Código
-  permalink: /infraestrutura-como-codigo
-  description: Práticas e ferramentas de Infrastructure as Code
+devops:
+  label: DevOps
+  permalink: /devops
+  description: Conteúdos gerais sobre práticas, processos e ferramentas DevOps.
 
-# Tags originais (mantidas para compatibilidade)
-facebook:
-  label: Facebook
-  permalink: /facebook
-  description: Facebook tag description
+devops brasil:
+  label: DevOps Brasil
+  permalink: /devops-brasil
+  description: Temas de DevOps aplicados ao mercado brasileiro.
 
-hello:
-  label: Hello
-  permalink: /hello
-  description: Hello tag description
+devops para desenvolvedores:
+  label: DevOps para Desenvolvedores
+  permalink: /devops-para-desenvolvedores
+  description: Aplicação prática de DevOps no dia a dia de desenvolvimento.
 
-docusaurus:
-  label: Docusaurus
-  permalink: /docusaurus
-  description: Docusaurus tag description
+devops para sysadmins:
+  label: DevOps para SysAdmins
+  permalink: /devops-para-sysadmins
+  description: Conteúdos de DevOps direcionados a administradores de sistemas.
 
-hola:
-  label: Hola
-  permalink: /hola
-  description: Hola tag description
+devops startups:
+  label: DevOps Startups
+  permalink: /devops-startups
+  description: Estratégias DevOps para times enxutos e crescimento acelerado.
+
+segurança devops:
+  label: Segurança DevOps
+  permalink: /seguranca-devops
+  description: Integração de segurança em práticas e pipelines DevOps.
+
+carreira em tecnologia:
+  label: Carreira em Tecnologia
+  permalink: /carreira-em-tecnologia
+  description: Dicas e estratégias para evolução de carreira em tecnologia.
+
+carreira em ti:
+  label: Carreira em TI
+  permalink: /carreira-em-ti
+  description: Conteúdos para crescimento profissional na área de TI.
+
+engenharia de cloud:
+  label: Engenharia de Cloud
+  permalink: /engenharia-de-cloud
+  description: Habilidades e práticas de engenharia para ambientes cloud.
+
+kubernetes produção:
+  label: Kubernetes Produção
+  permalink: /kubernetes-producao
+  description: Operação e boas práticas de Kubernetes em produção.
+
+mercado cloud brasil:
+  label: Mercado Cloud Brasil
+  permalink: /mercado-cloud-brasil
+  description: Tendências e cenário do mercado de cloud no Brasil.
+
+mercado tech brasil:
+  label: Mercado Tech Brasil
+  permalink: /mercado-tech-brasil
+  description: Panorama do mercado de tecnologia brasileiro.
+
+ferramentas devops 2024:
+  label: Ferramentas DevOps 2024
+  permalink: /ferramentas-devops-2024
+  description: Seleção de ferramentas DevOps com destaque em 2024.
+
+ferramentas devops 2025:
+  label: Ferramentas DevOps 2025
+  permalink: /ferramentas-devops-2025
+  description: Tendências de ferramentas DevOps para 2025.
+
+sonarqube qualidade:
+  label: SonarQube Qualidade
+  permalink: /sonarqube-qualidade
+  description: Qualidade de código e análise contínua com SonarQube.
+
+entrega contínua:
+  label: Entrega Contínua
+  permalink: /entrega-continua
+  description: Práticas para acelerar e estabilizar ciclos de entrega contínua.
+
+automação infraestrutura:
+  label: Automação Infraestrutura
+  permalink: /automacao-infraestrutura
+  description: Automatização de tarefas e provisionamento de infraestrutura.
+
+automação com bash:
+  label: Automação com Bash
+  permalink: /automacao-com-bash
+  description: Scripts Bash para automação de tarefas operacionais e DevOps.
+
+automação:
+  label: Automação
+  permalink: /automacao
+  description: Conteúdos gerais sobre automação em tecnologia.
+
+produtividade:
+  label: Produtividade
+  permalink: /produtividade
+  description: Técnicas para aumentar produtividade em times técnicos.
+
+produtividade ti:
+  label: Produtividade TI
+  permalink: /produtividade-ti
+  description: Hábitos e práticas para produtividade no trabalho de TI.
+
+# Inteligência Artificial e Agentes
+inteligência artificial:
+  label: Inteligência Artificial
+  permalink: /inteligencia-artificial
+  description: Conteúdos sobre uso de inteligência artificial em tecnologia.
+
+ia para devops e desenvolvedores:
+  label: IA para DevOps e Desenvolvedores
+  permalink: /ia-para-devops-e-desenvolvedores
+  description: Aplicações de IA no fluxo de trabalho de DevOps e desenvolvimento.
+
+desenvolvimento assistido por ia:
+  label: Desenvolvimento Assistido por IA
+  permalink: /desenvolvimento-assistido-por-ia
+  description: Práticas de desenvolvimento de software com apoio de IA.
+
+troubleshooting inteligencia artificial:
+  label: Troubleshooting Inteligência Artificial
+  permalink: /troubleshooting-inteligencia-artificial
+  description: Uso de IA para análise e resolução de incidentes técnicos.
+
+ferramentas ia troubleshooting:
+  label: Ferramentas IA Troubleshooting
+  permalink: /ferramentas-ia-troubleshooting
+  description: Ferramentas baseadas em IA para troubleshooting e diagnóstico.
+
+google gemini cli tutorial:
+  label: Google Gemini CLI Tutorial
+  permalink: /google-gemini-cli-tutorial
+  description: Guias e exemplos de uso do Gemini CLI.
+
+gemini cli logs analysis:
+  label: Gemini CLI Logs Analysis
+  permalink: /gemini-cli-logs-analysis
+  description: Análise de logs com Gemini CLI para investigação rápida.
+
+cloud logging inteligencia artificial:
+  label: Cloud Logging Inteligência Artificial
+  permalink: /cloud-logging-inteligencia-artificial
+  description: Observabilidade e análise de logs cloud com apoio de IA.
+
+automação análise de logs:
+  label: Automação Análise de Logs
+  permalink: /automacao-analise-de-logs
+  description: Automação de análise de logs para acelerar troubleshooting.
+
+reduce debugging time with ai:
+  label: Reduce Debugging Time with AI
+  permalink: /reduce-debugging-time-with-ai
+  description: Técnicas para reduzir tempo de depuração usando inteligência artificial.
+
+produtividade com ia no terminal:
+  label: Produtividade com IA no Terminal
+  permalink: /produtividade-com-ia-no-terminal
+  description: Uso de IA no terminal para ganho de velocidade e foco.
+
+claude ai:
+  label: Claude AI
+  permalink: /claude-ai
+  description: Conteúdos sobre aplicação do Claude AI em fluxos técnicos.
+
+claude agent sdk:
+  label: Claude Agent SDK
+  permalink: /claude-agent-sdk
+  description: Materiais sobre criação de agentes com Claude Agent SDK.
+
+agentes autônomos:
+  label: Agentes Autônomos
+  permalink: /agentes-autonomos
+  description: Conceitos e aplicações práticas de agentes autônomos.
+
+github copilot:
+  label: GitHub Copilot
+  permalink: /github-copilot
+  description: Produtividade e desenvolvimento assistido com GitHub Copilot.
+
+agent mode:
+  label: Agent Mode
+  permalink: /agent-mode
+  description: Conteúdos sobre modo agente em ferramentas de IA.
+
+coding agent:
+  label: Coding Agent
+  permalink: /coding-agent
+  description: Uso de agentes de codificação para automação de tarefas de software.
+
+github actions:
+  label: GitHub Actions
+  permalink: /github-actions
+  description: Automação de CI/CD e workflows com GitHub Actions.
+
+ci/cd:
+  label: CI/CD
+  permalink: /ci-cd
+  description: Integração e entrega contínua em pipelines de software.
+
+cli tools para desenvolvedores:
+  label: CLI Tools para Desenvolvedores
+  permalink: /cli-tools-para-desenvolvedores
+  description: Ferramentas de linha de comando para acelerar rotinas de desenvolvimento.
+
+# Cursos, Mentoria e Entrevistas
+udemy:
+  label: Udemy
+  permalink: /udemy
+  description: Conteúdos e cursos publicados na plataforma Udemy.
+
+curso devops:
+  label: Curso DevOps
+  permalink: /curso-devops
+  description: Materiais de estudo e trilhas de curso sobre DevOps.
+
+role play udemy:
+  label: Role Play Udemy
+  permalink: /role-play-udemy
+  description: Conteúdos sobre uso de role play em treinamentos na Udemy.
+
+como usar role play no celular:
+  label: Como Usar Role Play no Celular
+  permalink: /como-usar-role-play-no-celular
+  description: Guia prático para usar role play em dispositivos móveis.
+
+simulacao de entrevista:
+  label: Simulação de Entrevista
+  permalink: /simulacao-de-entrevista
+  description: Preparação para entrevistas técnicas com simulações guiadas.
+
+sre entrevista:
+  label: SRE Entrevista
+  permalink: /sre-entrevista
+  description: Conteúdos focados em entrevistas para posições de SRE.
+
+mentoria carreira ti:
+  label: Mentoria Carreira TI
+  permalink: /mentoria-carreira-ti
+  description: Orientações e mentoria para evolução de carreira em TI.

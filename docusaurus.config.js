@@ -14,7 +14,11 @@ const config = {
   deploymentBranch: 'gh-pages',
   trailingSlash: false,
   onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'warn',
+  markdown: {
+    hooks: {
+      onBrokenMarkdownLinks: 'warn',
+    },
+  },
 
   i18n: {
     defaultLocale: 'pt-BR',
@@ -98,9 +102,9 @@ const config = {
           position: 'left',
           label: 'Tutoriais',
         },
-        { to: '/#cursos', label: 'Cursos', position: 'left' },
-        { to: 'https://youtube.com/@iesodias', label: 'YouTube', position: 'left' },
-        { to: '/#instrutor', label: 'Instrutor', position: 'left' },
+        { href: '/#cursos', label: 'Cursos', position: 'left' },
+        { href: 'https://youtube.com/@iesodias', label: 'YouTube', position: 'left' },
+        { href: '/#instrutor', label: 'Instrutor', position: 'left' },
       ],
     },
     prism: {

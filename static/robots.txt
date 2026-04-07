@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /udemy/
+
+Sitemap: https://devopsautomation.com.br/sitemap.xml
