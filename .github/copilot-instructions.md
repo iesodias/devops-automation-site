@@ -83,3 +83,13 @@ This repo has configured Copilot agents in `.github/agents/`:
 - **Coder** — Implementation; always consults `#context7` for library docs
 - **Designer** — UI/UX tasks
 - **Orchestrator** — Coordinates Planner/Coder/Designer for multi-step tasks
+
+## Agent Model Preferences
+
+When using the Orchestrator to delegate tasks, use these model overrides:
+
+| Agent | Model | Notes |
+|-------|-------|-------|
+| **Coder** | `gpt-5.3-codex` | Preferred for all code implementation tasks |
+| **Designer** | (default) | Uses default model |
+| **Planner** | (default) | Uses default model |
