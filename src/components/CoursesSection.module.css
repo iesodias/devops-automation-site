@@ -1,13 +1,13 @@
 .section {
     padding: 4rem 1rem;
-    background: #f9fbff;
+    background: var(--da-bg-alt);
     text-align: center;
   }
   
   .heading {
     font-size: 2rem;
     margin-bottom: 2rem;
-    color: #1c2385;
+    color: var(--ifm-color-primary);
   }
   
   .grid {
@@ -35,9 +35,9 @@
   }
   
   .card {
-    background: white;
+    background: var(--da-bg-card);
     border-radius: 1rem;
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 6px 16px var(--da-shadow-base);
     max-width: 100%;
     text-align: left;
     padding: 1.5rem;
@@ -48,7 +48,7 @@
 
   .card:hover {
     transform: translateY(-6px);
-    box-shadow: 0 12px 32px rgba(28, 35, 133, 0.15);
+    box-shadow: 0 12px 32px var(--da-shadow-brand);
   }
   
   .imageWrapper {
@@ -72,7 +72,7 @@
     position: absolute;
     top: 12px;
     left: 12px;
-    background: #bc2e7d;
+    background: var(--da-accent-pink);
     color: white;
     font-weight: bold;
     font-size: 0.75rem;
@@ -92,14 +92,14 @@
   .title {
     font-size: 1.3rem;
     margin: 0.5rem 0;
-    color: #1c1e21;
+    color: var(--da-text-primary);
     font-weight: bold;
   }
   
   .description {
     font-size: 1rem;
     margin-bottom: 1rem;
-    color: #444;
+    color: var(--da-text-muted);
     flex-grow: 1;
   }
   
@@ -111,8 +111,8 @@
   }
   
   .tag {
-    background-color: #e5f0ff;
-    color: #1c2385;
+    background-color: var(--da-tag-bg);
+    color: var(--da-tag-text);
     padding: 0.3rem 0.7rem;
     border-radius: 0.4rem;
     font-size: 0.75rem;
@@ -120,7 +120,7 @@
   }
   
   .button {
-    background: #1c2385;
+    background: var(--ifm-color-primary);
     color: white;
     padding: 0.7rem 1.2rem;
     border-radius: 0.5rem;
@@ -135,7 +135,7 @@
   }
 
   .button:hover {
-    background-color: #f39132;
+    background-color: var(--da-accent-orange);
     color: white;
     text-decoration: none;
     transform: translateY(-1px);

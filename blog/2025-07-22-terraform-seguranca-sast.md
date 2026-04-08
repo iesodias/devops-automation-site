@@ -1,5 +1,6 @@
 ---
 title: "Terraform + Segurança: Por que SAST deve começar desde o primeiro commit"
+slug: terraform-seguranca-sast-shift-left
 description: "Descubra como implementar Static Application Security Testing (SAST) em pipelines Terraform desde o início do desenvolvimento. Análise completa de ferramentas como Trivy, Checkov e estratégias shift-left para evitar as 82% de falhas de segurança causadas por misconfiguração."
 authors: [Ieso]
 tags:
@@ -13,6 +14,7 @@ tags:
   - "terraform pipeline security"
   - "static analysis terraform"
   - "security as code terraform"
+keywords: [terraform segurança, sast, shift left security, checkov, trivy, devsecops, iac security, misconfiguration]
 date: 2025-07-22
 ---
 

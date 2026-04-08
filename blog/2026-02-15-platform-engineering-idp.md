@@ -12,6 +12,7 @@ tags:
   - "devops cultura"
   - "automação devops"
   - "infraestrutura como código"
+keywords: [platform engineering, internal developer platform, crossplane, backstage, argocd, developer experience, devops, self-service]
 date: 2026-02-15
 ---
 

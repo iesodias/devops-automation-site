@@ -1,16 +1,17 @@
 /* =========================================================
    index.module.css — Homepage styles for devops-automation-site
    Brand: navy #1c2385 · pink #bc2e7d · orange #f39132
-   No dark-mode — light only.
+   Dark-mode: fully supported via CSS custom properties.
    ========================================================= */
 
 /* ── Page wrapper ──────────────────────────────────────── */
 .main {
-  background-color: #ffffff;
+  background-color: var(--da-bg-main);
 }
 
 /* ── Hero ───────────────────────────────────────────────── */
 .hero {
+  background-color: var(--da-bg-main); /* fallback before image loads */
   background-image: url("/img/hero-bg.png");
   background-size: cover;
   background-position: center;
@@ -37,7 +38,7 @@
 .heroInner {
   max-width: 900px;
   margin: 0 auto;
-  color: #1c1e21;
+  color: var(--da-text-primary);
   position: relative;
   z-index: 1;
 }
@@ -55,7 +56,7 @@
 
 .heroSubtitle {
   font-size: 1.2rem;
-  color: #333;
+  color: var(--da-text-secondary);
   margin-bottom: 3rem;
 }
 
@@ -69,7 +70,7 @@
 }
 
 .ctaPrimary {
-  background-color: #1c2385;
+  background-color: var(--ifm-color-primary);
   color: #ffffff;
   padding: 1rem 2.5rem;
   border-radius: 8px;
@@ -85,19 +86,19 @@
 
 .ctaPrimary:hover {
   transform: translateY(-3px);
-  box-shadow: 0 8px 24px rgba(28, 35, 133, 0.28);
-  background-color: #232b9e;
+  box-shadow: var(--da-shadow-brand);
+  background-color: var(--ifm-color-primary-dark);
   color: #ffffff;
   text-decoration: none;
 }
 
 .ctaPrimary:active {
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(28, 35, 133, 0.22);
+  box-shadow: var(--da-shadow-brand);
 }
 
 .ctaSecondary {
-  color: #1c2385;
+  color: var(--ifm-color-primary);
   font-weight: 700;
   font-size: 1rem;
   text-decoration: underline;
@@ -107,7 +108,7 @@
 }
 
 .ctaSecondary:hover {
-  color: #bc2e7d;
+  color: var(--da-accent-pink);
   text-decoration: underline;
 }
 
@@ -115,7 +116,7 @@
 .youtube {
   padding: 5rem 2rem;
   text-align: center;
-  background-color: #f9fbff;
+  background-color: var(--da-bg-alt);
 }
 
 .youtubeInner {
@@ -136,24 +137,24 @@
 
 .youtubeBanner:hover {
   transform: scale(1.02);
-  box-shadow: 0 12px 36px rgba(28, 35, 133, 0.13);
+  box-shadow: var(--da-shadow-brand);
 }
 
 .youtubeHeading {
   font-size: 1.8rem;
   font-weight: 700;
-  color: #1c1e21;
+  color: var(--da-text-primary);
   margin-bottom: 1rem;
 }
 
 .youtubeText {
   font-size: 1rem;
-  color: #444;
+  color: var(--da-text-muted);
   margin-bottom: 2rem;
 }
 
 .youtubeBtn {
-  background-color: #f39132;
+  background-color: var(--da-accent-orange);
   color: #ffffff;
   padding: 1rem 2rem;
   border-radius: 8px;
@@ -168,21 +169,21 @@
 }
 
 .youtubeBtn:hover {
-  background-color: #bc2e7d;
+  background-color: var(--da-accent-pink);
   transform: translateY(-3px);
-  box-shadow: 0 8px 24px rgba(188, 46, 125, 0.25);
+  box-shadow: var(--da-shadow-brand);
   color: #ffffff;
   text-decoration: none;
 }
 
 .youtubeBtn:active {
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(188, 46, 125, 0.18);
+  box-shadow: var(--da-shadow-brand);
 }
 
 /* ── Instructor section ────────────────────────────────── */
 .instructor {
-  background-color: #ffffff;
+  background-color: var(--da-bg-main);
   padding: 4rem 2rem;
   max-width: 800px;
   margin: 0 auto;
@@ -192,13 +193,13 @@
 .instructorHeading {
   font-size: 2rem;
   font-weight: 700;
-  color: #1c1e21;
+  color: var(--da-text-primary);
   margin-bottom: 1rem;
 }
 
 .instructorText {
   font-size: 1rem;
-  color: #333;
+  color: var(--da-text-secondary);
   margin-bottom: 2rem;
 }
 
@@ -217,8 +218,25 @@
 }
 
 .instructorImg:hover {
-  box-shadow: 0 14px 40px rgba(28, 35, 133, 0.14);
+  box-shadow: var(--da-shadow-brand);
   transform: translateY(-2px);
+}
+
+/* ── Dark mode overrides ───────────────────────────────── */
+
+/* Mask the white background image with a deep-navy gradient */
+:global([data-theme='dark']) .hero::before {
+  background: linear-gradient(
+    180deg,
+    rgba(26, 26, 46, 0.92) 0%,
+    rgba(26, 26, 46, 0.88) 50%,
+    rgba(26, 26, 46, 0.85) 100%
+  );
+}
+
+/* Brighten the hero logo so it pops on the dark overlay */
+:global([data-theme='dark']) .logo {
+  filter: brightness(1.6) saturate(1.2);
 }
 
 /* ── Responsive — Tablet (≤ 1024px) ───────────────────── */

@@ -1,3 +1,16 @@
+---
+sidebar_position: 4
+title: "GitHub Actions para Iniciantes: Primeiro Workflow e Jobs com Dependências"
+description: "Crie seu primeiro pipeline no GitHub Actions e evolua para múltiplos jobs com dependências. Aprenda CI/CD na prática com YAML e automação no GitHub."
+keywords:
+  - "github actions"
+  - "ci cd"
+  - "workflow yaml"
+  - "devops"
+  - "tutorial pt-br"
+  - "automação"
+---
+
 # Lab de GitHub Actions: Primeiros Passos em Automação CI/CD
 
 👉 Veja meu curso da Udemy: [Curso DevOps na Prática](https://devopsautomation.com.br/go/udemy-cupom)

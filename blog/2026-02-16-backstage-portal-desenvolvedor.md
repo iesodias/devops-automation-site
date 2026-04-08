@@ -11,6 +11,7 @@ tags:
   - "golden paths self-service"
   - "devops cultura"
   - "automação devops"
+keywords: [backstage, portal desenvolvedor, platform engineering, internal developer platform, cncf, software catalog, developer experience]
 date: 2026-02-16
 ---
 

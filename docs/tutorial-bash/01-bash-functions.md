@@ -1,5 +1,14 @@
 ---
 sidebar_position: 1
+title: "Funções no Bash para DevOps: Guia Prático para Iniciantes (2026)"
+description: "Aprenda a criar funções no Bash para reutilizar comandos e automatizar tarefas no terminal. Veja exemplos com parâmetros, validações e ajuda."
+keywords:
+  - "bash"
+  - "funções bash"
+  - "devops"
+  - "tutorial pt-br"
+  - "automação"
+  - "shell script"
 ---
 
 # Entendendo Funções no Bash

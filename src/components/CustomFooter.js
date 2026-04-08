@@ -109,7 +109,7 @@ export default function CustomFooter() {
       {/* ─ main footer area ─ */}
       <div
         style={{
-          backgroundColor: '#1c2385',
+          backgroundColor: 'var(--da-footer-bg)',
           padding: '3.5rem 2rem 2.5rem',
           fontFamily:
             '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, sans-serif',
@@ -194,6 +194,12 @@ export default function CustomFooter() {
               }}
             >
               <li>
+                <HoverLink href="/docs/intro">📖 Tutoriais</HoverLink>
+              </li>
+              <li>
+                <HoverLink href="/">🏠 Home</HoverLink>
+              </li>
+              <li>
                 <HoverLink href="https://github.com/iesodias" external>
                   ⌘ Github
                 </HoverLink>
@@ -236,7 +242,7 @@ export default function CustomFooter() {
       {/* ─ bottom bar ─ */}
       <div
         style={{
-          backgroundColor: '#151b6e',
+          backgroundColor: 'var(--da-footer-bottom-bg)',
           borderTop: '1px solid rgba(255, 255, 255, 0.08)',
           padding: '1.2rem 2rem',
           textAlign: 'center',

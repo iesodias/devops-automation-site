@@ -3,7 +3,7 @@ import { themes as prismThemes } from 'prism-react-renderer';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'Aprenda DevOps do zero com tutoriais prático',
+  title: 'Aprenda DevOps do zero com tutoriais práticos',
   tagline: 'Automação, Cloud e DevOps sem enrolação',
   favicon: 'img/favicon.png',
 
@@ -32,6 +32,7 @@ const config = {
         docs: {
           sidebarPath: './sidebars.js',
           editUrl: 'https://github.com/iesodias/devops-automation-site/tree/main/',
+          showLastUpdateTime: true,
         },
         blog: {
           showReadingTime: true,
@@ -50,6 +51,12 @@ const config = {
         gtag: {
           trackingID: 'G-BRH4789ZE0',
           anonymizeIP: true,
+        },
+        sitemap: {
+          changefreq: 'weekly',
+          priority: 0.7,
+          ignorePatterns: ['/udemy/**'],
+          filename: 'sitemap.xml',
         },
       },
     ],
@@ -94,6 +101,20 @@ const config = {
         window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
       `,
     },
+    {
+      tagName: 'meta',
+      attributes: {
+        property: 'og:locale',
+        content: 'pt_BR',
+      },
+    },
+    {
+      tagName: 'meta',
+      attributes: {
+        name: 'google-site-verification',
+        content: 'evRUbnxPoFHgxO3EFiS9bU-4tg2FxXrRWq-QSAJZVPM',
+      },
+    },
   ],
 
   themeConfig: {
@@ -122,7 +143,8 @@ const config = {
       darkTheme: prismThemes.dracula,
     },
     colorMode: {
-      disableSwitch: true,
+      disableSwitch: false,
+      defaultMode: 'light',
     },
   },
 };

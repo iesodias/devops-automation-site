@@ -1,3 +1,16 @@
+---
+sidebar_position: 3
+title: "Como Configurar Chave SSH no GitHub com Segurança (Passo a Passo)"
+description: "Aprenda a gerar, copiar e cadastrar uma nova chave SSH no GitHub para autenticação segura. Siga o guia completo para Linux, macOS e Windows."
+keywords:
+  - "github ssh"
+  - "chave ssh"
+  - "git e github"
+  - "devops"
+  - "tutorial pt-br"
+  - "automação"
+---
+
 # Tutorial Completo: Configurando uma Nova Chave SSH para o GitHub
 
 👉 Veja meu curso da Udemy: [Curso DevOps na Prática](https://devopsautomation.com.br/go/udemy-cupom)

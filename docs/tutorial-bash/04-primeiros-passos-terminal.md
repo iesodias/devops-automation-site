@@ -1,5 +1,14 @@
 ---
 sidebar_position: 4
+title: "Primeiros Passos no Terminal Linux para Cloud e DevOps (Guia Iniciante)"
+description: "Perca o medo do terminal e comece a usar comandos essenciais para a rotina DevOps. Entenda navegação, produtividade e prática em ambientes locais e cloud."
+keywords:
+  - "terminal linux"
+  - "devops"
+  - "tutorial pt-br"
+  - "automação"
+  - "linha de comando"
+  - "cloud shell"
 ---
 
 # Domine o Terminal para Cloud e DevOps

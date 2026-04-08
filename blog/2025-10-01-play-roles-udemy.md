@@ -12,6 +12,7 @@ tags:
   - "mentoria carreira ti"
   - "udemy"
   - "como usar role play no celular"
+keywords: [role play udemy, entrevista devops, simulação entrevista, carreira ti, sre, mentoria, preparação entrevista]
 date: 2025-10-02
 ---
 
