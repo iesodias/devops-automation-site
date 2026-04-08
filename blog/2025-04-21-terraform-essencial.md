@@ -1,5 +1,6 @@
 ---
 title: "Terraform: Como a Infraestrutura como Código Está Transformando Negócios em 2025"
+slug: terraform-infraestrutura-como-codigo-2025
 description: "Descubra como o Terraform revoluciona o gerenciamento de cloud, com comparações práticas, cases reais no Brasil e um guia para começar hoje mesmo."
 authors: [Ieso]
 tags:
@@ -10,6 +11,7 @@ tags:
   - "automação cloud"
   - "comparativo terraform vs bicep"
   - "exemplos terraform pt-br"
+keywords: [terraform, infraestrutura como código, devops, hashicorp, automação cloud, terraform vs bicep, IaC]
 date: 2025-02-20
 ---
 

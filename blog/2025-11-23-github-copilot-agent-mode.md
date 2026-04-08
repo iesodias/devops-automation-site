@@ -13,6 +13,7 @@ tags:
   - "github actions"
   - "produtividade"
   - "coding agent"
+keywords: [github copilot, agent mode, devops, automação, inteligência artificial, ci/cd, github actions, coding agent]
 date: 2025-11-23
 ---
 

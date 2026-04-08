@@ -7,6 +7,7 @@ tags:
   - "automação devops"
   - "devops cultura"
   - "developer experience devex"
+keywords: [context rot, engenharia de contexto, llm, inteligência artificial, devops, prompt engineering, degradação contexto]
 date: 2026-02-18
 ---
 

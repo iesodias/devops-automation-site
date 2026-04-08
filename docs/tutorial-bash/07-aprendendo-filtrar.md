@@ -1,5 +1,15 @@
 ---
 sidebar_position: 7
+title: "Como Usar grep e find no Linux para Filtrar Arquivos e Logs (DevOps)"
+description: "Aprenda a buscar textos e arquivos com grep e find em cenários reais de terminal. Domine filtros, buscas recursivas e combinações úteis para automação."
+keywords:
+  - "grep"
+  - "find"
+  - "linux"
+  - "devops"
+  - "tutorial pt-br"
+  - "automação"
+  - "filtro de logs"
 ---
 
 # Lab de Bash Básico: Desmistificando o Terminal - Parte 3

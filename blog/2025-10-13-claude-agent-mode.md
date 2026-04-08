@@ -11,6 +11,7 @@ tags:
   - "automação"
   - "claude agent sdk"
   - "desenvolvimento assistido por ia"
+keywords: [claude ai, agentes autônomos, inteligência artificial, devops, automação, claude agent sdk, desenvolvimento ia]
 date: 2025-10-13
 ---
 

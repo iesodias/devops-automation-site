@@ -1,5 +1,14 @@
 ---
 sidebar_position: 5
+title: "Lab de Bash Básico: Primeiros Passos no Terminal (Vídeo Parte 1)"
+description: "Aprenda os comandos fundamentais do terminal em um laboratório guiado para iniciantes. Pratique navegação, criação de arquivos e operações básicas com segurança."
+keywords:
+  - "bash básico"
+  - "terminal"
+  - "devops"
+  - "tutorial pt-br"
+  - "automação"
+  - "comandos linux"
 ---
 
 # Lab de Bash Básico: Desmistificando o Terminal - Parte 1

@@ -1,5 +1,6 @@
 ---
 title: "Troubleshooting com IA: Como o Gemini CLI Acelera a Análise de Logs e Aumenta a Produtividade"  
+slug: troubleshooting-ia-gemini-cli
 description: "Descubra como usar inteligência artificial, especificamente o Gemini CLI, para transformar o troubleshooting tradicional. Aprenda a analisar logs complexos em segundos, reduzir tempo de depuração e aumentar a produtividade da sua equipe com ferramentas de IA integradas ao terminal."  
 authors: [Ieso]  
 tags:  
@@ -13,6 +14,7 @@ tags:
   - "reduce debugging time with ai"  
   - "cloud logging inteligencia artificial"  
   - "cli tools para desenvolvedores"  
+keywords: [troubleshooting ia, gemini cli, análise de logs, inteligência artificial, devops, produtividade, debugging, cli tools]
 date: 2025-07-23  
 ---
 # Troubleshooting com IA: Como o Gemini CLI Acelera a Análise de Logs e Aumenta a Produtividade

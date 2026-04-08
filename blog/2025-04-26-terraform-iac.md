@@ -1,5 +1,6 @@
 ---
 title: "Terraform em 2025: Como Dominar Infraestrutura como Código e Impulsionar Seu Negócio"
+slug: terraform-2025-dominar-iac
 description: "Guia completo sobre Terraform: licença BSL vs OpenTofu, casos reais no mercado brasileiro, comparação com Crossplane e por que todos os devs devem aprender automação. Inclui exemplos práticos em PT-BR."
 authors: [Ieso]
 tags:
@@ -13,6 +14,7 @@ tags:
   - "por que aprender terraform"
   - "devops para desenvolvedores"
   - "mercado de trabalho terraform"
+keywords: [terraform 2025, infraestrutura como código, hashicorp, opentofu, automação cloud, terraform vs crossplane, IaC iniciantes]
 date: 2025-04-26
 ---
 

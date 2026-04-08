@@ -10,6 +10,7 @@ tags:
   - "infraestrutura como código"
   - "automação devops"
   - "golden paths self-service"
+keywords: [crossplane, control plane, kubernetes, platform engineering, internal developer platform, infraestrutura como código, self-service]
 date: 2026-02-17
 ---
 

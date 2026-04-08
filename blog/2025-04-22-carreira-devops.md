@@ -1,5 +1,6 @@
 ---
 title: "Automação na Nuvem: Como se Tornar um Engenheiro de Cloud de Alto Nível em 2025"
+slug: carreira-engenheiro-cloud-2025
 description: "Domine as ferramentas de automação que elevam sua carreira em cloud computing. Guia completo com Terraform, Kubernetes e cases do mercado brasileiro."
 authors: [Ieso]
 tags:
@@ -10,6 +11,7 @@ tags:
   - "kubernetes produção"
   - "mercado cloud brasil"
   - "ferramentas devops 2024"
+keywords: [engenharia de cloud, automação devops, carreira tecnologia, terraform, kubernetes, cloud computing, devops brasil]
 date: 2025-02-20
 ---
 

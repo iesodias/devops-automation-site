@@ -1,5 +1,14 @@
 ---
 sidebar_position: 6
+title: "Lab de Bash Básico: Arquivos e Diretórios no Terminal (Vídeo Parte 2)"
+description: "Evolua no terminal com comandos para criar, copiar, mover e organizar arquivos no dia a dia DevOps. Entenda boas práticas com exemplos práticos em Bash."
+keywords:
+  - "bash"
+  - "terminal linux"
+  - "devops"
+  - "tutorial pt-br"
+  - "automação"
+  - "arquivos e diretórios"
 ---
 
 # Lab de Bash Básico: Desmistificando o Terminal - Parte 2

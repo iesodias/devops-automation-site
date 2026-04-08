@@ -1,5 +1,14 @@
 ---
 sidebar_position: 2
+title: "Como Criar Resource Group no Azure com Funções Bash (Passo a Passo)"
+description: "Automatize a criação de Resource Groups no Azure usando funções Bash e Azure CLI. Aprenda a validar parâmetros e executar comandos de forma reutilizável."
+keywords:
+  - "azure"
+  - "resource group"
+  - "bash"
+  - "devops"
+  - "tutorial pt-br"
+  - "automação"
 ---
 
 # Criando Resource Groups no Azure com Funções Bash

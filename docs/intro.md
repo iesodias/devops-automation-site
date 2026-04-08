@@ -1,5 +1,14 @@
 ---
 sidebar_position: 1
+title: "Pré-requisitos para DevOps Automation em Linux, Windows e macOS (Guia 2026)"
+description: "Prepare seu ambiente para os labs de DevOps com um checklist completo de ferramentas e contas. Aprenda o que instalar e validar antes de começar."
+keywords:
+  - "devops"
+  - "tutorial pt-br"
+  - "automação"
+  - "pré-requisitos devops"
+  - "ferramentas devops"
+  - "linux windows macos"
 ---
 # Intro - Pré-requisitos para o Lab DevOps Automation
 

@@ -1,7 +1,33 @@
 import React from 'react';
+import Head from '@docusaurus/Head';
 import Layout from '@theme/Layout';
 import CoursesSection from '../components/CoursesSection';
 import styles from './index.module.css';
+
+const structuredData = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: 'DevOps Automation',
+    url: 'https://devopsautomation.com.br',
+    logo: 'https://devopsautomation.com.br/img/devops-logo.png',
+    sameAs: [
+      'https://www.youtube.com/channel/UCxRNzCKgqQ0FW0GKuRSjlEQ',
+      'https://linkedin.com/in/iesodias',
+      'https://instagram.com/iesofdias',
+      'https://github.com/iesodias',
+    ],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: 'DevOps Automation',
+    url: 'https://devopsautomation.com.br',
+    description:
+      'Aprenda DevOps do zero com tutoriais práticos, automação, cloud e CI/CD',
+    inLanguage: 'pt-BR',
+  },
+];
 
 export default function Home() {
   return (
@@ -9,6 +35,12 @@ export default function Home() {
       title="Devops para Iniciantes"
       description="Aprenda DevOps com laboratórios práticos!"
     >
+      <Head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        />
+      </Head>
       <main className={styles.main}>
         {/* HERO COM BACKGROUND E LOGO IMPACTANTE */}
         <div className={styles.hero}>
@@ -16,7 +48,7 @@ export default function Home() {
             <div className={styles.logoWrap}>
               <img
                 src="/img/devops-logo.png"
-                alt="DevOps Automation Logo"
+                alt="DevOps Automation - Plataforma de tutoriais e cursos DevOps"
                 className={styles.logo}
               />
             </div>
@@ -54,7 +86,7 @@ export default function Home() {
           <div className={styles.youtubeInner}>
             <img
               src="/img/devops_banner_youtube.png"
-              alt="Banner YouTube DevOps"
+              alt="Canal YouTube DevOps Automation - Tutoriais práticos de DevOps, Cloud e Automação"
               className={styles.youtubeBanner}
             />
 
@@ -90,7 +122,7 @@ export default function Home() {
           <div className={styles.instructorImgWrap}>
             <img
               src="/img/career-cta.png"
-              alt="Iêso Dias"
+              alt="Iêso Dias - Instrutor DevOps e especialista em automação cloud"
               className={styles.instructorImg}
             />
           </div>

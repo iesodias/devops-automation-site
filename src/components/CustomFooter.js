@@ -194,6 +194,12 @@ export default function CustomFooter() {
               }}
             >
               <li>
+                <HoverLink href="/docs/intro">📖 Tutoriais</HoverLink>
+              </li>
+              <li>
+                <HoverLink href="/">🏠 Home</HoverLink>
+              </li>
+              <li>
                 <HoverLink href="https://github.com/iesodias" external>
                   ⌘ Github
                 </HoverLink>
