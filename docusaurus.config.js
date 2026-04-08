@@ -122,7 +122,9 @@ const config = {
       darkTheme: prismThemes.dracula,
     },
     colorMode: {
-      disableSwitch: true,
+      disableSwitch: false,
+      defaultMode: 'light',
+      respectPrefersColorScheme: true,
     },
   },
 };

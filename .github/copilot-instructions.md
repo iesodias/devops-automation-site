@@ -53,8 +53,8 @@ All site content (docs, blog, UI labels) is in **Brazilian Portuguese**. Code ex
 ### Visual Identity
 - Primary color: `#1c2385` (navy blue)
 - Accent/links: `#bc2e7d` (pink), hover: `#f39132` (orange)
-- Background: white (`#ffffff`); dark mode toggle is **disabled** (`colorMode.disableSwitch: true`)
-- Do not add dark-mode-specific styles; they will never be shown
+- Background: support both light (`#ffffff`) and dark themes; dark mode toggle is **enabled** (`colorMode.disableSwitch: false`)
+- Add and maintain dark-mode-specific styles where needed so both themes are fully supported
 
 ### Adding a New Doc/Tutorial
 1. Create the `.md` file inside the appropriate directory (`docs/`, `curso-terraform-udemy/`, etc.)
