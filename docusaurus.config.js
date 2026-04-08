@@ -124,7 +124,6 @@ const config = {
     colorMode: {
       disableSwitch: false,
       defaultMode: 'light',
-      respectPrefersColorScheme: true,
     },
   },
 };
