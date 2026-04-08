@@ -112,7 +112,7 @@ const config = {
       tagName: 'meta',
       attributes: {
         name: 'google-site-verification',
-        content: 'INSERIR_CODIGO_VERIFICACAO_AQUI',
+        content: 'evRUbnxPoFHgxO3EFiS9bU-4tg2FxXrRWq-QSAJZVPM',
       },
     },
   ],
