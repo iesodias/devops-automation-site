@@ -36,6 +36,9 @@ const config = {
         },
         blog: {
           showReadingTime: true,
+          postsPerPage: 'ALL',
+          blogSidebarCount: 'ALL',
+          blogSidebarTitle: 'Todos os artigos',
           feedOptions: {
             type: ['rss', 'atom'],
             xslt: true,
@@ -55,7 +58,6 @@ const config = {
         sitemap: {
           changefreq: 'weekly',
           priority: 0.7,
-          ignorePatterns: ['/udemy/**'],
           filename: 'sitemap.xml',
         },
       },
@@ -113,6 +115,34 @@ const config = {
       attributes: {
         name: 'google-site-verification',
         content: 'evRUbnxPoFHgxO3EFiS9bU-4tg2FxXrRWq-QSAJZVPM',
+      },
+    },
+    {
+      tagName: 'meta',
+      attributes: {
+        name: 'viewport',
+        content: 'width=device-width, initial-scale=1.0',
+      },
+    },
+    {
+      tagName: 'meta',
+      attributes: {
+        name: 'description',
+        content: 'Aprenda DevOps do zero com tutoriais práticos. Automação, Cloud e DevOps sem enrolação.',
+      },
+    },
+    {
+      tagName: 'meta',
+      attributes: {
+        name: 'robots',
+        content: 'index, follow',
+      },
+    },
+    {
+      tagName: 'link',
+      attributes: {
+        rel: 'canonical',
+        href: 'https://devopsautomation.com.br/',
       },
     },
   ],

@@ -1,5 +1,4 @@
 User-agent: *
-Allow: /
-Disallow: /udemy/
+Disallow:
 
 Sitemap: https://devopsautomation.com.br/sitemap.xml
