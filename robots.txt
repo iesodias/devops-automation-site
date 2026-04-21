@@ -1,9 +1,4 @@
 User-agent: *
-Allow: /
-Disallow: /udemy/
-Disallow: /blog/tags/
-Disallow: /blog/page/
-Disallow: /blog/archive
-Disallow: /blog/authors/
+Disallow:
 
 Sitemap: https://devopsautomation.com.br/sitemap.xml
