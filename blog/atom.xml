@@ -2,11 +2,108 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://devopsautomation.com.br/blog</id>
     <title>Aprenda DevOps do zero com tutoriais práticos Blog</title>
-    <updated>2026-05-20T00:00:00.000Z</updated>
+    <updated>2026-05-28T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://devopsautomation.com.br/blog"/>
     <subtitle>Aprenda DevOps do zero com tutoriais práticos Blog</subtitle>
     <icon>https://devopsautomation.com.br/img/favicon.png</icon>
+    <entry>
+        <title type="html"><![CDATA[Introdução ao GitHub Copilot CLI: Instalação, Login e Primeiros Comandos]]></title>
+        <id>https://devopsautomation.com.br/blog/introducao-github-copilot-cli-desenvolvimento</id>
+        <link href="https://devopsautomation.com.br/blog/introducao-github-copilot-cli-desenvolvimento"/>
+        <updated>2026-05-28T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Aprenda a instalar e usar o GitHub Copilot CLI no VS Code e no terminal, com passo a passo para macOS, Windows e Linux.]]></summary>
+        <content type="html"><![CDATA[<p>Se você quer usar IA direto no terminal para acelerar tarefas de desenvolvimento, o GitHub Copilot CLI é uma das opções mais práticas hoje.</p>
+<p>Neste guia, você vai aprender o que é o Copilot CLI, como instalar, como fazer login e como começar com comandos essenciais.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="o-que-é-o-github-copilot-cli">O que é o GitHub Copilot CLI<a href="https://devopsautomation.com.br/blog/introducao-github-copilot-cli-desenvolvimento#o-que-%C3%A9-o-github-copilot-cli" class="hash-link" aria-label="Link direto para O que é o GitHub Copilot CLI" title="Link direto para O que é o GitHub Copilot CLI" translate="no">​</a></h2>
+<p>O GitHub Copilot CLI é a interface de linha de comando do Copilot para executar sessões com agente, trabalhar com contexto do projeto e automatizar partes do fluxo de desenvolvimento sem sair do terminal.</p>
+<p>Ele funciona muito bem para tarefas como:</p>
+<ul>
+<li class="">explorar e entender código rapidamente</li>
+<li class="">propor mudanças com contexto local</li>
+<li class="">executar ações com aprovação controlada</li>
+<li class="">manter sessões de trabalho no terminal e no VS Code</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="importante-vs-code-vs-instalação-manual">Importante: VS Code vs instalação manual<a href="https://devopsautomation.com.br/blog/introducao-github-copilot-cli-desenvolvimento#importante-vs-code-vs-instala%C3%A7%C3%A3o-manual" class="hash-link" aria-label="Link direto para Importante: VS Code vs instalação manual" title="Link direto para Importante: VS Code vs instalação manual" translate="no">​</a></h2>
+<p>Pelo guia da Microsoft, quando você usa sessões de Copilot CLI dentro do VS Code, o editor instala e configura o Copilot CLI automaticamente.</p>
+<p>Ou seja:</p>
+<ul>
+<li class="">No VS Code: normalmente não precisa instalar manualmente para usar sessões de Copilot CLI.</li>
+<li class="">Fora do VS Code (terminal do sistema): você pode instalar manualmente e usar o comando copilot diretamente.</li>
+</ul>
+<p>Referências usadas neste artigo:</p>
+<ul>
+<li class="">Microsoft (VS Code): <a href="https://code.visualstudio.com/docs/copilot/agents/copilot-cli" target="_blank" rel="noopener noreferrer" class="">https://code.visualstudio.com/docs/copilot/agents/copilot-cli</a></li>
+<li class="">GitHub Docs (referência de comandos): <a href="https://docs.github.com/en/copilot/reference/copilot-cli-reference/cli-command-reference" target="_blank" rel="noopener noreferrer" class="">https://docs.github.com/en/copilot/reference/copilot-cli-reference/cli-command-reference</a></li>
+<li class="">Context7 + repositório oficial do Copilot CLI: <a href="https://github.com/github/copilot-cli" target="_blank" rel="noopener noreferrer" class="">https://github.com/github/copilot-cli</a></li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="passo-a-passo-para-instalar-o-github-copilot-cli">Passo a passo para instalar o GitHub Copilot CLI<a href="https://devopsautomation.com.br/blog/introducao-github-copilot-cli-desenvolvimento#passo-a-passo-para-instalar-o-github-copilot-cli" class="hash-link" aria-label="Link direto para Passo a passo para instalar o GitHub Copilot CLI" title="Link direto para Passo a passo para instalar o GitHub Copilot CLI" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-macos-e-linux-homebrew">1) macOS e Linux (Homebrew)<a href="https://devopsautomation.com.br/blog/introducao-github-copilot-cli-desenvolvimento#1-macos-e-linux-homebrew" class="hash-link" aria-label="Link direto para 1) macOS e Linux (Homebrew)" title="Link direto para 1) macOS e Linux (Homebrew)" translate="no">​</a></h3>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">brew install copilot-cli</span><br></span></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-macos-e-linux-script-oficial">2) macOS e Linux (script oficial)<a href="https://devopsautomation.com.br/blog/introducao-github-copilot-cli-desenvolvimento#2-macos-e-linux-script-oficial" class="hash-link" aria-label="Link direto para 2) macOS e Linux (script oficial)" title="Link direto para 2) macOS e Linux (script oficial)" translate="no">​</a></h3>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">curl -fsSL https://gh.io/copilot-install | bash</span><br></span></code></pre></div></div>
+<p>Alternativa com wget:</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">wget -qO- https://gh.io/copilot-install | bash</span><br></span></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-windows-winget">3) Windows (WinGet)<a href="https://devopsautomation.com.br/blog/introducao-github-copilot-cli-desenvolvimento#3-windows-winget" class="hash-link" aria-label="Link direto para 3) Windows (WinGet)" title="Link direto para 3) Windows (WinGet)" translate="no">​</a></h3>
+<div class="language-powershell codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-powershell codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">winget install GitHub.Copilot</span><br></span></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-alternativa-multiplataforma-com-npm">4) Alternativa multiplataforma com npm<a href="https://devopsautomation.com.br/blog/introducao-github-copilot-cli-desenvolvimento#4-alternativa-multiplataforma-com-npm" class="hash-link" aria-label="Link direto para 4) Alternativa multiplataforma com npm" title="Link direto para 4) Alternativa multiplataforma com npm" translate="no">​</a></h3>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">npm install -g @github/copilot</span><br></span></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="primeiro-acesso-login-e-execução">Primeiro acesso: login e execução<a href="https://devopsautomation.com.br/blog/introducao-github-copilot-cli-desenvolvimento#primeiro-acesso-login-e-execu%C3%A7%C3%A3o" class="hash-link" aria-label="Link direto para Primeiro acesso: login e execução" title="Link direto para Primeiro acesso: login e execução" translate="no">​</a></h2>
+<p>Depois da instalação, faça login:</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">copilot login</span><br></span></code></pre></div></div>
+<p>Segundo a referência oficial:</p>
+<ul>
+<li class="">o login padrão usa fluxo web (navegador)</li>
+<li class="">o token fica no credential store do sistema quando disponível</li>
+<li class="">para automação/headless, você pode usar token via ambiente (COPILOT_GITHUB_TOKEN, GH_TOKEN ou GITHUB_TOKEN)</li>
+</ul>
+<p>Para iniciar a interface interativa:</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">copilot</span><br></span></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="comandos-iniciais-que-você-deve-conhecer">Comandos iniciais que você deve conhecer<a href="https://devopsautomation.com.br/blog/introducao-github-copilot-cli-desenvolvimento#comandos-iniciais-que-voc%C3%AA-deve-conhecer" class="hash-link" aria-label="Link direto para Comandos iniciais que você deve conhecer" title="Link direto para Comandos iniciais que você deve conhecer" translate="no">​</a></h2>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain"># Abre a ajuda geral</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">copilot help</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"># Mostra versão instalada</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">copilot version</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"># Atualiza para a versão mais recente</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">copilot update</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"># Inicia com prompt interativo direto</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">copilot --interactive "me explique este projeto"</span><br></span></code></pre></div></div>
+<p>No modo interativo, você também pode usar:</p>
+<ul>
+<li class="">/help para ver comandos de sessão</li>
+<li class="">/model para trocar modelo</li>
+<li class="">/init para gerar instruções do repositório</li>
+<li class="">/resume para continuar sessões anteriores</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="como-usar-no-vs-code-sem-fricção">Como usar no VS Code sem fricção<a href="https://devopsautomation.com.br/blog/introducao-github-copilot-cli-desenvolvimento#como-usar-no-vs-code-sem-fric%C3%A7%C3%A3o" class="hash-link" aria-label="Link direto para Como usar no VS Code sem fricção" title="Link direto para Como usar no VS Code sem fricção" translate="no">​</a></h2>
+<p>Se você já trabalha com Chat do VS Code:</p>
+<ol>
+<li class="">Abra o Chat e selecione Copilot CLI como Session Target.</li>
+<li class="">Escolha Worktree isolation ou Workspace isolation.</li>
+<li class="">Envie seu prompt e acompanhe a sessão em background.</li>
+<li class="">Se quiser, abra um terminal de perfil GitHub Copilot CLI e continue por lá.</li>
+</ol>
+<p>Esse fluxo é ótimo para tarefas de implementação mais longas, porque a sessão pode continuar em background enquanto você segue codando.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="boas-práticas-para-iniciantes">Boas práticas para iniciantes<a href="https://devopsautomation.com.br/blog/introducao-github-copilot-cli-desenvolvimento#boas-pr%C3%A1ticas-para-iniciantes" class="hash-link" aria-label="Link direto para Boas práticas para iniciantes" title="Link direto para Boas práticas para iniciantes" translate="no">​</a></h2>
+<ul>
+<li class="">Comece com tarefas pequenas e de escopo fechado.</li>
+<li class="">Revise diffs com frequência antes de aprovar mudanças.</li>
+<li class="">Use comandos de ajuda (/help e copilot help) para ganhar velocidade.</li>
+<li class="">Em ambiente corporativo, defina regras de permissões e aprovação antes de escalar uso.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="faq-rápido">FAQ rápido<a href="https://devopsautomation.com.br/blog/introducao-github-copilot-cli-desenvolvimento#faq-r%C3%A1pido" class="hash-link" aria-label="Link direto para FAQ rápido" title="Link direto para FAQ rápido" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="preciso-do-github-cli-gh-para-usar-o-copilot-cli">Preciso do GitHub CLI (gh) para usar o Copilot CLI?<a href="https://devopsautomation.com.br/blog/introducao-github-copilot-cli-desenvolvimento#preciso-do-github-cli-gh-para-usar-o-copilot-cli" class="hash-link" aria-label="Link direto para Preciso do GitHub CLI (gh) para usar o Copilot CLI?" title="Link direto para Preciso do GitHub CLI (gh) para usar o Copilot CLI?" translate="no">​</a></h3>
+<p>Não é obrigatório para iniciar. O Copilot CLI funciona por conta própria. Em alguns cenários, tokens de ambiente como GH_TOKEN podem ser reaproveitados.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="o-copilot-cli-funciona-no-vs-code-e-no-terminal">O Copilot CLI funciona no VS Code e no terminal?<a href="https://devopsautomation.com.br/blog/introducao-github-copilot-cli-desenvolvimento#o-copilot-cli-funciona-no-vs-code-e-no-terminal" class="hash-link" aria-label="Link direto para O Copilot CLI funciona no VS Code e no terminal?" title="Link direto para O Copilot CLI funciona no VS Code e no terminal?" translate="no">​</a></h3>
+<p>Sim. No VS Code, há integração nativa com sessões de Copilot CLI. No terminal, você usa o binário copilot instalado manualmente.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="posso-usar-com-github-enterprise-cloud">Posso usar com GitHub Enterprise Cloud?<a href="https://devopsautomation.com.br/blog/introducao-github-copilot-cli-desenvolvimento#posso-usar-com-github-enterprise-cloud" class="hash-link" aria-label="Link direto para Posso usar com GitHub Enterprise Cloud?" title="Link direto para Posso usar com GitHub Enterprise Cloud?" translate="no">​</a></h3>
+<p>Sim. O comando copilot login aceita o parâmetro --host para autenticar em host específico.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="conclusão">Conclusão<a href="https://devopsautomation.com.br/blog/introducao-github-copilot-cli-desenvolvimento#conclus%C3%A3o" class="hash-link" aria-label="Link direto para Conclusão" title="Link direto para Conclusão" translate="no">​</a></h2>
+<p>Se a sua meta é produtividade com IA no terminal, o GitHub Copilot CLI é um excelente ponto de entrada.</p>
+<p>Comece com instalação simples, faça login, rode os primeiros comandos e evolua para sessões mais avançadas no VS Code. Esse caminho já entrega ganho real no fluxo de desenvolvimento sem aumentar complexidade no início.</p>]]></content>
+        <author>
+            <name>Iêso Dias</name>
+            <uri>https://youtube.com/@iesodias</uri>
+        </author>
+        <category label="GitHub Copilot" term="GitHub Copilot"/>
+        <category label="Coding Agent" term="Coding Agent"/>
+        <category label="CLI Tools para Desenvolvedores" term="CLI Tools para Desenvolvedores"/>
+        <category label="Produtividade com IA no Terminal" term="Produtividade com IA no Terminal"/>
+        <category label="DevOps para Desenvolvedores" term="DevOps para Desenvolvedores"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[DevOps para Iniciantes: Guia Rápido para Começar em 2026]]></title>
         <id>https://devopsautomation.com.br/blog/devops-para-iniciantes-guia-2026</id>
