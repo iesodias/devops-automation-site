@@ -402,6 +402,21 @@ agentes autônomos:
   permalink: /agentes-autonomos
   description: Conceitos e aplicações práticas de agentes autônomos.
 
+github cli:
+  label: GitHub CLI
+  permalink: /github-cli
+  description: Guias de instalação, autenticação e uso do comando gh no dia a dia.
+
+github:
+  label: GitHub
+  permalink: /github
+  description: Conteúdos sobre práticas de desenvolvimento com GitHub.
+
+terminal:
+  label: Terminal
+  permalink: /terminal
+  description: Produtividade e automação em linha de comando para desenvolvedores.
+
 github copilot:
   label: GitHub Copilot
   permalink: /github-copilot
