@@ -4,10 +4,134 @@
         <title>Aprenda DevOps do zero com tutoriais práticos Blog</title>
         <link>https://devopsautomation.com.br/blog</link>
         <description>Aprenda DevOps do zero com tutoriais práticos Blog</description>
-        <lastBuildDate>Sun, 14 Jun 2026 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 06 Jul 2026 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>pt-BR</language>
+        <item>
+            <title><![CDATA[O que é Engenharia de Contexto: Guia Básico para DevOps em 2026]]></title>
+            <link>https://devopsautomation.com.br/blog/engenharia-de-contexto-guia-devops-2026</link>
+            <guid>https://devopsautomation.com.br/blog/engenharia-de-contexto-guia-devops-2026</guid>
+            <pubDate>Mon, 06 Jul 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[Entenda o que é engenharia de contexto (context engineering), como ela se diferencia de prompt engineering e como aplicar o conceito no dia a dia de DevOps com agentes de IA.]]></description>
+            <content:encoded><![CDATA[<p>Se você já usou um agente de IA para revisar um Terraform, investigar um incidente ou automatizar um pipeline e recebeu uma resposta genérica, incompleta ou simplesmente errada, o problema raramente é o modelo. Na maioria das vezes é <strong>o contexto que você entregou a ele</strong>.</p>
+<p>Esse é o assunto que virou o novo termo-chave da indústria de IA em 2025 e 2026: <strong>engenharia de contexto (context engineering)</strong>. Neste guia direto ao ponto, você vai entender o que é, por que substituiu boa parte da conversa sobre "prompt engineering" e como aplicar isso no dia a dia de DevOps.</p>
+<blockquote>
+<p><strong>Quer dominar DevOps e automação na prática?</strong> Confira o curso completo: <a href="https://www.udemy.com/course/devops-automacao-sem-enrolacao/?referralCode=28E4F89140C44D63D605" target="_blank" rel="noopener noreferrer" class="">DevOps Automação Sem Enrolação na Udemy</a> — com exemplos reais de containerização, pipelines e automação.</p>
+</blockquote>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="o-que-é-engenharia-de-contexto">O que é engenharia de contexto<a href="https://devopsautomation.com.br/blog/engenharia-de-contexto-guia-devops-2026#o-que-%C3%A9-engenharia-de-contexto" class="hash-link" aria-label="Link direto para O que é engenharia de contexto" title="Link direto para O que é engenharia de contexto" translate="no">​</a></h2>
+<p><strong>Engenharia de contexto</strong> é a disciplina de curar e gerenciar o conjunto de tokens (informações) que chegam a um modelo de linguagem (LLM) no momento da inferência, de forma que ele tenha exatamente o que precisa — nem menos, nem mais — para executar uma tarefa com sucesso.</p>
+<p>A definição vem direto do time de IA aplicada da <a href="https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents" target="_blank" rel="noopener noreferrer" class="">Anthropic</a>:</p>
+<blockquote>
+<p><em>"Context engineering refere-se ao conjunto de estratégias para curar e manter o conjunto ótimo de tokens durante a inferência do LLM, incluindo toda informação que pode chegar até ali além do prompt: instruções de sistema, ferramentas, MCP, dados externos, histórico de mensagens, etc."</em></p>
+</blockquote>
+<p>Já a <a href="https://www.langchain.com/blog/the-rise-of-context-engineering" target="_blank" rel="noopener noreferrer" class="">LangChain</a> resume de forma ainda mais prática:</p>
+<blockquote>
+<p><em>"Context engineering é construir sistemas dinâmicos que fornecem a informação certa e as ferramentas certas, no formato certo, para que o LLM consiga plausivelmente realizar a tarefa."</em></p>
+</blockquote>
+<p>Em outras palavras: não basta escrever uma boa pergunta. É preciso desenhar <strong>todo o sistema</strong> que decide o que o modelo vai "ver" a cada chamada — histórico, ferramentas disponíveis, documentos recuperados, memória de longo prazo e instruções.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="engenharia-de-contexto-vs-prompt-engineering">Engenharia de contexto vs prompt engineering<a href="https://devopsautomation.com.br/blog/engenharia-de-contexto-guia-devops-2026#engenharia-de-contexto-vs-prompt-engineering" class="hash-link" aria-label="Link direto para Engenharia de contexto vs prompt engineering" title="Link direto para Engenharia de contexto vs prompt engineering" translate="no">​</a></h2>
+<p>Essa é a primeira confusão de quem está começando. As duas coisas estão relacionadas, mas não são a mesma coisa:</p>
+<table><thead><tr><th>Aspecto</th><th>Prompt Engineering</th><th>Context Engineering</th></tr></thead><tbody><tr><td><strong>Foco</strong></td><td>Como escrever a instrução</td><td>O que entra na janela de contexto como um todo</td></tr><tr><td><strong>Escopo</strong></td><td>Um prompt, geralmente estático</td><td>Sistema completo: prompt, ferramentas, memória, histórico, dados recuperados</td></tr><tr><td><strong>Natureza</strong></td><td>Tarefa pontual</td><td>Processo iterativo e dinâmico, a cada turno</td></tr><tr><td><strong>Cenário típico</strong></td><td>Classificação, geração de texto único (one-shot)</td><td>Agentes operando em loop, múltiplos turnos, tarefas longas</td></tr></tbody></table>
+<p>Prompt engineering nasceu quando o principal uso de LLM era responder a um prompt isolado. Conforme passamos a construir <strong>agentes</strong> — sistemas que usam ferramentas em loop, mantêm histórico e tomam decisões ao longo do tempo — prompt engineering virou apenas <strong>uma parte</strong> de um problema maior: como montar, a cada novo turno, o melhor "pacote" de informação possível para o modelo.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="por-que-isso-importa-para-devops">Por que isso importa para DevOps<a href="https://devopsautomation.com.br/blog/engenharia-de-contexto-guia-devops-2026#por-que-isso-importa-para-devops" class="hash-link" aria-label="Link direto para Por que isso importa para DevOps" title="Link direto para Por que isso importa para DevOps" translate="no">​</a></h2>
+<p>DevOps é um terreno fértil para esse problema. Um agente de IA usado para operações reais normalmente precisa lidar com:</p>
+<ul>
+<li class=""><strong>Logs extensos</strong> de pipelines de CI/CD ou de aplicações em produção</li>
+<li class=""><strong>Código e IaC</strong> espalhados em múltiplos repositórios (Terraform, Kubernetes manifests, Dockerfiles)</li>
+<li class=""><strong>Histórico de incidentes</strong>, runbooks e documentação interna</li>
+<li class=""><strong>Ferramentas (tools)</strong> para consultar métricas, abrir tickets, rodar comandos ou acessar APIs de cloud</li>
+<li class=""><strong>Sessões longas</strong>, como uma investigação de incidente que dura horas ou uma migração de infraestrutura que dura dias</li>
+</ul>
+<p>Se você simplesmente "joga tudo" isso para dentro do prompt, o resultado não é um agente mais inteligente — é um agente <strong>mais confuso</strong>. Pesquisas como as citadas pela própria Anthropic mostram o fenômeno de <strong><a class="" href="https://devopsautomation.com.br/blog/context-rot-engenharia-contexto-llms">context rot</a></strong>: conforme a janela de contexto cresce, a capacidade do modelo de recuperar e raciocinar sobre informações específicas <strong>degrada</strong>, mesmo em modelos com janelas de 200k+ tokens.</p>
+<p>Isso acontece porque a arquitetura Transformer, usada por praticamente todo LLM relevante hoje, calcula relações de atenção entre cada par de tokens — o famoso custo quadrático O(n²). Na prática: o modelo tem um <strong>"orçamento de atenção"</strong> finito, e cada token irrelevante que você adiciona consome parte desse orçamento.</p>
+<p>Por isso, tratar o contexto como <strong>um recurso escasso e valioso</strong> — não como um espaço ilimitado para despejar informação — é hoje uma habilidade tão importante para quem constrói automação com IA quanto saber escrever um bom pipeline de CI/CD.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="os-conceitos-que-você-precisa-conhecer">Os conceitos que você precisa conhecer<a href="https://devopsautomation.com.br/blog/engenharia-de-contexto-guia-devops-2026#os-conceitos-que-voc%C3%AA-precisa-conhecer" class="hash-link" aria-label="Link direto para Os conceitos que você precisa conhecer" title="Link direto para Os conceitos que você precisa conhecer" translate="no">​</a></h2>
+<p>Antes de aplicar na prática, fixe estes termos:</p>
+<ol>
+<li class=""><strong>Janela de contexto (context window)</strong> — o limite de tokens que o modelo consegue processar em uma única chamada.</li>
+<li class=""><strong>System prompt</strong> — as instruções de comportamento fixas que definem papel, tom e regras do agente.</li>
+<li class=""><strong>Tools (ferramentas)</strong> — funções que o agente pode chamar para buscar dados ou executar ações (consultar uma API, rodar <code>kubectl</code>, ler um arquivo).</li>
+<li class=""><strong>Memória de curto prazo</strong> — o histórico da conversa/sessão atual, normalmente resumido (<em>compaction</em>) quando fica grande demais.</li>
+<li class=""><strong>Memória de longo prazo</strong> — informação persistida fora da janela de contexto (arquivos de notas, bancos vetoriais) e recuperada quando necessário.</li>
+<li class=""><strong>Retrieval (recuperação)</strong> — buscar dinamicamente só o pedaço de informação relevante (um trecho de documentação, um arquivo específico) em vez de carregar tudo de uma vez.</li>
+<li class=""><strong>Sub-agentes</strong> — agentes especializados que fazem exploração pesada em um contexto isolado e devolvem apenas um resumo condensado ao agente principal.</li>
+</ol>
+<p>A relação entre eles, de forma simplificada:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">System prompt + Tools + Memória + Retrieval → Contexto montado → Janela de contexto do LLM → Resposta/ação</span><br></span></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="anatomia-de-um-bom-contexto">Anatomia de um bom contexto<a href="https://devopsautomation.com.br/blog/engenharia-de-contexto-guia-devops-2026#anatomia-de-um-bom-contexto" class="hash-link" aria-label="Link direto para Anatomia de um bom contexto" title="Link direto para Anatomia de um bom contexto" translate="no">​</a></h2>
+<p>Segundo a Anthropic, a regra de ouro da engenharia de contexto é simples de enunciar e difícil de executar:</p>
+<blockquote>
+<p>Encontre o <strong>menor conjunto possível de tokens de alto sinal</strong> que maximize a chance de o modelo atingir o resultado desejado.</p>
+</blockquote>
+<p>Na prática, isso se traduz em algumas práticas centrais:</p>
+<ul>
+<li class=""><strong>System prompts na "altitude certa"</strong> — nem instruções tão genéricas que assumem contexto compartilhado que o modelo não tem, nem regras tão rígidas e específicas (hardcoded) que quebram a qualquer variação do cenário real.</li>
+<li class=""><strong>Ferramentas enxutas e não ambíguas</strong> — se um engenheiro humano não consegue dizer com clareza qual ferramenta usar em determinada situação, o agente também não vai conseguir. Conjuntos de tools inchados e sobrepostos são uma das principais causas de falha em agentes.</li>
+<li class=""><strong>Exemplos (few-shot) canônicos, não uma lista de casos de borda</strong> — poucos exemplos bem escolhidos ensinam mais do que dezenas de regras específicas amontoadas no prompt.</li>
+<li class=""><strong>"Just-in-time" em vez de tudo de uma vez</strong> — buscar o dado certo, no momento certo, usando referências leves (caminho de arquivo, ID, query) em vez de pré-carregar tudo na esperança de que "algo ali seja útil".</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="exemplo-prático-contexto-para-um-agente-de-troubleshooting-de-kubernetes">Exemplo prático: contexto para um agente de troubleshooting de Kubernetes<a href="https://devopsautomation.com.br/blog/engenharia-de-contexto-guia-devops-2026#exemplo-pr%C3%A1tico-contexto-para-um-agente-de-troubleshooting-de-kubernetes" class="hash-link" aria-label="Link direto para Exemplo prático: contexto para um agente de troubleshooting de Kubernetes" title="Link direto para Exemplo prático: contexto para um agente de troubleshooting de Kubernetes" translate="no">​</a></h2>
+<p>Vamos aplicar isso a um cenário comum de DevOps: um agente de IA que ajuda a investigar um pod com <code>CrashLoopBackOff</code>.</p>
+<p><strong>Abordagem ruim (jogar tudo no contexto):</strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">Aqui está o describe completo do pod, os últimos 5000 logs,</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">o histórico de deploys dos últimos 3 meses, o Helm chart inteiro</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">e o manifesto de todos os outros serviços do namespace.</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">Me diga por que o pod está falhando.</span><br></span></code></pre></div></div>
+<p>Isso enche a janela de contexto de ruído, dilui o "orçamento de atenção" do modelo e aumenta o risco de ele focar no trecho errado.</p>
+<p><strong>Abordagem com engenharia de contexto:</strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">&lt;papel&gt;</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">Você é um agente de troubleshooting de Kubernetes. Seu objetivo é</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">diagnosticar a causa raiz de falhas em pods usando o mínimo de</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">ferramentas necessárias.</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">&lt;/papel&gt;</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">&lt;ferramentas_disponiveis&gt;</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">- kubectl_describe(pod, namespace)</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">- kubectl_logs(pod, namespace, tail=200)</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">- get_recent_deploys(service, limit=3)</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">&lt;/ferramentas_disponiveis&gt;</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">&lt;instrucoes&gt;</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">1. Comece pelo describe do pod para identificar o estado e eventos recentes.</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">2. Só busque logs se o describe não explicar a causa.</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">3. Só consulte deploys recentes se suspeitar de regressão de versão.</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">4. Responda com: causa provável, evidência e próximo passo recomendado.</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">&lt;/instrucoes&gt;</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">&lt;pod_alvo&gt;api-gateway-7d9f, namespace: production&lt;/pod_alvo&gt;</span><br></span></code></pre></div></div>
+<p>A diferença central: em vez de <strong>pré-carregar</strong> tudo, o agente recebe <strong>ferramentas</strong> para buscar dado <strong>just-in-time</strong>, só o que for necessário para o diagnóstico — exatamente o padrão que a Anthropic descreve como <em>"progressive disclosure"</em>: o agente monta entendimento camada por camada, consumindo contexto apenas quando o passo anterior indicar que é preciso.</p>
+<p>Esse mesmo princípio se aplica a agentes de IA usados para revisar Terraform, gerar pipelines de CI/CD ou responder dúvidas sobre uma base de código — como os que você configura com o <strong><a class="" href="https://devopsautomation.com.br/blog/context7-agentes-vscode-documentacao-atualizada">Context7 no VS Code</a></strong> ou com <strong><a class="" href="https://devopsautomation.com.br/blog/criar-agente-terraform-vscode">agentes de Terraform no VS Code</a></strong>.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="boas-práticas-para-aplicar-engenharia-de-contexto-no-dia-a-dia">Boas práticas para aplicar engenharia de contexto no dia a dia<a href="https://devopsautomation.com.br/blog/engenharia-de-contexto-guia-devops-2026#boas-pr%C3%A1ticas-para-aplicar-engenharia-de-contexto-no-dia-a-dia" class="hash-link" aria-label="Link direto para Boas práticas para aplicar engenharia de contexto no dia a dia" title="Link direto para Boas práticas para aplicar engenharia de contexto no dia a dia" translate="no">​</a></h2>
+<ol>
+<li class=""><strong>Trate contexto como recurso finito, não como espaço livre.</strong> Pergunte sempre "esse token realmente ajuda o modelo a decidir melhor?" antes de adicionar mais informação.</li>
+<li class=""><strong>Prefira retrieval just-in-time a pré-carregamento.</strong> Dê ao agente ferramentas para buscar arquivos, logs e dados sob demanda em vez de despejar tudo de uma vez.</li>
+<li class=""><strong>Cuide do formato, não só do conteúdo.</strong> Uma mensagem de erro curta e descritiva vale mais que um JSON bruto de 10 mil linhas.</li>
+<li class=""><strong>Reduza o conjunto de ferramentas ao mínimo viável.</strong> Ferramentas com funções sobrepostas confundem o agente tanto quanto confundiriam um humano.</li>
+<li class=""><strong>Use compactação (compaction) em sessões longas.</strong> Resuma o histórico periodicamente, preservando decisões importantes e descartando saídas de ferramentas já processadas.</li>
+<li class=""><strong>Adote memória estruturada para tarefas longas.</strong> Um arquivo de notas (tipo <code>NOTES.md</code>) persistido entre execuções evita que o agente "esqueça" decisões em investigações ou migrações demoradas.</li>
+<li class=""><strong>Considere sub-agentes para exploração pesada.</strong> Um sub-agente pode vasculhar milhares de linhas de log e devolver um resumo de poucas linhas ao agente principal, mantendo o contexto principal limpo.</li>
+<li class=""><strong>Teste com o prompt mínimo primeiro.</strong> Comece pequeno, veja onde o agente falha e adicione contexto de forma incremental — não o contrário.</li>
+</ol>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="engenharia-de-contexto-e-o-restante-do-mundo-devops">Engenharia de contexto e o restante do mundo DevOps<a href="https://devopsautomation.com.br/blog/engenharia-de-contexto-guia-devops-2026#engenharia-de-contexto-e-o-restante-do-mundo-devops" class="hash-link" aria-label="Link direto para Engenharia de contexto e o restante do mundo DevOps" title="Link direto para Engenharia de contexto e o restante do mundo DevOps" translate="no">​</a></h2>
+<p>Engenharia de contexto não é uma disciplina isolada — ela é o que sustenta, por baixo dos panos, praticamente toda automação séria com IA em DevOps:</p>
+<ul>
+<li class=""><strong><a class="" href="https://devopsautomation.com.br/blog/context-rot-engenharia-contexto-llms">Context Rot: por que mais contexto não é melhor</a></strong> — o problema técnico que a engenharia de contexto existe para mitigar</li>
+<li class=""><strong><a class="" href="https://devopsautomation.com.br/blog/context7-agentes-vscode-documentacao-atualizada">Context7 nos agentes do VS Code</a></strong> — um exemplo prático de retrieval just-in-time aplicado a documentação</li>
+<li class=""><strong><a class="" href="https://devopsautomation.com.br/blog/criar-agente-terraform-vscode">Criando um agente de Terraform no VS Code</a></strong> — engenharia de contexto aplicada a revisão de infraestrutura</li>
+<li class=""><strong><a class="" href="https://devopsautomation.com.br/blog/github-copilot-agent-mode-devops">GitHub Copilot Agent Mode</a></strong> e <strong><a class="" href="https://devopsautomation.com.br/blog/claude-agent-mode-autonomo">Claude Agent Mode</a></strong> — agentes que dependem diretamente de bom gerenciamento de contexto para operar em múltiplos turnos</li>
+<li class=""><strong><a class="" href="https://devopsautomation.com.br/blog/o-que-e-ci-cd-guia-iniciantes-devops">CI/CD para iniciantes</a></strong> — pipelines são candidatos naturais a agentes de IA, e todos dependem de contexto bem curado para funcionar de forma confiável</li>
+</ul>
+<p>Se você está começando com IA aplicada a DevOps, vale também acompanhar o post <strong><a class="" href="https://devopsautomation.com.br/blog/devops-para-iniciantes-guia-2026">DevOps para Iniciantes: Guia Rápido para Começar em 2026</a></strong> para encaixar esse tema na trilha completa.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="perguntas-frequentes-sobre-engenharia-de-contexto">Perguntas frequentes sobre engenharia de contexto<a href="https://devopsautomation.com.br/blog/engenharia-de-contexto-guia-devops-2026#perguntas-frequentes-sobre-engenharia-de-contexto" class="hash-link" aria-label="Link direto para Perguntas frequentes sobre engenharia de contexto" title="Link direto para Perguntas frequentes sobre engenharia de contexto" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="engenharia-de-contexto-substitui-prompt-engineering">Engenharia de contexto substitui prompt engineering?<a href="https://devopsautomation.com.br/blog/engenharia-de-contexto-guia-devops-2026#engenharia-de-contexto-substitui-prompt-engineering" class="hash-link" aria-label="Link direto para Engenharia de contexto substitui prompt engineering?" title="Link direto para Engenharia de contexto substitui prompt engineering?" translate="no">​</a></h3>
+<p>Não. Prompt engineering continua importante — como você escreve as instruções ainda afeta o resultado. Mas hoje ele é <strong>uma parte</strong> de um problema maior: montar dinamicamente todo o conjunto de informação (histórico, ferramentas, dados recuperados) que chega ao modelo a cada turno.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="mais-contexto-sempre-gera-respostas-melhores">Mais contexto sempre gera respostas melhores?<a href="https://devopsautomation.com.br/blog/engenharia-de-contexto-guia-devops-2026#mais-contexto-sempre-gera-respostas-melhores" class="hash-link" aria-label="Link direto para Mais contexto sempre gera respostas melhores?" title="Link direto para Mais contexto sempre gera respostas melhores?" translate="no">​</a></h3>
+<p>Não. Modelos têm um "orçamento de atenção" finito. Adicionar informação irrelevante dilui a capacidade do modelo de focar no que importa — esse é justamente o fenômeno de <strong>context rot</strong>.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="isso-só-se-aplica-a-quem-constrói-agentes-de-ia-do-zero">Isso só se aplica a quem constrói agentes de IA do zero?<a href="https://devopsautomation.com.br/blog/engenharia-de-contexto-guia-devops-2026#isso-s%C3%B3-se-aplica-a-quem-constr%C3%B3i-agentes-de-ia-do-zero" class="hash-link" aria-label="Link direto para Isso só se aplica a quem constrói agentes de IA do zero?" title="Link direto para Isso só se aplica a quem constrói agentes de IA do zero?" translate="no">​</a></h3>
+<p>Não. Mesmo usando ferramentas prontas como GitHub Copilot, Claude Code ou Cursor, entender engenharia de contexto ajuda a escrever instruções melhores, decidir quais arquivos abrir na sessão e quando iniciar uma conversa nova em vez de deixar o histórico crescer demais.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="preciso-de-conhecimento-avançado-de-ia-para-aplicar-isso-no-meu-dia-a-dia">Preciso de conhecimento avançado de IA para aplicar isso no meu dia a dia?<a href="https://devopsautomation.com.br/blog/engenharia-de-contexto-guia-devops-2026#preciso-de-conhecimento-avan%C3%A7ado-de-ia-para-aplicar-isso-no-meu-dia-a-dia" class="hash-link" aria-label="Link direto para Preciso de conhecimento avançado de IA para aplicar isso no meu dia a dia?" title="Link direto para Preciso de conhecimento avançado de IA para aplicar isso no meu dia a dia?" translate="no">​</a></h3>
+<p>Não. Os princípios básicos — dar só a informação relevante, formatar bem, usar ferramentas específicas, resumir históricos longos — já fazem diferença mesmo em uso cotidiano de assistentes de IA em tarefas de DevOps.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="qual-a-relação-entre-engenharia-de-contexto-e-rag-retrieval-augmented-generation">Qual a relação entre engenharia de contexto e RAG (Retrieval-Augmented Generation)?<a href="https://devopsautomation.com.br/blog/engenharia-de-contexto-guia-devops-2026#qual-a-rela%C3%A7%C3%A3o-entre-engenharia-de-contexto-e-rag-retrieval-augmented-generation" class="hash-link" aria-label="Link direto para Qual a relação entre engenharia de contexto e RAG (Retrieval-Augmented Generation)?" title="Link direto para Qual a relação entre engenharia de contexto e RAG (Retrieval-Augmented Generation)?" translate="no">​</a></h3>
+<p>RAG é uma técnica específica de engenharia de contexto: buscar informação relevante em uma base externa (documentos, código, banco vetorial) e inserir apenas o trecho necessário no contexto, em vez de depender só do conhecimento interno do modelo.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="conclusão">Conclusão<a href="https://devopsautomation.com.br/blog/engenharia-de-contexto-guia-devops-2026#conclus%C3%A3o" class="hash-link" aria-label="Link direto para Conclusão" title="Link direto para Conclusão" translate="no">​</a></h2>
+<p>Engenharia de contexto é a evolução natural de prompt engineering para o mundo dos agentes: sistemas que operam em múltiplos turnos, usam ferramentas e precisam manter coerência ao longo de tarefas longas. Para quem trabalha com DevOps e já usa IA para automação, troubleshooting ou revisão de infraestrutura, entender esse conceito é o que separa um agente que "parece inteligente às vezes" de um agente confiável no dia a dia.</p>
+<p>O ponto de partida é simples: trate o contexto como um recurso finito e valioso. Prefira o menor conjunto de informação de alto sinal, use ferramentas para buscar dados sob demanda e resuma históricos longos antes que virem ruído. O resto — melhores respostas, agentes mais estáveis, automação mais confiável — é consequência direta disso.</p>
+<hr>
+<blockquote>
+<p><strong>Quer aprender DevOps e automação na prática, com pipelines reais e exemplos de mercado?</strong> Acesse: <a href="https://www.udemy.com/course/devops-automacao-sem-enrolacao/?referralCode=28E4F89140C44D63D605" target="_blank" rel="noopener noreferrer" class="">DevOps Automação Sem Enrolação</a></p>
+</blockquote>
+<p><strong>Referências:</strong></p>
+<ul>
+<li class="">Anthropic — Effective context engineering for AI agents: <a href="https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents" target="_blank" rel="noopener noreferrer" class="">https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents</a></li>
+<li class="">LangChain — The rise of context engineering: <a href="https://www.langchain.com/blog/the-rise-of-context-engineering" target="_blank" rel="noopener noreferrer" class="">https://www.langchain.com/blog/the-rise-of-context-engineering</a></li>
+<li class="">Chroma Research — Context Rot: <a href="https://research.trychroma.com/context-rot" target="_blank" rel="noopener noreferrer" class="">https://research.trychroma.com/context-rot</a></li>
+</ul>]]></content:encoded>
+            <category>ia devops</category>
+            <category>engenharia de contexto</category>
+            <category>automacao devops</category>
+            <category>DevOps</category>
+            <category>agentes ia</category>
+            <category>Curso DevOps</category>
+        </item>
         <item>
             <title><![CDATA[O que é CI/CD: Guia para Iniciantes em DevOps em 2026]]></title>
             <link>https://devopsautomation.com.br/blog/o-que-e-ci-cd-guia-iniciantes-devops</link>
@@ -1770,157 +1894,6 @@ Com as três ferramentas integradas, defina os Golden Paths para os fluxos mais 
             <category>Automação com Bash</category>
             <category>DevOps para Desenvolvedores</category>
             <category>DevOps para SysAdmins</category>
-        </item>
-        <item>
-            <title><![CDATA[Por que a Segurança em Infraestrutura como Código (IaC) Não Pode Ser Negligenciada]]></title>
-            <link>https://devopsautomation.com.br/blog/checkov-seguranca-infraestrutura-como-codigo</link>
-            <guid>https://devopsautomation.com.br/blog/checkov-seguranca-infraestrutura-como-codigo</guid>
-            <pubDate>Tue, 06 May 2025 00:00:00 GMT</pubDate>
-            <description><![CDATA[Entenda como o Checkov pode proteger sua infraestrutura como código. Veja exemplos reais de erros críticos, integrações com CI/CD e como usá-lo com Terraform, Kubernetes e mais.]]></description>
-            <content:encoded><![CDATA[<p>👉 <a href="https://www.udemy.com/course/terraform-seguro-2025-devsecops-azure-sem-vulnerabilidades/?referralCode=56AC1D8EE6FC6574CEDE" target="_blank" rel="noopener noreferrer" class="">Acesse o curso Terraform Seguro 2025 na Udemy</a></p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="dados-alarmantes">Dados alarmantes:<a href="https://devopsautomation.com.br/blog/checkov-seguranca-infraestrutura-como-codigo#dados-alarmantes" class="hash-link" aria-label="Link direto para Dados alarmantes:" title="Link direto para Dados alarmantes:" translate="no">​</a></h2>
-<ul>
-<li class=""><strong>76%</strong> das empresas já sofreram incidentes de segurança devido a más configurações na nuvem (Palo Alto Networks, 2023).</li>
-<li class=""><strong>90%</strong> das violações em ambientes cloud poderiam ter sido evitadas com configurações adequadas (Gartner, 2024).</li>
-<li class="">Apenas <strong>35%</strong> das equipes de DevOps realizam verificações automatizadas de segurança em seu IaC (State of DevOps, 2024).</li>
-</ul>
-<p>Se sua organização ainda não trata Infraestrutura como Código (IaC) como um vetor crítico de riscos, este artigo é um alerta.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="o-problema-por-que-empresas-falham-em-segurança-de-iac">O Problema: Por que Empresas Falham em Segurança de IaC?<a href="https://devopsautomation.com.br/blog/checkov-seguranca-infraestrutura-como-codigo#o-problema-por-que-empresas-falham-em-seguran%C3%A7a-de-iac" class="hash-link" aria-label="Link direto para O Problema: Por que Empresas Falham em Segurança de IaC?" title="Link direto para O Problema: Por que Empresas Falham em Segurança de IaC?" translate="no">​</a></h2>
-<p>Muitas empresas adotaram IaC (Terraform, Kubernetes, CloudFormation) para ganhar agilidade, mas não evoluíram sua segurança. Os motivos são claros:</p>
-<ul>
-<li class="">"Funciona no meu ambiente" → Equipes assumem que se o código "passou", está seguro.</li>
-<li class="">Falta de cultura DevSecOps → Segurança é tratada como etapa posterior, não integrada.</li>
-<li class="">Falsa sensação de controle → Acredita-se que o provedor cloud (AWS, Azure, GCP) resolve tudo.</li>
-</ul>
-<p><strong>Resultado:</strong></p>
-<ul>
-<li class="">Vazamento de dados (buckets S3 públicos, Storage Accounts expostas).</li>
-<li class="">Ataques de ransomware (permissões IAM excessivas, instâncias sem patches).</li>
-<li class="">Multas de compliance (GDPR, HIPAA, LGPD violados por configurações inseguras).</li>
-</ul>
-<blockquote>
-<p><strong>Exemplo real:</strong> Em 2023, uma fintech brasileira teve <strong>2,3 milhões</strong> de registros expostos devido a um Terraform mal configurado que deixou um banco de dados Azure sem firewall.</p>
-</blockquote>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="checkov-o-scanner-que-está-revolucionando-a-segurança-em-iac">Checkov: O Scanner que Está Revolucionando a Segurança em IaC<a href="https://devopsautomation.com.br/blog/checkov-seguranca-infraestrutura-como-codigo#checkov-o-scanner-que-est%C3%A1-revolucionando-a-seguran%C3%A7a-em-iac" class="hash-link" aria-label="Link direto para Checkov: O Scanner que Está Revolucionando a Segurança em IaC" title="Link direto para Checkov: O Scanner que Está Revolucionando a Segurança em IaC" translate="no">​</a></h2>
-<p>Desenvolvido pela <strong>Bridgecrew (Palo Alto Networks)</strong>, o Checkov é a ferramenta líder em análise estática de IaC, com:</p>
-<ul>
-<li class=""><strong>1.000+ regras</strong> baseadas em CIS Benchmarks, NIST, e políticas de compliance.</li>
-<li class=""><strong>80 milhões de downloads</strong> (crescimento de 200% em 2024).</li>
-<li class="">Integração nativa com <strong>GitHub Actions, GitLab CI, Azure Pipelines</strong>.</li>
-</ul>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="impacto-real-em-empresas">Impacto Real em Empresas<a href="https://devopsautomation.com.br/blog/checkov-seguranca-infraestrutura-como-codigo#impacto-real-em-empresas" class="hash-link" aria-label="Link direto para Impacto Real em Empresas" title="Link direto para Impacto Real em Empresas" translate="no">​</a></h2>
-<table><thead><tr><th>Caso de Uso</th><th>Resultado</th></tr></thead><tbody><tr><td>Empresa de SaaS (EUA)</td><td>Redução de 68% em misconfigs após adoção do Checkov no CI/CD</td></tr><tr><td>Banco Global</td><td>Evitou 12 violações de compliance (SOC 2) em 6 meses</td></tr><tr><td>Startup de HealthTech</td><td>Detecção de 3 buckets S3 públicos antes do deploy em produção</td></tr></tbody></table>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-riscos-que-o-checkov-ajuda-a-mitigar-sem-código">5 Riscos que o Checkov Ajuda a Mitigar (Sem Código)<a href="https://devopsautomation.com.br/blog/checkov-seguranca-infraestrutura-como-codigo#5-riscos-que-o-checkov-ajuda-a-mitigar-sem-c%C3%B3digo" class="hash-link" aria-label="Link direto para 5 Riscos que o Checkov Ajuda a Mitigar (Sem Código)" title="Link direto para 5 Riscos que o Checkov Ajuda a Mitigar (Sem Código)" translate="no">​</a></h2>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-armazenamento-em-nuvem-exposto-publicamente">1. Armazenamento em Nuvem Exposto Publicamente<a href="https://devopsautomation.com.br/blog/checkov-seguranca-infraestrutura-como-codigo#1-armazenamento-em-nuvem-exposto-publicamente" class="hash-link" aria-label="Link direto para 1. Armazenamento em Nuvem Exposto Publicamente" title="Link direto para 1. Armazenamento em Nuvem Exposto Publicamente" translate="no">​</a></h3>
-<ul>
-<li class="">
-<p><strong>Dado:</strong> 29% dos buckets S3 têm políticas de acesso excessivamente permissivas (Sysdig, 2024).</p>
-</li>
-<li class="">
-<p><strong>Checkov bloqueia:</strong></p>
-<ul>
-<li class=""><code>public_access_enabled = true</code> em Storage Accounts Azure</li>
-<li class="">Buckets S3 sem <code>BlockPublicAcls</code></li>
-</ul>
-</li>
-</ul>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-kubernetes-com-permissões-excessivas">2. Kubernetes com Permissões Excessivas<a href="https://devopsautomation.com.br/blog/checkov-seguranca-infraestrutura-como-codigo#2-kubernetes-com-permiss%C3%B5es-excessivas" class="hash-link" aria-label="Link direto para 2. Kubernetes com Permissões Excessivas" title="Link direto para 2. Kubernetes com Permissões Excessivas" translate="no">​</a></h3>
-<ul>
-<li class="">
-<p><strong>Dado:</strong> 52% dos clusters K8s têm pods rodando como root (Red Hat, 2023).</p>
-</li>
-<li class="">
-<p><strong>Checkov exige:</strong></p>
-<ul>
-<li class=""><code>securityContext.runAsNonRoot = true</code></li>
-<li class="">Limites de CPU/memória definidos</li>
-</ul>
-</li>
-</ul>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-banco-de-dados-sem-criptografia-ou-firewall">3. Banco de Dados Sem Criptografia ou Firewall<a href="https://devopsautomation.com.br/blog/checkov-seguranca-infraestrutura-como-codigo#3-banco-de-dados-sem-criptografia-ou-firewall" class="hash-link" aria-label="Link direto para 3. Banco de Dados Sem Criptografia ou Firewall" title="Link direto para 3. Banco de Dados Sem Criptografia ou Firewall" translate="no">​</a></h3>
-<ul>
-<li class="">
-<p><strong>Dado:</strong> 61% dos vazamentos em DBs ocorrem por falta de restrição de rede (IBM, 2023).</p>
-</li>
-<li class="">
-<p><strong>Checkov corrige:</strong></p>
-<ul>
-<li class="">Azure SQL com <code>public_network_access_enabled = false</code></li>
-<li class="">Criptografia em repouso (TDE, AWS KMS)</li>
-</ul>
-</li>
-</ul>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-políticas-iam-muito-permissivas-">4. Políticas IAM Muito Permissivas ("*")<a href="https://devopsautomation.com.br/blog/checkov-seguranca-infraestrutura-como-codigo#4-pol%C3%ADticas-iam-muito-permissivas-" class="hash-link" aria-label="Link direto para 4. Políticas IAM Muito Permissivas (&quot;*&quot;)" title="Link direto para 4. Políticas IAM Muito Permissivas (&quot;*&quot;)" translate="no">​</a></h3>
-<ul>
-<li class="">
-<p><strong>Dado:</strong> 43% das contas AWS têm usuários com permissões administrativas desnecessárias (Sonrai Security, 2024).</p>
-</li>
-<li class="">
-<p><strong>Solução do Checkov:</strong></p>
-<ul>
-<li class="">Rejeita políticas com <code>"Action": "*"</code></li>
-<li class="">Força o princípio do menor privilégio</li>
-</ul>
-</li>
-</ul>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-logs-e-monitoramento-desativados">5. Logs e Monitoramento Desativados<a href="https://devopsautomation.com.br/blog/checkov-seguranca-infraestrutura-como-codigo#5-logs-e-monitoramento-desativados" class="hash-link" aria-label="Link direto para 5. Logs e Monitoramento Desativados" title="Link direto para 5. Logs e Monitoramento Desativados" translate="no">​</a></h3>
-<ul>
-<li class="">
-<p><strong>Dado:</strong> 78% das empresas não rastreiam atividades suspeitas em cloud (CrowdStrike, 2023).</p>
-</li>
-<li class="">
-<p><strong>Checkov exige:</strong></p>
-<ul>
-<li class=""><code>azurerm_monitor_diagnostic_setting</code> habilitado</li>
-<li class="">CloudTrail ativo na AWS</li>
-</ul>
-</li>
-</ul>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="como-implementar-checkov-na-sua-empresa-passo-a-passo-não-técnico">Como Implementar Checkov na Sua Empresa (Passo a Passo Não-Técnico)<a href="https://devopsautomation.com.br/blog/checkov-seguranca-infraestrutura-como-codigo#como-implementar-checkov-na-sua-empresa-passo-a-passo-n%C3%A3o-t%C3%A9cnico" class="hash-link" aria-label="Link direto para Como Implementar Checkov na Sua Empresa (Passo a Passo Não-Técnico)" title="Link direto para Como Implementar Checkov na Sua Empresa (Passo a Passo Não-Técnico)" translate="no">​</a></h2>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-adoção-gradual">1. Adoção Gradual<a href="https://devopsautomation.com.br/blog/checkov-seguranca-infraestrutura-como-codigo#1-ado%C3%A7%C3%A3o-gradual" class="hash-link" aria-label="Link direto para 1. Adoção Gradual" title="Link direto para 1. Adoção Gradual" translate="no">​</a></h3>
-<ul>
-<li class="">Comece com scan local: <code>checkov -d /projeto</code></li>
-<li class="">Priorize regras de alta severidade (ex: vazamento de dados)</li>
-</ul>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-integração-no-cicd">2. Integração no CI/CD<a href="https://devopsautomation.com.br/blog/checkov-seguranca-infraestrutura-como-codigo#2-integra%C3%A7%C3%A3o-no-cicd" class="hash-link" aria-label="Link direto para 2. Integração no CI/CD" title="Link direto para 2. Integração no CI/CD" translate="no">​</a></h3>
-<ul>
-<li class="">GitHub Actions: bloqueia merges com falhas críticas</li>
-<li class="">Azure DevOps: gera relatórios por pipeline</li>
-</ul>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-cultura-de-security-first">3. Cultura de "Security First"<a href="https://devopsautomation.com.br/blog/checkov-seguranca-infraestrutura-como-codigo#3-cultura-de-security-first" class="hash-link" aria-label="Link direto para 3. Cultura de &quot;Security First&quot;" title="Link direto para 3. Cultura de &quot;Security First&quot;" translate="no">​</a></h3>
-<ul>
-<li class="">Treine os times em IaC seguro (ex: Bridgecrew Academy)</li>
-<li class="">Estabeleça gates de segurança antes do deploy</li>
-</ul>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-monitoramento-contínuo">4. Monitoramento Contínuo<a href="https://devopsautomation.com.br/blog/checkov-seguranca-infraestrutura-como-codigo#4-monitoramento-cont%C3%ADnuo" class="hash-link" aria-label="Link direto para 4. Monitoramento Contínuo" title="Link direto para 4. Monitoramento Contínuo" translate="no">​</a></h3>
-<ul>
-<li class="">Use Checkov + Prisma Cloud para monitoramento pós-deploy</li>
-<li class="">Revise relatórios mensalmente com a equipe de segurança</li>
-</ul>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="conclusão-iac-seguro-não-é-opcional">Conclusão: IaC Seguro Não é Opcional<a href="https://devopsautomation.com.br/blog/checkov-seguranca-infraestrutura-como-codigo#conclus%C3%A3o-iac-seguro-n%C3%A3o-%C3%A9-opcional" class="hash-link" aria-label="Link direto para Conclusão: IaC Seguro Não é Opcional" title="Link direto para Conclusão: IaC Seguro Não é Opcional" translate="no">​</a></h2>
-<p>Enquanto empresas ainda deployam infraestrutura sem validação de segurança, ataques como:</p>
-<ul>
-<li class="">Vazamento de dados</li>
-<li class="">Sequestro de contas cloud</li>
-<li class="">Violações de compliance</li>
-</ul>
-<p>...vão continuar crescendo.</p>
-<p><strong>Checkov não é apenas uma ferramenta — é uma mudança de mentalidade.</strong></p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="próximos-passos">Próximos passos<a href="https://devopsautomation.com.br/blog/checkov-seguranca-infraestrutura-como-codigo#pr%C3%B3ximos-passos" class="hash-link" aria-label="Link direto para Próximos passos" title="Link direto para Próximos passos" translate="no">​</a></h2>
-<ul class="contains-task-list containsTaskList_mC6p">
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Documentação Oficial</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Relatório Completo de Ameaças em Cloud</li>
-</ul>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="discussão">Discussão<a href="https://devopsautomation.com.br/blog/checkov-seguranca-infraestrutura-como-codigo#discuss%C3%A3o" class="hash-link" aria-label="Link direto para Discussão" title="Link direto para Discussão" translate="no">​</a></h2>
-<p>Sua empresa já sofreu incidentes por má configuração em IaC? Como vocês estão mitigando esses riscos? Comente abaixo!</p>
-<h5 class="anchor anchorTargetStickyNavbar_Vzrq" id="devsecops-cloudsecurity-iac-checkov-terraform-kubernetes-azure-aws-securitytools-devops-bridgecrew-prismacloud-githubactions-cisbenchmarks-infrastructureascode-cybersecurity-iacsecurity-misconfiguration-opensource-automation-devsec">#DevSecOps #CloudSecurity #IaC #Checkov #Terraform #Kubernetes #Azure #AWS #SecurityTools #DevOps #Bridgecrew #PrismaCloud #GitHubActions #CISBenchmarks #InfrastructureAsCode #CyberSecurity #IaCSecurity #Misconfiguration #OpenSource #Automation #DevSec<a href="https://devopsautomation.com.br/blog/checkov-seguranca-infraestrutura-como-codigo#devsecops-cloudsecurity-iac-checkov-terraform-kubernetes-azure-aws-securitytools-devops-bridgecrew-prismacloud-githubactions-cisbenchmarks-infrastructureascode-cybersecurity-iacsecurity-misconfiguration-opensource-automation-devsec" class="hash-link" aria-label="Link direto para #DevSecOps #CloudSecurity #IaC #Checkov #Terraform #Kubernetes #Azure #AWS #SecurityTools #DevOps #Bridgecrew #PrismaCloud #GitHubActions #CISBenchmarks #InfrastructureAsCode #CyberSecurity #IaCSecurity #Misconfiguration #OpenSource #Automation #DevSec" title="Link direto para #DevSecOps #CloudSecurity #IaC #Checkov #Terraform #Kubernetes #Azure #AWS #SecurityTools #DevOps #Bridgecrew #PrismaCloud #GitHubActions #CISBenchmarks #InfrastructureAsCode #CyberSecurity #IaCSecurity #Misconfiguration #OpenSource #Automation #DevSec" translate="no">​</a></h5>]]></content:encoded>
-            <category>Checkov Terraform Azure</category>
-            <category>Scanner Segurança Infraestrutura</category>
-            <category>Ferramenta Segurança DevOps</category>
-            <category>Checkov GitHub Actions</category>
-            <category>Análise Estática Terraform</category>
-            <category>Checkov Kubernetes AWS Azure</category>
-            <category>Segurança Infraestrutura como Código</category>
         </item>
     </channel>
 </rss>
